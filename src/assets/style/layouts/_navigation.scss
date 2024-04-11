@@ -1,0 +1,23 @@
+.movies__nav{
+  width: 100%;
+  padding-bottom: 354px;
+  display: flex;
+  flex-direction: column;
+  background-color: #183e39;
+  border-radius: 15px 0 0 15px;
+}
+
+
+.movies__nav__item{
+  font-family: Roboto, "sans-serif";
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32.81px;
+  list-style-type: none;
+  color: #fff;
+  text-align: center;
+  margin-top: 70px;
+  text-decoration: none;
+}
+
+
