@@ -1,21 +1,17 @@
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import downloadIcon from '../../../assets/icons/download.svg';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ReactComponent as DownloadIcon } from '../../../assets/icons/download.svg';
 
 function Form() {
   const secondExample = {
-    size: 24,
+    size: 30,
     count: 5,
     a11y: true,
     isHalf: true,
     color: 'white',
     activeColor: 'orange',
-    emptyIcon: <FontAwesomeIcon icon={farStar} />,
-    halfIcon: <FontAwesomeIcon icon={farStar} />,
-    filledIcon: <FontAwesomeIcon icon={farStar} />,
   };
   return (
     <form className="admin__movie__section__content__form">
@@ -24,7 +20,7 @@ function Form() {
           <input id="file" type="file" accept="image/*" />
           <label htmlFor="file">
             Photo
-            <img src={downloadIcon} alt="Download Icon" />
+            <DownloadIcon />
           </label>
           <input type="text" placeholder="Film Name" />
           <input type="text" placeholder="Hour" />
@@ -36,6 +32,74 @@ function Form() {
       <div className="admin__movie__section__content__form__rating">
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <ReactStars {...secondExample} />
+      </div>
+      <div className="admin__movie__section__content__form__actors">
+        <div className="admin__movie__section__content__form__actors__title">
+          <h2>Actors Name & Photo</h2>
+        </div>
+        <div className="admin__movie__section__content__form__actors__input">
+          <div className="admin__movie__section__content__form__actors__input__block">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="actor1">
+              <DownloadIcon />
+            </label>
+            <input id="actor1" type="file" accept="image/*" />
+            <input type="text" placeholder="Full Name" />
+          </div>
+          <div className="admin__movie__section__content__form__actors__input__block">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="actor1">
+              <DownloadIcon />
+            </label>
+            <input id="actor1" type="file" accept="image/*" />
+            <input type="text" placeholder="Full Name" />
+          </div>
+          <div className="admin__movie__section__content__form__actors__input__block">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="actor1">
+              <DownloadIcon />
+            </label>
+            <input id="actor1" type="file" accept="image/*" />
+            <input type="text" placeholder="Full Name" />
+          </div>
+          <div className="admin__movie__section__content__form__actors__input__block">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="actor1">
+              <DownloadIcon />
+            </label>
+            <input id="actor1" type="file" accept="image/*" />
+            <input type="text" placeholder="Full Name" />
+          </div>
+          <div className="admin__movie__section__content__form__actors__input__block">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="actor1">
+              <DownloadIcon />
+            </label>
+            <input id="actor1" type="file" accept="image/*" />
+            <input type="text" placeholder="Full Name" />
+          </div>
+          <div className="admin__movie__section__content__form__actors__input__block">
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="actor1">
+              <DownloadIcon />
+            </label>
+            <input id="actor1" type="file" accept="image/*" />
+            <input type="text" placeholder="Full Name" />
+          </div>
+          <div className="admin__movie__section__content__form__actors__input__btn">
+            <p>Add new</p>
+            <FontAwesomeIcon icon={faPlus} />
+          </div>
+        </div>
+      </div>
+      <div className="admin__movie__section__content__form__detalis">
+        <div className="admin__movie__section__content__form__detalis__title">5</div>
+        <div className="admin__movie__section__content__form__detalis__block">
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </div>
       </div>
     </form>
   );

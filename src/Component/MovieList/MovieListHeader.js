@@ -11,7 +11,7 @@ function MovieListHeader() {
       </ul>
       <ul>
         <li>
-          <Link to="movies">Categories</Link>
+          <Link to="categories">Categories</Link>
         </li>
       </ul>
     </nav>

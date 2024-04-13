@@ -187,6 +187,109 @@
           align-items: center;
           padding: 10px 50px;
         }
+
+        &__actors {
+          display: flex;
+          width: 40%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+
+          &__title {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: flex-start;
+
+            & h2 {
+              font-size: 24px;
+              font-weight: 700;
+              line-height: 28.13px;
+              color: #fff;
+            }
+          }
+
+          &__input {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgb(19, 95, 85);
+            border-radius: 20px;
+            padding: 20px 26px;
+
+            &__btn {
+              display: flex;
+              width: 100%;
+              justify-content: center;
+              align-items: center;
+
+              & svg {
+                border: 2px solid black;
+                border-radius: 50%;
+                padding: 1px 2px 1px 2px;
+              }
+
+              & p {
+                font-family: Inter, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16.94px;
+                color: #000;
+                margin-right: 5px;
+              }
+            }
+
+            &__block {
+              display: flex;
+              width: 100%;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 10px;
+
+              & label {
+                background: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                border-radius: 50%;
+                padding: 15px;
+                cursor: pointer;
+              }
+
+              & label svg path {
+                stroke: #fff;
+              }
+
+              & label svg {
+                width: 27px;
+                height: 27px;
+              }
+
+              & input {
+                border: 2px solid rgb(19, 95, 85);
+                border-radius: 20px;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 18.75px;
+                color: #135f55;
+                padding: 14px 0 14px 10px;
+              }
+
+              & input::placeholder {
+                color: #135f55;
+              }
+
+              & input:focus-visible {
+                background: rgba(255, 255, 255, 0.7);
+                outline: none;
+              }
+            }
+          }
+        }
       }
     }
   }
