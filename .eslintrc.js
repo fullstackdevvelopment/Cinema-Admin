@@ -35,5 +35,23 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 'off',
     'react/forbid-prop-types': 'off',
+    'import/no-extraneous-dependencies': [
+      'error', {
+        devDependencies: true,
+        optionalDependencies: true,
+        peerDependencies: true,
+        bundledDependencies: true,
+      },
+    ],
+    'jsx-a11y/label-has-associated-control': ['error', {
+      required: {
+        some: ['nesting', 'id'],
+      },
+    }],
+    'jsx-a11y/label-has-for': ['error', {
+      required: {
+        some: ['nesting', 'id'],
+      },
+    }],
   },
 };

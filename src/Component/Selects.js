@@ -1,24 +1,9 @@
-import React, {useState} from 'react';
-import Select from 'react-select';
+import React from 'react';
 
 function Selects() {
-    const [selectedOption, setSelectedOption] = useState(null);
-
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
-    ];
-    return (
-        <div className="admin__dashboard__select">
-            <Select
-                defaultValue={selectedOption}
-                onChange={setSelectedOption}
-                options={options}
-            />
-        </div>
-
-    );
+  return (
+    <div><p>5</p></div>
+  );
 }
 
 export default Selects;
