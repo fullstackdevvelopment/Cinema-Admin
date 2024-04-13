@@ -1,6 +1,6 @@
 .admin__movie {
   width: 100%;
-  padding-top: 50px;
+  padding: 50px;
   display: flex;
 
   &__container {
@@ -17,7 +17,7 @@
     background: #000;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    padding-right: 50px;
+    padding: 0 50px 100px 0;
 
     &__title {
       padding-top: 14px;
@@ -78,9 +78,42 @@
     &__content {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       justify-content: center;
       width: 100%;
+
+      & button {
+        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+        background: rgb(232, 146, 11);
+        border-radius: 20px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 28.13px;
+        text-align: left;
+        color: #fff;
+        padding: 6px 54px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+      }
+
+      & button:hover {
+        background: rgba(216, 151, 48, 1);
+        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset,
+        6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 28.13px;
+        color: #000;
+      }
+
+      & button:focus-visible {
+        background: rgba(165, 104, 8, 1);
+        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset,
+        6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+        color: #fff;
+      }
 
       &__form {
         display: flex;
@@ -88,6 +121,74 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 30px;
+
+        &__detalis {
+          display: flex;
+          width: 60%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          &__title {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 10px;
+
+            & h2 {
+              display: flex;
+              width: 100%;
+              align-items: center;
+              color: #fff;
+              font-size: 24px;
+              font-weight: 700;
+              line-height: 28.13px;
+            }
+          }
+
+          &__block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgb(19, 95, 85);
+            border-radius: 20px;
+            padding: 40px 30px;
+
+            & input {
+              border-radius: 20px;
+              background: rgb(255, 255, 255);
+              border: 2px solid rgb(19, 95, 85);
+              text-align: left;
+              color: rgb(19, 95, 85);
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 18.75px;
+              padding: 14px 44px 14px 16px;
+              margin: 23px 0;
+            }
+
+            & input::placeholder {
+              color: #135f55;
+            }
+
+            & input:focus-visible {
+              background: rgba(255, 255, 255, 0.7);
+              outline: none;
+            }
+          }
+        }
+
+        &__second {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          padding-left: 50px;
+        }
 
         &__first {
           display: flex;
@@ -135,7 +236,7 @@
               font-weight: 400;
               line-height: 18.75px;
               padding: 14px 36px 14px 16px;
-              margin-bottom: 10px;
+              margin-bottom: 20px;
             }
 
             & input::placeholder {
@@ -167,6 +268,7 @@
               font-size: 24px;
               font-weight: 700;
               line-height: 28.13px;
+              resize: none;
             }
 
             & textarea::placeholder {
@@ -186,6 +288,7 @@
           justify-content: flex-start;
           align-items: center;
           padding: 10px 50px;
+          margin-bottom: 30px;
         }
 
         &__actors {
@@ -194,12 +297,14 @@
           flex-direction: column;
           justify-content: center;
           align-items: flex-start;
+          margin-right: 45px;
 
           &__title {
             display: flex;
             width: 100%;
             align-items: center;
             justify-content: flex-start;
+            margin-bottom: 10px;
 
             & h2 {
               font-size: 24px;
@@ -258,6 +363,7 @@
                 border-radius: 50%;
                 padding: 15px;
                 cursor: pointer;
+                margin-right: 18px;
               }
 
               & label svg path {

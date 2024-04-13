@@ -5,6 +5,7 @@
   flex-direction: column;
   background-color: #183e39;
   border-radius: 50px 0 0 50px;
+  align-items: center;
 }
 
 
@@ -16,8 +17,37 @@
   list-style-type: none;
   color: #fff;
   text-align: center;
-  margin-top: 70px;
+  margin-top: 100px;
   text-decoration: none;
+  position: relative;
+}
+
+.movies__nav__item.active {
+  background: #000;
+  padding: 25px 34px 25px 25px;
+  border-radius: 50px 0 0 50px;
+}
+
+.movies__nav__item.active:before {
+  display: block;
+  content: " ";
+  width: 90px;
+  height: 50px;
+  background: #000;
+  position: absolute;
+  left: 190px;
+  top: 0;
+}
+
+.movies__nav__item.active:after {
+  display: block;
+  content: " ";
+  width: 90px;
+  height: 50px;
+  background: #000;
+  position: absolute;
+  left: 190px;
+  top: 33px;
 }
 
 
