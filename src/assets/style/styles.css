@@ -27,7 +27,10 @@ body {
   flex-wrap: wrap; }
 
 .header {
-  width: 25%; }
+  width: 25%;
+  background: #183e39;
+  border-radius: 50px 0 0 50px;
+  padding-top: 110px; }
 
 .movies__nav {
   width: 100%;
@@ -35,7 +38,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #183e39;
-  border-radius: 50px 0 0 50px; }
+  border-radius: 50px 0 0 50px;
+  align-items: center; }
 
 .movies__nav__item {
   font-family: Roboto, "sans-serif";
@@ -45,8 +49,34 @@ body {
   list-style-type: none;
   color: #fff;
   text-align: center;
-  margin-top: 70px;
-  text-decoration: none; }
+  margin-top: 100px;
+  text-decoration: none;
+  position: relative; }
+
+.movies__nav__item.active {
+  background: #000;
+  padding: 25px 34px 25px 25px;
+  border-radius: 50px 0 0 50px; }
+
+.movies__nav__item.active:before {
+  display: block;
+  content: " ";
+  width: 90px;
+  height: 50px;
+  background: #000;
+  position: absolute;
+  left: 190px;
+  top: 0; }
+
+.movies__nav__item.active:after {
+  display: block;
+  content: " ";
+  width: 90px;
+  height: 50px;
+  background: #000;
+  position: absolute;
+  left: 190px;
+  top: 33px; }
 
 .admin__dashboard {
   width: 100%;
@@ -189,7 +219,7 @@ body {
 
 .admin__movie {
   width: 100%;
-  padding-top: 50px;
+  padding: 50px;
   display: flex; }
   .admin__movie__container {
     display: flex;
@@ -203,7 +233,7 @@ body {
     background: #000;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    padding-right: 50px; }
+    padding: 0 50px 100px 0; }
     .admin__movie__section__title {
       padding-top: 14px;
       padding-left: 43px;
@@ -249,15 +279,92 @@ body {
     .admin__movie__section__content {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       justify-content: center;
       width: 100%; }
+      .admin__movie__section__content button {
+        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+        background: #e8920b;
+        border-radius: 20px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 28.13px;
+        text-align: left;
+        color: #fff;
+        padding: 6px 54px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out; }
+      .admin__movie__section__content button:hover {
+        background: #d89730;
+        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 28.13px;
+        color: #000; }
+      .admin__movie__section__content button:focus-visible {
+        background: #a56808;
+        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+        color: #fff; }
       .admin__movie__section__content__form {
         display: flex;
         width: 100%;
         justify-content: center;
         flex-direction: column;
-        align-items: center; }
+        align-items: center;
+        margin-bottom: 30px; }
+        .admin__movie__section__content__form__detalis {
+          display: flex;
+          width: 60%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center; }
+          .admin__movie__section__content__form__detalis__title {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 10px; }
+            .admin__movie__section__content__form__detalis__title h2 {
+              display: flex;
+              width: 100%;
+              align-items: center;
+              color: #fff;
+              font-size: 24px;
+              font-weight: 700;
+              line-height: 28.13px; }
+          .admin__movie__section__content__form__detalis__block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #135f55;
+            border-radius: 20px;
+            padding: 40px 30px; }
+            .admin__movie__section__content__form__detalis__block input {
+              border-radius: 20px;
+              background: white;
+              border: 2px solid #135f55;
+              text-align: left;
+              color: #135f55;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 18.75px;
+              padding: 14px 44px 14px 16px;
+              margin: 23px 0; }
+            .admin__movie__section__content__form__detalis__block input::placeholder {
+              color: #135f55; }
+            .admin__movie__section__content__form__detalis__block input:focus-visible {
+              background: rgba(255, 255, 255, 0.7);
+              outline: none; }
+        .admin__movie__section__content__form__second {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          padding-left: 50px; }
         .admin__movie__section__content__form__first {
           display: flex;
           align-items: center;
@@ -298,7 +405,7 @@ body {
               font-weight: 400;
               line-height: 18.75px;
               padding: 14px 36px 14px 16px;
-              margin-bottom: 10px; }
+              margin-bottom: 20px; }
             .admin__movie__section__content__form__first__input input::placeholder {
               color: #135f55; }
             .admin__movie__section__content__form__first__input input:focus-visible {
@@ -321,7 +428,8 @@ body {
               color: #135f55;
               font-size: 24px;
               font-weight: 700;
-              line-height: 28.13px; }
+              line-height: 28.13px;
+              resize: none; }
             .admin__movie__section__content__form__first__textarea textarea::placeholder {
               color: #135f55; }
             .admin__movie__section__content__form__first__textarea textarea:focus-visible {
@@ -332,18 +440,21 @@ body {
           display: flex;
           justify-content: flex-start;
           align-items: center;
-          padding: 10px 50px; }
+          padding: 10px 50px;
+          margin-bottom: 30px; }
         .admin__movie__section__content__form__actors {
           display: flex;
           width: 40%;
           flex-direction: column;
           justify-content: center;
-          align-items: flex-start; }
+          align-items: flex-start;
+          margin-right: 45px; }
           .admin__movie__section__content__form__actors__title {
             display: flex;
             width: 100%;
             align-items: center;
-            justify-content: flex-start; }
+            justify-content: flex-start;
+            margin-bottom: 10px; }
             .admin__movie__section__content__form__actors__title h2 {
               font-size: 24px;
               font-weight: 700;
@@ -389,7 +500,8 @@ body {
                 position: relative;
                 border-radius: 50%;
                 padding: 15px;
-                cursor: pointer; }
+                cursor: pointer;
+                margin-right: 18px; }
               .admin__movie__section__content__form__actors__input__block label svg path {
                 stroke: #fff; }
               .admin__movie__section__content__form__actors__input__block label svg {

@@ -19,6 +19,7 @@ function Movie() {
             </div>
             <div className="admin__movie__section__content">
               <Form />
+              <button type="submit">Done</button>
             </div>
           </section>
         </div>

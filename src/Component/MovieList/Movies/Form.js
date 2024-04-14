@@ -33,72 +33,76 @@ function Form() {
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <ReactStars {...secondExample} />
       </div>
-      <div className="admin__movie__section__content__form__actors">
-        <div className="admin__movie__section__content__form__actors__title">
-          <h2>Actors Name & Photo</h2>
+      <div className="admin__movie__section__content__form__second">
+        <div className="admin__movie__section__content__form__actors">
+          <div className="admin__movie__section__content__form__actors__title">
+            <h2>Actors Name & Photo</h2>
+          </div>
+          <div className="admin__movie__section__content__form__actors__input">
+            <div className="admin__movie__section__content__form__actors__input__block">
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label htmlFor="actor1">
+                <DownloadIcon />
+              </label>
+              <input id="actor1" type="file" accept="image/*" />
+              <input type="text" placeholder="Full Name" />
+            </div>
+            <div className="admin__movie__section__content__form__actors__input__block">
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label htmlFor="actor1">
+                <DownloadIcon />
+              </label>
+              <input id="actor1" type="file" accept="image/*" />
+              <input type="text" placeholder="Full Name" />
+            </div>
+            <div className="admin__movie__section__content__form__actors__input__block">
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label htmlFor="actor1">
+                <DownloadIcon />
+              </label>
+              <input id="actor1" type="file" accept="image/*" />
+              <input type="text" placeholder="Full Name" />
+            </div>
+            <div className="admin__movie__section__content__form__actors__input__block">
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label htmlFor="actor1">
+                <DownloadIcon />
+              </label>
+              <input id="actor1" type="file" accept="image/*" />
+              <input type="text" placeholder="Full Name" />
+            </div>
+            <div className="admin__movie__section__content__form__actors__input__block">
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label htmlFor="actor1">
+                <DownloadIcon />
+              </label>
+              <input id="actor1" type="file" accept="image/*" />
+              <input type="text" placeholder="Full Name" />
+            </div>
+            <div className="admin__movie__section__content__form__actors__input__block">
+              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+              <label htmlFor="actor1">
+                <DownloadIcon />
+              </label>
+              <input id="actor1" type="file" accept="image/*" />
+              <input type="text" placeholder="Full Name" />
+            </div>
+            <div className="admin__movie__section__content__form__actors__input__btn">
+              <p>Add new</p>
+              <FontAwesomeIcon icon={faPlus} />
+            </div>
+          </div>
         </div>
-        <div className="admin__movie__section__content__form__actors__input">
-          <div className="admin__movie__section__content__form__actors__input__block">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="actor1">
-              <DownloadIcon />
-            </label>
-            <input id="actor1" type="file" accept="image/*" />
-            <input type="text" placeholder="Full Name" />
+        <div className="admin__movie__section__content__form__detalis">
+          <div className="admin__movie__section__content__form__detalis__title">
+            <h2>Details</h2>
           </div>
-          <div className="admin__movie__section__content__form__actors__input__block">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="actor1">
-              <DownloadIcon />
-            </label>
-            <input id="actor1" type="file" accept="image/*" />
-            <input type="text" placeholder="Full Name" />
+          <div className="admin__movie__section__content__form__detalis__block">
+            <input type="text" placeholder="Details" />
+            <input type="text" placeholder="Language" />
+            <input type="text" placeholder="Reliese Date" />
+            <input type="text" placeholder="Director" />
           </div>
-          <div className="admin__movie__section__content__form__actors__input__block">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="actor1">
-              <DownloadIcon />
-            </label>
-            <input id="actor1" type="file" accept="image/*" />
-            <input type="text" placeholder="Full Name" />
-          </div>
-          <div className="admin__movie__section__content__form__actors__input__block">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="actor1">
-              <DownloadIcon />
-            </label>
-            <input id="actor1" type="file" accept="image/*" />
-            <input type="text" placeholder="Full Name" />
-          </div>
-          <div className="admin__movie__section__content__form__actors__input__block">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="actor1">
-              <DownloadIcon />
-            </label>
-            <input id="actor1" type="file" accept="image/*" />
-            <input type="text" placeholder="Full Name" />
-          </div>
-          <div className="admin__movie__section__content__form__actors__input__block">
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="actor1">
-              <DownloadIcon />
-            </label>
-            <input id="actor1" type="file" accept="image/*" />
-            <input type="text" placeholder="Full Name" />
-          </div>
-          <div className="admin__movie__section__content__form__actors__input__btn">
-            <p>Add new</p>
-            <FontAwesomeIcon icon={faPlus} />
-          </div>
-        </div>
-      </div>
-      <div className="admin__movie__section__content__form__detalis">
-        <div className="admin__movie__section__content__form__detalis__title">5</div>
-        <div className="admin__movie__section__content__form__detalis__block">
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
         </div>
       </div>
     </form>
