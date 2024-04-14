@@ -1,9 +1,13 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../Component/Header';
 import DashboardHeader from '../Component/Dashboard/DashboardHeader';
-import DashboardTable from '../Component/Dashboard/DashboardTable';
+import DashboardAll from '../Component/Dashboard/DashboardAll';
+import DashboardTickets from '../Component/Dashboard/DashboardTickets';
 
 function Dashboard() {
+  const location = useLocation();
+  const { pathname } = location;
   return (
     <div className="admin__dashboard">
       <div className="container">
@@ -20,7 +24,7 @@ function Dashboard() {
             </div>
 
             <div className="admin__dashboard__table">
-              <DashboardTable />
+              {pathname === '/dashboard/all' ? <DashboardAll /> : <DashboardTickets />}
             </div>
           </section>
         </div>

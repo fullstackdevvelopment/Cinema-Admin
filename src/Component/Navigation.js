@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function Navigation() {
   return (
     <nav className="movies__nav">
-      <NavLink to="/dashboard" className="movies__nav__item">
+      <NavLink to="/dashboard/all" className="movies__nav__item">
         DASHBOARD
       </NavLink>
       <NavLink to="/movie" className="movies__nav__item">
