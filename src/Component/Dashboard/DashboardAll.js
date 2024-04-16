@@ -1,10 +1,8 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-function DashboardTickets() {
+function DashboardAll() {
   return (
     <table className="movies__dashboard__table">
       <thead>
@@ -19,7 +17,7 @@ function DashboardTickets() {
             Date
           </td>
           <td className="movies__dashboard__table__item">
-            Price
+            Buy Films
           </td>
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <td className="movies__dashboard__table__item" />
@@ -32,7 +30,11 @@ function DashboardTickets() {
           <td className="movies__dashboard__table__item__info__items">10.05.2019</td>
           <td className="movies__dashboard__table__item__info__items__price">$15</td>
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-          <td className="movies__dashboard__table__item__info__items"><FontAwesomeIcon icon={faCheck} /></td>
+          <td className="movies__dashboard__table__item__info__items">
+            <FontAwesomeIcon
+              icon={faCheck}
+            />
+          </td>
         </tr>
 
         <tr className="movies__dashboard__table__item__info">
@@ -41,7 +43,11 @@ function DashboardTickets() {
           <td className="movies__dashboard__table__item__info__items">10.05.2019</td>
           <td className="movies__dashboard__table__item__info__items__price">$15</td>
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-          <td className="movies__dashboard__table__item__info__items"><FontAwesomeIcon icon={faCheck} /></td>
+          <td className="movies__dashboard__table__item__info__items">
+            <FontAwesomeIcon
+              icon={faCheck}
+            />
+          </td>
         </tr>
 
         <tr className="movies__dashboard__table__item__info">
@@ -50,7 +56,11 @@ function DashboardTickets() {
           <td className="movies__dashboard__table__item__info__items">10.05.2019</td>
           <td className="movies__dashboard__table__item__info__items__price">$15</td>
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-          <td className="movies__dashboard__table__item__info__items"><FontAwesomeIcon icon={faCheck} /></td>
+          <td className="movies__dashboard__table__item__info__items">
+            <FontAwesomeIcon
+              icon={faCheck}
+            />
+          </td>
         </tr>
         <tr className="movies__dashboard__table__item__info">
           <td className="movies__dashboard__table__item__info__items">N1450</td>
@@ -58,7 +68,11 @@ function DashboardTickets() {
           <td className="movies__dashboard__table__item__info__items">10.05.2019</td>
           <td className="movies__dashboard__table__item__info__items__price">$15</td>
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-          <td className="movies__dashboard__table__item__info__items"><FontAwesomeIcon icon={faCheck} /></td>
+          <td className="movies__dashboard__table__item__info__items">
+            <FontAwesomeIcon
+              icon={faCheck}
+            />
+          </td>
         </tr>
         <tr className="movies__dashboard__table__item__info">
           <td className="movies__dashboard__table__item__info__items">N1450</td>
@@ -66,7 +80,11 @@ function DashboardTickets() {
           <td className="movies__dashboard__table__item__info__items">10.05.2019</td>
           <td className="movies__dashboard__table__item__info__items__price">$15</td>
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-          <td className="movies__dashboard__table__item__info__items"><FontAwesomeIcon icon={faCheck} /></td>
+          <td className="movies__dashboard__table__item__info__items">
+            <FontAwesomeIcon
+              icon={faCheck}
+            />
+          </td>
         </tr>
         <tr className="movies__dashboard__table__item__info">
           <td className="movies__dashboard__table__item__info__items">N1450</td>
@@ -74,7 +92,11 @@ function DashboardTickets() {
           <td className="movies__dashboard__table__item__info__items">10.05.2019</td>
           <td className="movies__dashboard__table__item__info__items__price">$15</td>
           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-          <td className="movies__dashboard__table__item__info__items"><FontAwesomeIcon icon={faCheck} /></td>
+          <td className="movies__dashboard__table__item__info__items">
+            <FontAwesomeIcon
+              icon={faCheck}
+            />
+          </td>
         </tr>
 
       </tbody>
@@ -83,4 +105,4 @@ function DashboardTickets() {
   );
 }
 
-export default DashboardTickets;
+export default DashboardAll;

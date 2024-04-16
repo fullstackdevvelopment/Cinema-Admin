@@ -1,593 +1,78 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Roboto, "sans-serif"; }
+/*
+Error: Invalid CSS after "...93e70f76833a493": expected "{", was ""
+        on line 60 of layouts/_navigation.scss
+        from line 2 of layouts/_layouts.scss
+        from line 3 of styles.scss
 
-html {
-  scroll-behavior: smooth; }
+55:   border-bottom: 3px solid #E8920B;
+56: }
+57: 
+58: 
+59: >>>>>>> eeb85af18b905e05798e19fc693e70f76833a493
 
-body {
-  font-size: 16px;
-  background-color: #1c2827; }
-
-.wrapper {
-  width: 100%;
-  margin: 0 auto; }
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto; }
-
-.row {
-  display: flex;
-  flex-wrap: wrap; }
-
-.header {
-  width: 25%;
-  background: #183e39;
-  border-radius: 50px 0 0 50px;
-  padding-top: 110px; }
-
-.movies__nav {
-  width: 100%;
-  padding-bottom: 354px;
-  display: flex;
-  flex-direction: column;
-  background-color: #183e39;
-  border-radius: 50px 0 0 50px;
-  align-items: center; }
-
-.movies__nav__item {
-  font-family: Roboto, "sans-serif";
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 32.81px;
-  list-style-type: none;
-  color: #fff;
-  text-align: center;
-  margin-top: 100px;
-  text-decoration: none;
-  position: relative; }
-
-.movies__nav__item.active {
-  background: #000;
-  padding: 25px 34px 25px 25px;
-  border-radius: 50px; }
-
-.admin__dashboard {
-  width: 100%;
-  height: 100%;
-  padding-top: 50px;
-  display: flex;
-  align-items: center; }
-  .admin__dashboard__container {
-    display: flex;
-    width: 100%; }
-    .admin__dashboard__container__container {
-      display: flex;
-      width: 100%; }
-
-.admin__dashboard__section {
-  width: 75%;
-  border-radius: 0 15px 15px 0;
-  background-color: #000; }
-
-.admin__dashboard__article {
-  padding-top: 14px;
-  padding-left: 43px; }
-
-.admin__dashboard__title {
-  color: white;
-  font-family: Roboto, "sans-serif";
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 28px;
-  text-align: left;
-  padding-bottom: 10px; }
-
-.admin__dashboard__dec {
-  color: white;
-  font-family: Roboto, "sans-serif";
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 21px;
-  text-align: left; }
-
-.admin__dashboard__header {
-  width: 100%;
-  height: 50px;
-  padding-top: 58px;
-  padding-left: 44px; }
-
-.movies__nav__dashboard__item {
-  color: white;
-  font-family: Roboto, "sans-serif";
-  font-size: 30px;
-  text-decoration: none;
-  list-style-type: none;
-  font-weight: 500;
-  line-height: 35px;
-  text-align: left; }
-
-.movies__nav__dashboard__header__select {
-  display: flex; }
-
-.movies__nav__dashboard__banner {
-  width: 100%;
-  display: flex;
-  justify-content: space-between; }
-
-.movies__nav__dashboard__header {
-  width: 25%;
-  display: flex;
-  justify-content: space-between; }
-  .movies__nav__dashboard__header__select {
-    width: 30%;
-    display: flex;
-    justify-content: space-around; }
-
-.movies__nav__dashboard__select__item {
-  width: 45%; }
-
-.admin__dashboard__table {
-  width: 100%;
-  padding-top: 80px; }
-
-.movies__dashboard__table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  padding: 0 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-  .movies__dashboard__table thead {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 10px; }
-    .movies__dashboard__table thead tr {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: space-between; }
-  .movies__dashboard__table tbody {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex-direction: column;
-    align-items: center; }
-  .movies__dashboard__table__item {
-    color: white;
-    font-family: Roboto, "sans-serif";
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 28px;
-    text-align: center;
-    width: 20%; }
-    .movies__dashboard__table__item__info {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.7);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 10px;
-      margin-bottom: 10px;
-      border-radius: 30px; }
-      .movies__dashboard__table__item__info__items {
-        color: #135f55;
-        font-family: Roboto, "sans-serif";
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 21px;
-        text-align: center;
-        width: 20%; }
-        .movies__dashboard__table__item__info__items__price {
-          color: #135f55;
-          font-family: Roboto, 'sans-serif';
-          font-size: 24px;
-          font-weight: 700;
-          line-height: 28px;
-          text-align: center;
-          width: 20%; }
-
-.admin__movie {
-  width: 100%;
-  padding: 50px;
-  display: flex; }
-  .admin__movie__container {
-    display: flex;
-    width: 100%; }
-  .admin__movie__section {
-    display: flex;
-    align-items: flex-start;
-    width: 75%;
-    flex-direction: column;
-    justify-content: flex-start;
-    background: rgba(0, 0, 0, 0.8);
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    padding: 0 50px 100px 0; }
-    .admin__movie__section__title {
-      padding-top: 14px;
-      padding-left: 43px;
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex-direction: column;
-      margin-bottom: 20px; }
-      .admin__movie__section__title h2 {
-        color: white;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 28px;
-        padding-bottom: 10px; }
-      .admin__movie__section__title p {
-        color: white;
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 21px; }
-    .admin__movie__section__nav {
-      padding-top: 14px;
-      padding-left: 43px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin-bottom: 35px; }
-      .admin__movie__section__nav nav {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%; }
-        .admin__movie__section__nav nav ul li {
-          list-style-type: none;
-          display: inline-block;
-          margin-right: 60px; }
-          .admin__movie__section__nav nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 30px;
-            font-weight: 600;
-            line-height: 35.16px; }
-        .admin__movie__section__nav nav li .active:before {
-          border-bottom: 3px solid #e8920b;
-          content: "";
-          display: block;
-          width: 100%;
-          position: relative;
-          top: 40px;
-          border-radius: 10px; }
-    .admin__movie__section__content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      width: 100%; }
-      .admin__movie__section__content__cat {
-        width: 100%;
-        display: flex;
-        padding-top: 14px;
-        padding-left: 43px;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center; }
-        .admin__movie__section__content__cat__first {
-          width: 100%;
-          display: flex;
-          align-items: center; }
-          .admin__movie__section__content__cat__first__input {
-            width: 80%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative; }
-            .admin__movie__section__content__cat__first__input svg {
-              color: #fff;
-              font-size: 30px;
-              position: absolute;
-              right: 15px;
-              cursor: pointer;
-              transition: all 0.4s ease-in-out; }
-            .admin__movie__section__content__cat__first__input svg:hover {
-              color: #e8920b; }
-            .admin__movie__section__content__cat__first__input svg:focus-visible {
-              color: #fff; }
-            .admin__movie__section__content__cat__first__input input {
-              width: 100%;
-              border: 1.32px solid rgba(0, 0, 0, 0.3);
-              background: black;
-              border-radius: 19.82px;
-              padding: 15px 0 15px 20px;
-              font-size: 21.14px;
-              font-weight: 400;
-              line-height: 24.78px;
-              color: #fff; }
-            .admin__movie__section__content__cat__first__input input::placeholder {
-              color: #fff; }
-            .admin__movie__section__content__cat__first__input input:focus-visible {
-              outline: none;
-              border: 2px solid #e8920b; }
-          .admin__movie__section__content__cat__first__icon {
-            width: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; }
-            .admin__movie__section__content__cat__first__icon svg:first-child {
-              color: #e8920b;
-              font-size: 22px;
-              padding-bottom: 4px;
-              border-bottom: 2px solid #e8920b;
-              cursor: pointer;
-              transition: all 0.4s ease-in-out; }
-            .admin__movie__section__content__cat__first__icon svg:first-child:hover {
-              color: #fff;
-              border-bottom: 2px solid #fff; }
-            .admin__movie__section__content__cat__first__icon svg:first-child:focus-visible {
-              color: #e8920b;
-              border-bottom: 2px solid #e8920b; }
-            .admin__movie__section__content__cat__first__icon svg:last-child {
-              color: #fff;
-              font-size: 22px;
-              border: 2px solid #fff;
-              border-radius: 50%;
-              padding: 2px 3px;
-              cursor: pointer;
-              margin-left: 20px;
-              transition: all 0.4s ease-in-out; }
-            .admin__movie__section__content__cat__first__icon svg:last-child:hover {
-              color: #e8920b;
-              border: 2px solid #e8920b; }
-            .admin__movie__section__content__cat__first__icon svg:last-child:focus-visible {
-              color: #fff;
-              border: 2px solid #fff; }
-      .admin__movie__section__content button {
-        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
-        background: #e8920b;
-        border-radius: 20px;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 28.13px;
-        text-align: left;
-        color: #fff;
-        padding: 6px 54px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        transition: all 0.4s ease-in-out; }
-      .admin__movie__section__content button:hover {
-        background: #d89730;
-        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 28.13px;
-        color: #000; }
-      .admin__movie__section__content button:focus-visible {
-        background: #a56808;
-        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
-        color: #fff; }
-      .admin__movie__section__content__form {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px; }
-        .admin__movie__section__content__form__detalis {
-          display: flex;
-          width: 60%;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center; }
-          .admin__movie__section__content__form__detalis__title {
-            display: flex;
-            width: 100%;
-            align-items: center;
-            margin-bottom: 10px; }
-            .admin__movie__section__content__form__detalis__title h2 {
-              display: flex;
-              width: 100%;
-              align-items: center;
-              color: #fff;
-              font-size: 24px;
-              font-weight: 700;
-              line-height: 28.13px; }
-          .admin__movie__section__content__form__detalis__block {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid #135f55;
-            border-radius: 20px;
-            padding: 40px 30px; }
-            .admin__movie__section__content__form__detalis__block input {
-              border-radius: 20px;
-              background: white;
-              border: 2px solid #135f55;
-              text-align: left;
-              color: #135f55;
-              font-size: 16px;
-              font-weight: 400;
-              line-height: 18.75px;
-              padding: 14px 44px 14px 16px;
-              margin: 23px 0; }
-            .admin__movie__section__content__form__detalis__block input::placeholder {
-              color: #135f55; }
-            .admin__movie__section__content__form__detalis__block input:focus-visible {
-              background: rgba(255, 255, 255, 0.7);
-              outline: none; }
-        .admin__movie__section__content__form__second {
-          display: flex;
-          width: 100%;
-          align-items: center;
-          justify-content: center;
-          padding-left: 50px; }
-        .admin__movie__section__content__form__first {
-          display: flex;
-          align-items: center;
-          width: 100%;
-          justify-content: center; }
-          .admin__movie__section__content__form__first__input {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            width: 37%;
-            padding-left: 50px; }
-            .admin__movie__section__content__form__first__input label {
-              background: #fff;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              padding: 79px 85px;
-              border-radius: 30px;
-              flex-direction: column;
-              font-size: 24px;
-              font-weight: 700;
-              line-height: 28.13px;
-              color: #135f55;
-              cursor: pointer;
-              border: 2px solid #135f55;
-              margin-bottom: 10px; }
-              .admin__movie__section__content__form__first__input label img {
-                margin-top: 20px;
-                width: 46px; }
-            .admin__movie__section__content__form__first__input input {
-              border-radius: 20px;
-              background: white;
-              border: 2px solid #135f55;
-              text-align: left;
-              color: #135f55;
-              font-size: 16px;
-              font-weight: 400;
-              line-height: 18.75px;
-              padding: 14px 36px 14px 16px;
-              margin-bottom: 20px; }
-            .admin__movie__section__content__form__first__input input::placeholder {
-              color: #135f55; }
-            .admin__movie__section__content__form__first__input input:focus-visible {
-              background: rgba(255, 255, 255, 0.7);
-              outline: none; }
-          .admin__movie__section__content__form__first__textarea {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 63%; }
-            .admin__movie__section__content__form__first__textarea textarea {
-              width: 100%;
-              border-radius: 20px;
-              border: 2px solid #135f55;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              padding: 26px 0 310px 26px;
-              color: #135f55;
-              font-size: 24px;
-              font-weight: 700;
-              line-height: 28.13px;
-              resize: none; }
-            .admin__movie__section__content__form__first__textarea textarea::placeholder {
-              color: #135f55; }
-            .admin__movie__section__content__form__first__textarea textarea:focus-visible {
-              background: rgba(255, 255, 255, 0.7);
-              outline: none; }
-        .admin__movie__section__content__form__rating {
-          width: 100%;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          padding: 10px 50px;
-          margin-bottom: 30px; }
-        .admin__movie__section__content__form__actors {
-          display: flex;
-          width: 40%;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          margin-right: 45px; }
-          .admin__movie__section__content__form__actors__title {
-            display: flex;
-            width: 100%;
-            align-items: center;
-            justify-content: flex-start;
-            margin-bottom: 10px; }
-            .admin__movie__section__content__form__actors__title h2 {
-              font-size: 24px;
-              font-weight: 700;
-              line-height: 28.13px;
-              color: #fff; }
-          .admin__movie__section__content__form__actors__input {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid #135f55;
-            border-radius: 20px;
-            padding: 20px 26px; }
-            .admin__movie__section__content__form__actors__input__btn {
-              display: flex;
-              width: 100%;
-              justify-content: center;
-              align-items: center; }
-              .admin__movie__section__content__form__actors__input__btn svg {
-                border: 2px solid black;
-                border-radius: 50%;
-                padding: 1px 2px 1px 2px; }
-              .admin__movie__section__content__form__actors__input__btn p {
-                font-family: Inter, sans-serif;
-                font-size: 14px;
-                font-weight: 500;
-                line-height: 16.94px;
-                color: #000;
-                margin-right: 5px; }
-            .admin__movie__section__content__form__actors__input__block {
-              display: flex;
-              width: 100%;
-              align-items: center;
-              justify-content: space-between;
-              margin-bottom: 10px; }
-              .admin__movie__section__content__form__actors__input__block label {
-                background: #000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                border-radius: 50%;
-                padding: 15px;
-                cursor: pointer;
-                margin-right: 18px; }
-              .admin__movie__section__content__form__actors__input__block label svg path {
-                stroke: #fff; }
-              .admin__movie__section__content__form__actors__input__block label svg {
-                width: 27px;
-                height: 27px; }
-              .admin__movie__section__content__form__actors__input__block input {
-                border: 2px solid #135f55;
-                border-radius: 20px;
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 18.75px;
-                color: #135f55;
-                padding: 14px 0 14px 10px; }
-              .admin__movie__section__content__form__actors__input__block input::placeholder {
-                color: #135f55; }
-              .admin__movie__section__content__form__actors__input__block input:focus-visible {
-                background: rgba(255, 255, 255, 0.7);
-                outline: none; }
-
-input[type="file"] {
-  display: none; }
-
-/*# sourceMappingURL=styles.css.map */
+Backtrace:
+layouts/_navigation.scss:60
+layouts/_layouts.scss:2
+styles.scss:3
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:688:in `block'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:321:in `to_tree'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `map'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby32-x64/bin/sass:32:in `load'
+C:/Ruby32-x64/bin/sass:32:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...93e70f76833a493\": expected \"{\", was \"\"\A         on line 60 of layouts/_navigation.scss\A         from line 2 of layouts/_layouts.scss\A         from line 3 of styles.scss\A \A 55:   border-bottom: 3px solid #E8920B;\A 56: }\A 57: \A 58: \A 59: >>>>>>> eeb85af18b905e05798e19fc693e70f76833a493"; }
