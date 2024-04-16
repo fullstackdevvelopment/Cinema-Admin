@@ -27,7 +27,7 @@ function DashboardTable() {
       <tbody>
         <tr className="movies__dashboard__table__item__info">
           <td className="movies__dashboard__table__item__info__items">N1450</td>
-          <td className="movies__dashboard__table__item__info__item-s">Jon Nick</td>
+          <td className="movies__dashboard__table__item__info__items">Jon Nick</td>
           <td className="movies__dashboard__table__item__info__items">10.05.2019</td>
           <td className="movies__dashboard__table__item__info__items__price">$15</td>
           <td className="movies__dashboard__table__item__info__items">

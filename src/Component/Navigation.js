@@ -7,7 +7,7 @@ function Navigation() {
       <NavLink to="/dashboard" className="movies__nav__item">
         DASHBOARD
       </NavLink>
-      <NavLink to="/movie" className="movies__nav__item">
+      <NavLink to="/movie/movies" className="movies__nav__item">
         MOVIE LIST
       </NavLink>
       <NavLink to="/user" className="movies__nav__item">

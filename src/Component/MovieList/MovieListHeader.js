@@ -1,17 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function MovieListHeader() {
   return (
     <nav>
       <ul>
         <li>
-          <Link to="movies">Movies</Link>
+          <NavLink to="/movie/movies">Movies</NavLink>
         </li>
-      </ul>
-      <ul>
         <li>
-          <Link to="categories">Categories</Link>
+          <NavLink to="/movie/categories">Categories</NavLink>
         </li>
       </ul>
     </nav>

@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus, faStar, faStarHalf, faStarHalfStroke,
+} from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as DownloadIcon } from '../../../assets/icons/download.svg';
 
 function Form() {
-  const secondExample = {
-    size: 30,
-    count: 5,
-    a11y: true,
-    isHalf: true,
-    color: 'white',
-    activeColor: 'orange',
-  };
+  // const secondExample = {
+  //   size: 30,
+  //   count: 5,
+  //   a11y: true,
+  //   isHalf: true,
+  //   color: 'white',
+  //   activeColor: 'orange',
+  // };
   return (
     <form className="admin__movie__section__content__form">
       <div className="admin__movie__section__content__form__first">
@@ -30,8 +32,16 @@ function Form() {
         </div>
       </div>
       <div className="admin__movie__section__content__form__rating">
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <ReactStars {...secondExample} />
+        <ReactStars
+          size={30}
+          count={5}
+          isHalf
+          color="white"
+          activeColor="orange"
+          emptyIcon={<FontAwesomeIcon icon={faStarHalfStroke} />}
+          halfIcon={<FontAwesomeIcon icon={faStarHalf} />}
+          fullIcon={<FontAwesomeIcon icon={faStar} />}
+        />
       </div>
       <div className="admin__movie__section__content__form__second">
         <div className="admin__movie__section__content__form__actors">

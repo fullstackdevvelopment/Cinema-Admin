@@ -1,9 +1,14 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../Component/Header';
 import MovieListHeader from '../Component/MovieList/MovieListHeader';
 import Form from '../Component/MovieList/Movies/Form';
+import CategoryList from '../Component/MovieList/Categories/CategoryList';
 
 function Movie() {
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
     <div className="admin__movie">
       <div className="container">
@@ -18,7 +23,7 @@ function Movie() {
               <MovieListHeader />
             </div>
             <div className="admin__movie__section__content">
-              <Form />
+              {pathname === '/movie/movies' ? <Form /> : <CategoryList />}
               <button type="submit">Done</button>
             </div>
           </section>
