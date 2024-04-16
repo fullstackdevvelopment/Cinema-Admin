@@ -15,6 +15,38 @@ function CategoryList() {
           <FontAwesomeIcon icon={faPlus} />
         </div>
       </div>
+      <div className="admin__movie__section__content__cat__list">
+        <input type="text" value="Arthouse" readOnly />
+        <input type="text" value="Arthouse" readOnly />
+        <input type="text" value="Arthouse" readOnly />
+        <input type="text" value="Biography" readOnly />
+        <input type="text" value="Biography" readOnly />
+        <input type="text" value="Biography" readOnly />
+        <input type="text" value="Western" readOnly />
+        <input type="text" value="Western" readOnly />
+        <input type="text" value="Western" readOnly />
+        <input type="text" value="Military detectives" readOnly />
+        <input type="text" value="Military detectives" readOnly />
+        <input type="text" value="Military detectives" readOnly />
+        <input type="text" value="Documentaries" readOnly />
+        <input type="text" value="Documentaries" readOnly />
+        <input type="text" value="Documentaries" readOnly />
+        <input type="text" value="Comedy" readOnly />
+        <input type="text" value="Comedy" readOnly />
+        <input type="text" value="Comedy" readOnly />
+        <input type="text" value="For children" readOnly />
+        <input type="text" value="For children" readOnly />
+        <input type="text" value="For children" readOnly />
+        <input type="text" value="Drama" readOnly />
+        <input type="text" value="Drama" readOnly />
+        <input type="text" value="Drama" readOnly />
+        <input type="text" value="Family" readOnly />
+        <input type="text" value="Family" readOnly />
+        <input type="text" value="Family" readOnly />
+        <input type="text" value="Fantastic Fantasy" readOnly />
+        <input type="text" value="Fantastic Fantasy" readOnly />
+        <input type="text" value="Fantastic Fantasy" readOnly />
+      </div>
     </div>
   );
 }

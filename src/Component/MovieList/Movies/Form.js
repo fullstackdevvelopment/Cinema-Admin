@@ -7,14 +7,6 @@ import {
 import { ReactComponent as DownloadIcon } from '../../../assets/icons/download.svg';
 
 function Form() {
-  // const secondExample = {
-  //   size: 30,
-  //   count: 5,
-  //   a11y: true,
-  //   isHalf: true,
-  //   color: 'white',
-  //   activeColor: 'orange',
-  // };
   return (
     <form className="admin__movie__section__content__form">
       <div className="admin__movie__section__content__form__first">

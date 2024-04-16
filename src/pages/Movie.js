@@ -4,10 +4,26 @@ import Header from '../Component/Header';
 import MovieListHeader from '../Component/MovieList/MovieListHeader';
 import Form from '../Component/MovieList/Movies/Form';
 import CategoryList from '../Component/MovieList/Categories/CategoryList';
+import MovieList from '../Component/MovieList/Movies/MovieList';
 
 function Movie() {
   const location = useLocation();
   const { pathname } = location;
+
+  let content;
+  switch (pathname) {
+    case '/movie/create':
+      content = <Form />;
+      break;
+    case '/movie/categories':
+      content = <CategoryList />;
+      break;
+    case '/movie/list':
+      content = <MovieList />;
+      break;
+    default:
+      content = null;
+  }
 
   return (
     <div className="admin__movie">
@@ -23,8 +39,10 @@ function Movie() {
               <MovieListHeader />
             </div>
             <div className="admin__movie__section__content">
-              {pathname === '/movie/movies' ? <Form /> : <CategoryList />}
-              <button type="submit">Done</button>
+              {content}
+              <div className="admin__movie__section__content__btn">
+                <button type="submit">Done</button>
+              </div>
             </div>
           </section>
         </div>

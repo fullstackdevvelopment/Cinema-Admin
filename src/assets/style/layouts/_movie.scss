@@ -14,7 +14,7 @@
     width: 75%;
     flex-direction: column;
     justify-content: flex-start;
-    background: rgba(0, 0, 0, 0.8);
+    background: #000;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     padding: 0 50px 100px 0;
@@ -57,7 +57,7 @@
       & nav {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-between;
         width: 100%;
 
         & ul {
@@ -91,9 +91,53 @@
     &__content {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
       width: 100%;
+
+      &__list {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &__create {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-bottom: 10px;
+
+          & svg {
+            color: #fff;
+            font-size: 22px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            padding: 2px 3px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+          }
+
+          & svg:last-child:hover {
+            color: #e8920b;
+            border: 2px solid #e8920b;
+          }
+
+          & svg:last-child:focus-visible {
+            color: #fff;
+            border: 2px solid #fff;
+          }
+        }
+
+        &__block {
+          display: flex;
+          width: 100%;
+          justify-content: flex-start;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+      }
 
       &__cat {
         width: 100%;
@@ -108,6 +152,7 @@
           width: 100%;
           display: flex;
           align-items: center;
+          margin-bottom: 30px;
 
           &__input {
             width: 80%;
@@ -202,39 +247,74 @@
             }
           }
         }
+
+        &__list {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          border-radius: 19.82px;
+          background: rgba(0, 0, 0, 0.38);
+          border: 1.32px solid rgba(0, 0, 0, 0.3);
+          margin-bottom: 50px;
+          padding-left: 18px;
+
+          & input {
+            font-size: 18.14px;
+            font-weight: 400;
+            line-height: 24.78px;
+            text-align: left;
+            width: 20%;
+            height: 40px;
+            color: rgb(255, 255, 255);
+            margin: 0 90px 20px 0;
+            background: none;
+            outline: none;
+            border: none;
+          }
+        }
       }
 
-      & button {
-        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
-        background: rgb(232, 146, 11);
-        border-radius: 20px;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 28.13px;
-        text-align: left;
-        color: #fff;
-        padding: 6px 54px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        transition: all 0.4s ease-in-out;
-      }
+      &__btn {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
 
-      & button:hover {
-        background: rgba(216, 151, 48, 1);
-        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset,
-        6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 28.13px;
-        color: #000;
-      }
 
-      & button:focus-visible {
-        background: rgba(165, 104, 8, 1);
-        box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset,
-        6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
-        color: #fff;
+        & button {
+          box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+          background: rgb(232, 146, 11);
+          border-radius: 20px;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 28.13px;
+          text-align: left;
+          color: #fff;
+          padding: 6px 54px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          transition: all 0.4s ease-in-out;
+        }
+
+        & button:hover {
+          background: rgba(216, 151, 48, 1);
+          box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset,
+          6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 28.13px;
+          color: #000;
+        }
+
+        & button:focus-visible {
+          background: rgba(165, 104, 8, 1);
+          box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset,
+          6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
+          color: #fff;
+        }
       }
 
       &__form {

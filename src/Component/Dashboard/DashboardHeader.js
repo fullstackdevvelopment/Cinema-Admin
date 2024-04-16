@@ -17,9 +17,6 @@ function DashboardHeader() {
         <div className="movies__nav__dashboard__select__item">
           <Selects />
         </div>
-        <div className="movies__nav__dashboard__select__item">
-          <Selects />
-        </div>
       </div>
     </div>
   );
