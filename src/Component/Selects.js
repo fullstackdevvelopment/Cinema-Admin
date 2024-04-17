@@ -119,13 +119,13 @@ const customStyles = {
 
 function Selects() {
   return (
-    <div className="admin__movie__select">
+    <div className="admin__select">
       <Select
         options={options}
         styles={customStyles}
         placeholder="Start Date"
       />
-      <span className="admin__movie__select__icon">
+      <span className="admin__select__icon">
         <FontAwesomeIcon icon={faMinus} />
       </span>
       <Select
