@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
-import photo1 from '../../assets/images/photo1.jpg';
+import photo1 from '../../assets/images/actorPhoto1.jpg';
 import { ReactComponent as CheckIcon } from '../../assets/icons/check.svg';
 
 function ReviewCard(props) {
