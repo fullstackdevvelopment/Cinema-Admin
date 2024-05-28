@@ -10,12 +10,12 @@ function SignIn() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const { token } = adminData || {};
-  const adminToken = localStorage.getItem('token');
+  const adminToken = sessionStorage.getItem('token');
 
   useEffect(() => {
     if (token) {
       navigate('/dashboard');
-      localStorage.setItem('token', token);
+      sessionStorage.setItem('token', token);
     }
     if (adminToken) {
       navigate('/dashboard');

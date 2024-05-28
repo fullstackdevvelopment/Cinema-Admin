@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import ReactStars from 'react-rating-stars-component';
-import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlus, faStar, faStarHalf, faStarHalfStroke,
 } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
+import ReactStars from 'react-rating-stars-component';
+import { uniqueId } from 'lodash';
 import { createMovie } from '../../../store/actions/createMovie';
 import PhotoBlock from './PhotoBlock';
 import ModalFiles from './Modals/ModalFiles';
@@ -13,7 +13,6 @@ import Category from './Modals/Category';
 
 function Form() {
   const [files, setFiles] = useState([]);
-  const [actors, setActors] = useState([]);
   const [categories, setCategories] = useState([]);
   const [title, setTitle] = useState('');
   const [duration, setDuration] = useState('');
@@ -24,17 +23,20 @@ function Form() {
   const [releaseDate, setReleaseDate] = useState('');
   const [director, setDirector] = useState('');
   const [voters, setVoters] = useState('');
+  const [actors, setActors] = useState([]);
   const dispatch = useDispatch();
 
-  const handleSubmit = useCallback(async (event) => {
+  const handleSubmit = useCallback((event) => {
     event.preventDefault();
     const newFormData = new FormData();
     files.forEach((file) => {
-      newFormData.append('files[]', file);
+      newFormData.append('files', file);
     });
     categories.forEach((category) => {
       newFormData.append('categories[]', category);
     });
+    const actorsString = JSON.stringify(actors);
+    newFormData.append('actors', actorsString);
     newFormData.append('language', language);
     newFormData.append('title', title);
     newFormData.append('duration', duration);
@@ -45,37 +47,36 @@ function Form() {
     newFormData.append('director', director);
     newFormData.append('voters', voters);
     dispatch(createMovie(newFormData));
-  }, [dispatch, title, duration,
-    storyLine, rating, details,
-    language, releaseDate, director,
-    voters, categories, files]);
-
-  const updateActor = useCallback((actorId, updatedActor) => {
-    setActors((prevActors) => prevActors.map((actor) => {
-      if (actor.id === actorId) {
-        return { ...actor, ...updatedActor };
-      }
-      return actor;
-    }));
-  }, [setActors]);
+  }, [dispatch, actors, title, duration, storyLine,
+    rating, details, language, releaseDate,
+    director, voters, categories, files]);
 
   const addActor = useCallback(() => {
-    const newActor = {
-      id: uuidv4(),
-      name: '',
-      photo: '',
-    };
-    const isActorUnique = actors.every((actor) => actor.id !== newActor.id);
-    if (isActorUnique) {
-      setActors((prevActors) => [...prevActors, newActor]);
-    }
+    setActors((prevActors) => {
+      const newActor = { id: uniqueId(), name: '', photo: '' };
+      return [...prevActors, newActor];
+    });
   }, []);
-  console.log(actors);
+
+  const handleActorDataChange = useCallback((newActorData) => {
+    setActors((prevActors) => {
+      const updatedActors = prevActors.map((actor) => {
+        if (actor.id === newActorData.id) {
+          return { ...actor, name: newActorData.name, photo: newActorData.photo };
+        }
+        return actor;
+      });
+      return updatedActors;
+    });
+  }, []);
   return (
     <form className="admin__movie__section__content__form" onSubmit={handleSubmit}>
       <div className="admin__movie__section__content__form__first">
         <ModalFiles files={files} setFiles={setFiles} />
-        <Category selectedCategories={categories} setSelectedCategories={setCategories} />
+        <Category
+          selectedCategories={categories}
+          setSelectedCategories={setCategories}
+        />
         <div className="admin__movie__section__content__form__rating">
           <p>Select Movie Rating</p>
           <ReactStars
@@ -147,35 +148,38 @@ function Form() {
                 onChange={(event) => setStoryLine(event.target.value)}
               />
             </div>
-            <div className="admin__movie__section__content__form__second">
-              <div className="admin__movie__section__content__form__actors">
-                <div className="admin__movie__section__content__form__actors__input">
-                  <div className="admin__movie__section__content__form__actors__title">
-                    <h2>Actors Name</h2>
-                  </div>
-                  <div className="admin__movie__section__content__form__actors__input">
-                    {actors.map((actor) => (
-                      <PhotoBlock
-                        key={actor.id}
-                        actor={actor}
-                        onActorChange={updateActor}
-                      />
-                    ))}
-                  </div>
-                  <div className="admin__movie__section__content__form__actors__input__btn" onClick={addActor}>
-                    <p className="admin__movie__section__content__form__actors__input__btn__p">
-                      Add new
-                      <FontAwesomeIcon icon={faPlus} />
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <div className="admin__movie__section__content__btn">
-        <button type="submit">Done</button>
+      <div className="admin__movie__section__content__form__second">
+        <div className="admin__movie__section__content__form__actors">
+          <div className="admin__movie__section__content__form__actors__input">
+            <div className="admin__movie__section__content__form__actors__title">
+              <h2>Actors Name</h2>
+            </div>
+            <div className="admin__movie__section__content__form__actors__input">
+              {actors.map((actor) => (
+                <PhotoBlock
+                  key={actor.id}
+                  actor={actor}
+                  onActorDataChange={handleActorDataChange}
+                />
+              ))}
+            </div>
+            <div
+              className="admin__movie__section__content__form__actors__input__btn"
+              onClick={addActor}
+            >
+              <p className="admin__movie__section__content__form__actors__input__btn__p">
+                Add new
+                <FontAwesomeIcon icon={faPlus} />
+              </p>
+            </div>
+          </div>
+          <div className="admin__movie__section__content__btn">
+            <button type="submit">Done</button>
+          </div>
+        </div>
       </div>
     </form>
   );

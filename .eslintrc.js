@@ -21,6 +21,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  plugins: ['import'],
   rules: {
     'import/extensions': [
       'error',

@@ -18,7 +18,6 @@ function MovieList() {
   const handleCreate = useCallback(() => {
     navigate('/movie/create');
   }, [navigate]);
-  console.log(list);
 
   return (
     <div className="admin__movie__section__content__list">

@@ -1,22 +1,45 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Component/Header';
 import DashboardHeader from '../Component/Dashboard/DashboardHeader';
 import DashboardAll from '../Component/Dashboard/DashboardAll';
 import DashboardTickets from '../Component/Dashboard/DashboardTickets';
 import Wrapper from '../Component/commons/Wrapper';
+import { userList } from '../store/actions/userList';
+import { bookingList } from '../store/actions/bookingList';
 
 function Dashboard() {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
+  const dispatch = useDispatch();
+  const userLists = useSelector((state) => state.userList.list.list);
+  const bookingLists = useSelector((state) => state.bookingList.list.list);
 
   useEffect(() => {
     if (!token) {
       navigate('/signIn');
     }
-  }, [token]);
+    dispatch(userList());
+    dispatch(bookingList());
+  }, [token, dispatch]);
+
+  let content;
+  let length;
+  switch (pathname) {
+    case '/dashboard/all':
+      content = <DashboardAll />;
+      length = userLists?.length;
+      break;
+    case '/dashboard/tickets':
+      content = <DashboardTickets />;
+      length = bookingLists?.length;
+      break;
+    default:
+      content = null;
+  }
   return (
     <Wrapper>
       <div className="admin__dashboard">
@@ -26,7 +49,9 @@ function Dashboard() {
             <section className="admin__dashboard__section">
               <div className="admin__dashboard__article">
                 <h2 className="admin__dashboard__title">Dashboard</h2>
-                <p className="admin__dashboard__dec">1500 User</p>
+                <p className="admin__dashboard__dec">
+                  {`${length} User`}
+                </p>
               </div>
 
               <div className="admin__dashboard__header">
@@ -34,7 +59,7 @@ function Dashboard() {
               </div>
 
               <div className="admin__dashboard__table">
-                {pathname === '/dashboard/all' ? <DashboardAll /> : <DashboardTickets />}
+                {content}
               </div>
             </section>
           </div>

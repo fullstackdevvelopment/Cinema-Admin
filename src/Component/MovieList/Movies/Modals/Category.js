@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCheck, faFloppyDisk, faPen, faPlus, faXmark, faTrash, faCheckDouble,
+  faCheck, faFloppyDisk, faXmark, faTrash, faCheckDouble,
 } from '@fortawesome/free-solid-svg-icons';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -81,17 +81,13 @@ function Category(props) {
                 />
                 <FontAwesomeIcon icon={faCheck} onClick={handleAddCategory} />
               </div>
-              <div className="admin__movie__section__content__cat__first__icon">
-                <FontAwesomeIcon icon={faPen} />
-                <FontAwesomeIcon icon={faPlus} />
-              </div>
             </div>
             <div className="admin__movie__section__content__cat__list">
               {categories && categories.map((category) => (
                 <div key={category.id} onClick={() => toggleCategorySelection(category.id)}>
                   <p>{category.name}</p>
                   {selectedCategories.includes(category.id.toString())
-                    && <FontAwesomeIcon icon={faCheck} />}
+                    && <FontAwesomeIcon icon={faCheck} className="check" />}
                   <FontAwesomeIcon
                     icon={faTrash}
                     onClick={() => handleDeleteCategory(category.id)}

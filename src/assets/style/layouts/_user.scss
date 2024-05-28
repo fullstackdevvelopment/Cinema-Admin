@@ -112,8 +112,9 @@
 
   &__list {
     display: flex;
-    width: calc(100% - 30px);
+    width: 20%;
     justify-content: flex-end;
+    padding: 0;
   }
 
   &__block {
@@ -125,6 +126,13 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+
+    &__block {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
 
     &__user {
       width: 72px;
@@ -142,7 +150,6 @@
 
     &__list {
       display: flex;
-      width: 64%;
       align-items: center;
       justify-content: flex-end;
       flex-wrap: wrap;
@@ -154,7 +161,6 @@
 
     &__film {
       display: flex;
-      width: 72%;
       align-items: center;
       justify-content: flex-end;
 
@@ -163,7 +169,6 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        margin-left: 20px;
 
         & img {
           width: 63px;
@@ -226,12 +231,17 @@
 
 .MuiCollapse-root {
   display: flex;
-  width: 100%;
+  width: 60%;
   align-items: center;
+  margin-left: 226px;
 }
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiAccordion-root.MuiAccordion-rounded.MuiAccordion-gutters.user__card__content.css-1086bdv-MuiPaper-root-MuiAccordion-root {
   border-radius: 30px;
   background-color: #BAC7C5FF;
   margin-bottom: 5px;
+}
+
+.MuiAccordionDetails-root.user__card__content__list.css-15v22id-MuiAccordionDetails-root {
+  padding: 0;
 }

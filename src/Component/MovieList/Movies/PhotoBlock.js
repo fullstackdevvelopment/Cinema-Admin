@@ -1,59 +1,60 @@
 import React, {
-  useCallback, useEffect, useRef, useState,
+  useCallback, useState,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ReactComponent as DownloadIcon } from '../../../assets/icons/download.svg';
 import { uploadFile } from '../../../store/actions/uploadFile';
 
-function PhotoBlock(props) {
-  const { actor, onActorChange } = props;
-  const [name, setName] = useState('');
+function PhotoBlock({ actor, onActorDataChange }) {
+  const [name, setName] = useState(actor.name || '');
   const [selectedFile, setSelectedFile] = useState(null);
   const dispatch = useDispatch();
-  const actorData = useSelector((state) => state.uploadFile.file);
-  const prevActorDataRef = useRef();
 
   const handleNameChange = useCallback((event) => {
-    const newName = event.target.value;
-    setName(newName);
+    setName(event.target.value);
   }, []);
 
   const handleChangeFile = useCallback((event) => {
-    const newFile = event.target.files[0];
-    setSelectedFile(newFile);
+    setSelectedFile(event.target.files[0]);
   }, []);
 
-  const handleUploadFiles = useCallback(() => {
-    if (selectedFile !== null && name !== '') {
+  const handleUploadFiles = useCallback(async () => {
+    if (selectedFile && name) {
       const formData = new FormData();
       formData.append('name', name);
       formData.append('file', selectedFile);
-      dispatch(uploadFile(formData));
-    }
-  }, [name, selectedFile, dispatch]);
 
-  useEffect(() => {
-    if (actorData !== null && prevActorDataRef.current !== actorData) {
-      const updatedActor = {
-        ...actor,
-        name: actorData.name,
-        photo: actorData.photo,
-      };
-      onActorChange(actor.id, updatedActor);
-      prevActorDataRef.current = actorData;
-      console.log(updatedActor);
+      try {
+        const response = await dispatch(uploadFile(formData));
+        onActorDataChange({
+          id: actor.id,
+          name: response.payload.actor.name,
+          photo: response.payload.actor.photo,
+        });
+      } catch (error) {
+        console.error('Ошибка загрузки файла:', error);
+      }
     }
-  }, [actorData, actor, onActorChange]);
-
+  }, [dispatch, selectedFile, name, actor.id, onActorDataChange]);
   return (
     <div className="admin__movie__section__content__form__actors__input__block">
-      <input type="text" placeholder="Full Name" value={name} onChange={handleNameChange} />
+      <input
+        type="text"
+        placeholder="Full Name"
+        value={name}
+        onChange={handleNameChange}
+      />
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label htmlFor={`file-input-${actor.id}`}>
         <DownloadIcon />
-        <input id={`file-input-${actor.id}`} type="file" accept="image/*" onChange={handleChangeFile} />
+        <input
+          id={`file-input-${actor.id}`}
+          type="file"
+          accept="image/*"
+          onChange={handleChangeFile}
+        />
       </label>
       {selectedFile && (
         <img
@@ -62,8 +63,11 @@ function PhotoBlock(props) {
           alt="Selected"
         />
       )}
-      <div className="admin__movie__section__content__form__actors__input__block__check">
-        <FontAwesomeIcon icon={faCheck} onClick={handleUploadFiles} />
+      <div
+        className="admin__movie__section__content__form__actors__input__block__check"
+        onClick={handleUploadFiles}
+      >
+        <FontAwesomeIcon icon={faCheck} />
       </div>
     </div>
   );

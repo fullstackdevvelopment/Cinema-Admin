@@ -7,7 +7,7 @@ import Wrapper from '../Component/commons/Wrapper';
 
 function Review() {
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
 
   useEffect(() => {
     if (!token) {

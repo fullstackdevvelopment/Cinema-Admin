@@ -1,18 +1,34 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Component/Header';
 import UserCard from '../Component/User/UserCard';
 import Wrapper from '../Component/commons/Wrapper';
+import { bookingList } from '../store/actions/bookingList';
 
 function User() {
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');
+  const location = useLocation();
+  const { pathname } = location;
+  const token = sessionStorage.getItem('token');
+  const dispatch = useDispatch();
+  const bookingLists = useSelector((state) => state.bookingList.list.list);
 
   useEffect(() => {
     if (!token) {
       navigate('/signIn');
     }
-  }, [token]);
+    dispatch(bookingList());
+  }, [token, dispatch]);
+
+  let length;
+  switch (pathname) {
+    case '/user':
+      length = bookingLists?.length;
+      break;
+    default:
+      length = null;
+  }
   return (
     <Wrapper>
       <div className="user__page">
@@ -22,7 +38,7 @@ function User() {
             <section className="user__page__section">
               <div className="user__page__section__title">
                 <h2>User List</h2>
-                <p>1500 Tickets</p>
+                <p>{`${length} Tickets`}</p>
               </div>
               <div className="user__page__section__content">
                 <div className="user__page__section__content__header">
@@ -32,9 +48,6 @@ function User() {
                       <p>Films</p>
                     </div>
                   </div>
-                  <UserCard />
-                  <UserCard />
-                  <UserCard />
                   <UserCard />
                 </div>
               </div>

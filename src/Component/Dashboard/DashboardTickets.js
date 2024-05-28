@@ -11,7 +11,8 @@ function DashboardTickets() {
 
   useEffect(() => {
     dispatch(bookingList());
-  }, []);
+  }, [dispatch]);
+  console.log(list);
   return (
     <table className="movies__dashboard__table">
       <thead>
@@ -40,9 +41,9 @@ function DashboardTickets() {
               {i.id}
             </td>
             <td className="movies__dashboard__table__item__info__items">
-              {i.users.firstName}
+              {i.firstName}
               {' '}
-              {i.users.lastName}
+              {i.lastName}
             </td>
             <td className="movies__dashboard__table__item__info__items">
               {moment(i.createdAt).format('DD.MM.YYYY')}
