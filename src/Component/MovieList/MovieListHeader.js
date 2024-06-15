@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Selects from '../Selects';
 
 function MovieListHeader() {
   return (
@@ -15,7 +14,6 @@ function MovieListHeader() {
           </NavLink>
         </li>
       </ul>
-      <Selects />
     </nav>
   );
 }

@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Header from '../Component/Header';
 import UserCard from '../Component/User/UserCard';
 import Wrapper from '../Component/commons/Wrapper';
-import { bookingList } from '../store/actions/bookingList';
 
 function User() {
   const navigate = useNavigate();
@@ -12,23 +11,23 @@ function User() {
   const { pathname } = location;
   const token = sessionStorage.getItem('token');
   const dispatch = useDispatch();
-  const bookingLists = useSelector((state) => state.bookingList.list.list);
+  const [filteredUsersCount, setFilteredUsersCount] = useState(0);
 
   useEffect(() => {
     if (!token) {
       navigate('/signIn');
     }
-    dispatch(bookingList());
-  }, [token, dispatch]);
+  }, [token, dispatch, navigate]);
 
   let length;
   switch (pathname) {
     case '/user':
-      length = bookingLists?.length;
+      length = filteredUsersCount || 0;
       break;
     default:
       length = null;
   }
+
   return (
     <Wrapper>
       <div className="user__page">
@@ -38,7 +37,7 @@ function User() {
             <section className="user__page__section">
               <div className="user__page__section__title">
                 <h2>User List</h2>
-                <p>{`${length} Tickets`}</p>
+                <p>{`${length} User`}</p>
               </div>
               <div className="user__page__section__content">
                 <div className="user__page__section__content__header">
@@ -48,7 +47,9 @@ function User() {
                       <p>Films</p>
                     </div>
                   </div>
-                  <UserCard />
+                  <UserCard
+                    setFilteredUsersCount={setFilteredUsersCount}
+                  />
                 </div>
               </div>
             </section>

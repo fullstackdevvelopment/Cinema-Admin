@@ -15,10 +15,12 @@ function SignIn() {
   useEffect(() => {
     if (token) {
       navigate('/dashboard');
+      window.location.reload();
       sessionStorage.setItem('token', token);
     }
     if (adminToken) {
       navigate('/dashboard');
+      window.location.reload();
     }
   }, [token, adminToken]);
 

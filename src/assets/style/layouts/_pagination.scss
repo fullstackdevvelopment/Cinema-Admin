@@ -1,0 +1,73 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .pagination__btn {
+    width: 100px;
+    border: 2px solid #3e3d3d;
+    background-color: #3e3d3d;
+    color: #E8920B;
+    padding: 6px 0;
+    margin: 0;
+  }
+
+  & span {
+    width: 50px;
+    border-radius: 12px;
+    padding: 6px 16px;
+    margin: 0 10px;
+    background: #292929;
+    border: 2px solid #3e3d3d;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    font-weight: 900;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+  }
+
+  & .active {
+    background: #E8920B;
+    color: #000;
+    border: 2px solid #E8920B;
+  }
+
+  & .active:hover {
+    background: #d58f24;
+    border: 2px solid #d58f24;
+  }
+
+  & .empty {
+    border-radius: 12px;
+    border: 2px solid #000;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease-in-out;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    cursor: context-menu;
+    width: 100px;
+    padding: 6px 0;
+    margin: 0;
+  }
+
+  & .empty:hover {
+    background: #000;
+    border: 2px solid #000;
+  }
+
+  & span:hover {
+    background: rgb(32, 31, 31);
+    border: 2px solid rgb(32, 31, 31);
+  }
+}

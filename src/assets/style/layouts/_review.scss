@@ -15,7 +15,7 @@
 
   &__section {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     width: 75%;
     flex-direction: column;
     justify-content: flex-start;
@@ -23,12 +23,14 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     padding: 0 50px 100px 0;
+    height: inherit;
 
     &__btn {
       width: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      margin-bottom: 30px;
 
       & button {
         box-shadow: -6px -6px 22px 0px rgba(0, 0, 0, 0.5) inset, 6px 6px 35px 0px rgba(255, 255, 255, 0.1) inset;
@@ -97,19 +99,19 @@
             }
 
             & p:nth-child(4) {
-              margin-right: 160px;
+              margin-right: 233px;
             }
 
             & p:nth-child(3) {
-              margin-right: 180px;
+              margin-right: 100px;
             }
 
             & p:nth-child(2) {
-              margin-right: 74px;
+              margin-right: 82px;
             }
 
             & p:nth-child(1) {
-              margin-right: 60px;
+              margin-right: 56px;
             }
           }
         }
@@ -184,9 +186,12 @@ input[type="checkbox"] {
 
 .check__icon {
   position: absolute;
-  top: 13px;
-  left: 13px;
+  top: 11px;
+  left: 11px;
   visibility: hidden;
+}
+.review__card.checked .check__icon {
+  visibility: visible;
 }
 
 input[type="checkbox"]:checked ~ .check__icon {
@@ -202,14 +207,21 @@ input[type="checkbox"]:checked ~ .check__icon {
   width: calc(100% - 55px);
   justify-content: space-between;
   padding: 18px 10px;
+  position: relative;
 }
 
 .review__card__content p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 21.09px;
   text-align: left;
   color: #135f55;
+  padding-top: 25px;
+  width: 150px;
+}
+
+.review__card__content p:nth-child(3) {
+  width: 90px;
 }
 
 .review__card__content figcaption {
@@ -217,6 +229,7 @@ input[type="checkbox"]:checked ~ .check__icon {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
 }
 
 .review__card__content figcaption p {
@@ -225,6 +238,10 @@ input[type="checkbox"]:checked ~ .check__icon {
   line-height: 18.75px;
   color: rgba(19, 95, 85, 1);
   text-align: justify;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 300px;
+  padding-top: 25px;
 }
 
 .review__card__content figure {
@@ -233,6 +250,8 @@ input[type="checkbox"]:checked ~ .check__icon {
   justify-content: center;
   width: 72px;
   border-radius: 50%;
+  padding-top: 25px;
+  margin-right: 8px;
 }
 
 .review__card__content figure img {
@@ -243,6 +262,12 @@ input[type="checkbox"]:checked ~ .check__icon {
 
 .review__card.checked .review__card__content {
   background: rgba(177, 0, 0, 0.4);
+}
+
+.review__card__content div{
+  position: absolute;
+  top: 0;
+  right: 2px;
 }
 
 

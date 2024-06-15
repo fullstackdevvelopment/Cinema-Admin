@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Selects from '../Selects';
 
 function DashboardHeader() {
   return (
@@ -13,11 +12,6 @@ function DashboardHeader() {
           Tickets
         </NavLink>
       </nav>
-      <div className="movies__nav__dashboard__header__select">
-        <div className="movies__nav__dashboard__select__item">
-          <Selects />
-        </div>
-      </div>
     </div>
   );
 }

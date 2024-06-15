@@ -7,6 +7,13 @@ import bookingList from './bookingList';
 import userList from './userList';
 import movieList from './movieList';
 import uploadFile from './uploadFile';
+import ticketList from './ticketList';
+import reviewList from './reviewList';
+import deleteReview from './deleteReview';
+import singleMovie from './singleMovie';
+import updateMovie from './updateMovie';
+import uploadPhoto from './uploadPhoto';
+import uploadTrailer from './uploadTrailer';
 
 const reducers = {
   signIn,
@@ -18,5 +25,12 @@ const reducers = {
   userList,
   movieList,
   uploadFile,
+  ticketList,
+  reviewList,
+  deleteReview,
+  singleMovie,
+  updateMovie,
+  uploadPhoto,
+  uploadTrailer,
 };
 export default reducers;

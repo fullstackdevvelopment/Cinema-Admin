@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './Header';
-import Footer from './Footer';
 
 function Wrapper(props) {
   const { children } = props;
@@ -8,7 +7,6 @@ function Wrapper(props) {
     <div>
       <Header />
       {children}
-      <Footer />
     </div>
   );
 }

@@ -19,6 +19,10 @@ class Api {
     return api.post('/movie/create', formData);
   }
 
+  static updateMovie({ formData, movieId }) {
+    return api.put(`/movie/change/${movieId}`, formData);
+  }
+
   static login(data) {
     return api.post('/login', data);
   }
@@ -35,20 +39,48 @@ class Api {
     return api.put(`/category/delete/${categoryId}`);
   }
 
-  static bookingList() {
-    return api.get('/booking/list');
+  static bookingList(page = 1, limit = 4) {
+    return api.get(`/booking/list?page=${page}&limit=${limit}`);
   }
 
-  static userList() {
-    return api.get('/user/list');
+  static userList(page = 1, limit = 6) {
+    return api.get(`/user/list?page=${page}&limit=${limit}`);
   }
 
-  static movieList() {
-    return api.get('/movie/list');
+  static movieList(page = 1, limit = 6) {
+    return api.get(`/movie/list?page=${page}&limit=${limit}`);
+  }
+
+  static ticketList(page = 1, limit = 6) {
+    return api.get(`/tickets/list?page=${page}&limit=${limit}`);
+  }
+
+  static reviewList(page = 1, limit = 4) {
+    return api.get(`/review/list?page=${page}&limit=${limit}`);
+  }
+
+  static deleteReview(commentId) {
+    return api.put(`/review/delete/${commentId}`);
   }
 
   static uploadFile(data) {
     return api.post('/upload/file', data);
+  }
+
+  static uploadStills(data) {
+    return api.post('/upload/stills', data);
+  }
+
+  static uploadPhoto(data) {
+    return api.post('/upload/photo', data);
+  }
+
+  static uploadTrailer(data) {
+    return api.post('/upload/trailer', data);
+  }
+
+  static getSingleMovie(movieId) {
+    return api.get(`/movie/single/${movieId}`);
   }
 }
 

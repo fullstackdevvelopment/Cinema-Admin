@@ -1,22 +1,9 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import Select from 'react-select';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const options = [
-  {
-    value: 'chocolate',
-    label: 'Chocolate',
-  },
-  {
-    value: 'strawberry',
-    label: 'Strawberry',
-  },
-  {
-    value: 'vanilla',
-    label: 'Vanilla',
-  },
-];
+import PropTypes from 'prop-types';
+import generateOptions from '../helpers/GenerateOptions';
 
 const customStyles = {
   control: (provided) => ({
@@ -105,7 +92,7 @@ const customStyles = {
     ...provided,
     backgroundColor: state.isFocused ? 'rgba(255, 255, 255, 0.7)' : 'rgba(19, 95, 85, 1)',
     borderRadius: '15px',
-    boxShadow: '0px 0px 28px 5px rgba(19,95,85,0.85)',
+    boxShadow: '0px 0px 28px 5px rgba(19, 95, 85, 0.85)',
     border: 'none',
     outline: 'none',
     display: 'flex',
@@ -115,26 +102,86 @@ const customStyles = {
     padding: '0',
     margin: '2px',
   }),
+  menuList: (base) => ({
+    ...base,
+    '::-webkit-scrollbar': {
+      width: '20px',
+      height: '0px',
+    },
+    '::-webkit-scrollbar-track': {
+      background: '#135f55',
+      borderTopRightRadius: '15px',
+      borderBottomRightRadius: '15px',
+    },
+    '::-webkit-scrollbar-thumb': {
+      background: '#fff',
+      borderRadius: '20px',
+      transition: 'all 0.3s',
+    },
+    '::-webkit-scrollbar-thumb:hover': {
+      background: '#0c8575',
+    },
+  }),
+  clearIndicator: (provided) => ({
+    ...provided,
+    color: '#062822 !important',
+    border: 'none',
+    outline: 'none',
+    boxShadow: 'none',
+    padding: '0',
+  }),
+  valueContainer: (provided) => ({
+    ...provided,
+    padding: '0',
+  }),
+  input: (provided) => ({
+    ...provided,
+    color: '#062822 !important',
+  }),
 };
 
-function Selects() {
+function Selects(props) {
+  const { setStartDate, setEndDate } = props;
+
+  const options = useMemo(() => generateOptions({ startDate: '2024-05-01', endDate: '2024-06-18' }), []);
+
+  const startDateOptions = [{ value: 'Start Date', label: 'Start Date' }, ...options];
+  const endDateOptions = [{ value: 'End Date', label: 'End Date' }, ...options];
+
+  const handleStartDateChange = useCallback((selectedOption) => {
+    setStartDate(selectedOption ? selectedOption.value : '');
+  }, [setStartDate]);
+
+  const handleEndDateChange = useCallback((selectedOption) => {
+    setEndDate(selectedOption ? selectedOption.value : '');
+  }, [setEndDate]);
+
   return (
     <div className="admin__select">
       <Select
-        options={options}
+        options={startDateOptions}
         styles={customStyles}
         placeholder="Start Date"
+        onChange={handleStartDateChange}
+        isClearable
       />
       <span className="admin__select__icon">
         <FontAwesomeIcon icon={faMinus} />
       </span>
       <Select
-        options={options}
+        options={endDateOptions}
         styles={customStyles}
         placeholder="End Date"
+        onChange={handleEndDateChange}
+        isClearable
       />
     </div>
   );
 }
+
+Selects.propTypes = {
+  setStartDate: PropTypes.func.isRequired,
+  setEndDate: PropTypes.func.isRequired,
+};
 
 export default Selects;

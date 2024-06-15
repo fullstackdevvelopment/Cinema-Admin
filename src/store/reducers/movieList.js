@@ -5,6 +5,7 @@ const initialState = {
   list: [],
   status: '',
   error: null,
+  totalPages: 1,
 };
 
 export default createReducer(initialState, (builder) => {
@@ -16,6 +17,7 @@ export default createReducer(initialState, (builder) => {
     .addCase(movieLIst.fulfilled, (state, action) => {
       state.status = 'ok';
       state.list = action.payload.list;
+      state.totalPages = action.payload.totalPages;
       state.error = null;
     })
     .addCase(movieLIst.rejected, (state, action) => {

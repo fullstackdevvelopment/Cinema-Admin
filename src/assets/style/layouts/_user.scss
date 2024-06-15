@@ -27,7 +27,6 @@
 
 
     &__content {
-      margin-top: 180px;
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -74,7 +73,7 @@
       align-items: flex-start;
       justify-content: center;
       flex-direction: column;
-      margin-bottom: 20px;
+      margin-bottom: 80px;
 
       & h2 {
         color: rgb(255, 255, 255);
@@ -123,9 +122,9 @@
 
   &__photos {
     display: flex;
-    width: 100%;
+    width: 750px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     &__block {
       display: flex;
@@ -153,6 +152,7 @@
       align-items: center;
       justify-content: flex-end;
       flex-wrap: wrap;
+      width: 70px;
 
       & .user__card__content__photos__film__block {
         margin-bottom: 20px;
@@ -163,12 +163,15 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      margin-right: 23px;
+      width: 70px;
 
       &__block {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        width: 100%;
 
         & img {
           width: 63px;
@@ -188,12 +191,13 @@
 }
 
 .user__card__content p {
-  margin: 0 10px;
-  font-size: 18px;
+  margin: 0 57px 0 19px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 21.09px;
   text-align: left;
   color: #135f55;
+  width: 133px;
 }
 
 .user__card__content figcaption {
@@ -233,7 +237,7 @@
   display: flex;
   width: 60%;
   align-items: center;
-  margin-left: 226px;
+  margin-left: 201px;
 }
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiAccordion-root.MuiAccordion-rounded.MuiAccordion-gutters.user__card__content.css-1086bdv-MuiPaper-root-MuiAccordion-root {
