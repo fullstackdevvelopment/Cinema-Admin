@@ -1,0 +1,21 @@
+.admin__select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__icon {
+    display: flex;
+
+    & svg {
+      color: #E8920B;
+      font-size: 30px;
+      margin: 0 2px;
+    }
+  }
+}
+
+.css-b62m3t-container .css-1h3ey4k-control {
+  border: 2px solid rgb(19, 95, 85);
+  outline:none;
+  box-shadow: none;
+}

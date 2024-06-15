@@ -1,0 +1,75 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 8px;
+  border-radius: 8px;
+  position: relative;
+
+  & figure {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    position: relative;
+
+    & figcaption {
+      width: 100%;
+      display: flex;
+      position: relative;
+
+      & svg {
+        color: #fff;
+        font-size: 13px;
+        padding-bottom: 2px;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        position: absolute;
+        top: -230px;
+        right: 5px;
+        border-radius: 50%;
+        border: 2px hidden #fff;
+      }
+
+      & svg:hover {
+        border: 2px solid #fff;
+        font-size: 16px;
+        background: #000;
+        color: #E8920B;
+        padding: 5px;
+        border-radius: 50%;
+        top: -231px;
+        right: 1px;
+      }
+
+      & svg:focus-visible {
+        color: #000;
+        border-bottom: 2px solid #000;
+      }
+
+
+      & h2 {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 18.75px;
+        text-align: left;
+        color: #fff;
+      }
+    }
+
+    & img {
+      width: 100%;
+      object-fit: cover;
+      image-rendering: auto;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      border: 2px solid #fff;
+      background: #fff;
+      aspect-ratio: 2 / 3;
+    }
+  }
+}

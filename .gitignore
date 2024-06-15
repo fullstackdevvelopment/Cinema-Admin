@@ -4,7 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+<<<<<<< HEAD
 .idea
+=======
+.env
+>>>>>>> develop
 
 # testing
 /coverage
