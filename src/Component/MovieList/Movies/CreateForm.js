@@ -91,6 +91,11 @@ function CreateForm() {
     });
   }, [setActorArray]);
 
+  const handleDeleteActors = useCallback((actorId) => {
+    const updatedActors = actorArray.filter((actor) => actor.id !== actorId);
+    setActorArray(updatedActors);
+  }, [setActorArray]);
+
   const handleActorDataChange = useCallback((newActorData) => {
     setActorArray((prevActors) => prevActors.map((actor) => {
       if (actor.id === newActorData.id) {
@@ -240,6 +245,7 @@ function CreateForm() {
                     key={actor.id}
                     actor={actor}
                     onActorDataChange={handleActorDataChange}
+                    onDelete={handleDeleteActors}
                   />
                 ))}
               </div>

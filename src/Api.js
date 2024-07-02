@@ -82,6 +82,10 @@ class Api {
   static getSingleMovie(movieId) {
     return api.get(`/movie/single/${movieId}`);
   }
+
+  static scheduleList() {
+    return api.get('/schedule/list');
+  }
 }
 
 export default Api;

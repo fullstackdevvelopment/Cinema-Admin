@@ -7,6 +7,7 @@ import Movie from './pages/Movie';
 import Review from './pages/Review';
 import User from './pages/User';
 import SignIn from './pages/SignIn';
+import Schedule from './pages/Schedule';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         <Route path="/movie/single/edit/:movieId" element={<Movie />} />
         <Route path="/user" element={<User />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/schedule" element={<Navigate to="/schedule/list" />} />
+        <Route path="/schedule/list" element={<Schedule />} />
+        <Route path="/schedule/create" element={<Schedule />} />
       </Routes>
     </BrowserRouter>
   );

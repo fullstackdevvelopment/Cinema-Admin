@@ -20,6 +20,10 @@ function Navigation() {
         REVIEW LIST
         <span />
       </NavLink>
+      <NavLink to="/schedule" className="movies__nav__item">
+        SCHEDULE
+        <span />
+      </NavLink>
     </nav>
   );
 }

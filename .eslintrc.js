@@ -21,10 +21,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-<<<<<<< HEAD
-=======
   plugins: ['import'],
->>>>>>> develop
   rules: {
     'import/extensions': [
       'error',
@@ -39,8 +36,6 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 'off',
     'react/forbid-prop-types': 'off',
-<<<<<<< HEAD
-=======
     'import/no-extraneous-dependencies': [
       'error', {
         devDependencies: true,
@@ -66,6 +61,5 @@ module.exports = {
     ],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
->>>>>>> develop
   },
 };
