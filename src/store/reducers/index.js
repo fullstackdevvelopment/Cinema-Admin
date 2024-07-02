@@ -15,6 +15,7 @@ import updateMovie from './updateMovie';
 import uploadPhoto from './uploadPhoto';
 import uploadTrailer from './uploadTrailer';
 import scheduleList from './scheduleList';
+import createSchedule from './createSchedule';
 
 const reducers = {
   signIn,
@@ -34,5 +35,6 @@ const reducers = {
   uploadPhoto,
   uploadTrailer,
   scheduleList,
+  createSchedule,
 };
 export default reducers;

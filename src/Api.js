@@ -86,6 +86,10 @@ class Api {
   static scheduleList() {
     return api.get('/schedule/list');
   }
+
+  static createSchedule(data) {
+    return api.post('/schedule/create', data);
+  }
 }
 
 export default Api;

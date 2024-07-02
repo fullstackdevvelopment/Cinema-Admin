@@ -67,12 +67,13 @@ function ChangeFileModal(props) {
   const handleDeleteStills = useCallback((stillsId) => {
     const updatedStills = stills.filter((still) => still.id !== stillsId);
     setStills(updatedStills);
+
     setSelectedStill((prev) => {
       const newSelected = { ...prev };
       delete newSelected[stillsId];
       return newSelected;
     });
-  }, [setStills, setSelectedStill]);
+  }, [stills, setStills, setSelectedStill]);
 
   const handleDeleteFiles = useCallback((filesId) => {
     const updatedFiles = files.filter((file) => file.id !== filesId);
@@ -91,6 +92,8 @@ function ChangeFileModal(props) {
       return file;
     }));
   }, [setFiles]);
+
+  console.log(stills);
   return (
     <div className="modal__files">
       <Button onClick={handleOpen}>
