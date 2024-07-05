@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import { movieLIst } from '../../store/actions/movieList';
 import { createSchedule } from '../../store/actions/createSchedule';
+import Pagination from '../../helpers/Pagination';
 
 function ScheduleCreate() {
   const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
   const list = useSelector((state) => state.movieList.list);
-
   const [showTime, setShowTime] = useState('');
 
   useEffect(() => {
@@ -18,15 +19,22 @@ function ScheduleCreate() {
     setShowTime(e.target.value);
   };
 
-  console.log(showTime);
-
   const handleCreateSchedule = useCallback((movieId) => {
     dispatch(createSchedule({ movieId, showTime }));
   }, [dispatch, showTime]);
 
+  const handlePageChange = useCallback((page) => {
+    setCurrentPage(page);
+  }, [setCurrentPage]);
+
+  const totalPages = Math.ceil(list.length / 2);
+  const startIndex = (currentPage - 1) * 2;
+  const endIndex = startIndex + 2;
+  const paginatedSchedule = list.slice(startIndex, endIndex);
+
   return (
     <div className="schedule__dashboard__create">
-      {list?.map((item) => (
+      {paginatedSchedule?.map((item) => (
         <div key={item.id} className="schedule__dashboard__create__block">
           <div className="schedule__dashboard__create__block__img">
             <p>{item.title}</p>
@@ -45,6 +53,11 @@ function ScheduleCreate() {
           </div>
         </div>
       ))}
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 }

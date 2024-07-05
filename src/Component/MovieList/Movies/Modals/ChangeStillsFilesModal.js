@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactComponent as DownloadIcon } from '../../../../assets/icons/download.svg';
 import { uploadStills } from '../../../../store/actions/uploadStills';
@@ -78,7 +78,6 @@ function ChangeStillsFilesModal(props) {
       </label>
       <div onClick={uploadStill}>
         <p>Upload</p>
-        <FontAwesomeIcon icon={faCheck} />
         <FontAwesomeIcon className="stills__xmark" icon={faXmark} onClick={handleDelete} />
       </div>
     </div>

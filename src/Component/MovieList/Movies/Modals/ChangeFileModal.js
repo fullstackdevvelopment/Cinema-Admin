@@ -18,7 +18,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 1200,
+  width: '100%',
   height: '100%',
   bgcolor: '#000',
   border: '4px solid #135F55',
@@ -76,8 +76,7 @@ function ChangeFileModal(props) {
   }, [stills, setStills, setSelectedStill]);
 
   const handleDeleteFiles = useCallback((filesId) => {
-    const updatedFiles = files.filter((file) => file.id !== filesId);
-    setFiles(updatedFiles);
+    setFiles((prevFiles) => prevFiles.filter((file) => file.id !== filesId));
   }, [setFiles]);
 
   const handleSelectStill = useCallback((stillId, file) => {
@@ -93,7 +92,6 @@ function ChangeFileModal(props) {
     }));
   }, [setFiles]);
 
-  console.log(stills);
   return (
     <div className="modal__files">
       <Button onClick={handleOpen}>

@@ -19,14 +19,19 @@ function ChangeTrailerFileModal(props) {
   const [trailerFile, setTrailerFile] = useState(null);
 
   const handleDelete = useCallback(() => {
-    onDelete(files.find((file) => file.trailer && file.trailer?.endsWith('.mp4')).id);
-    onDelete(trailerFile.id);
-    setTrailerFile(null);
-  }, [onDelete, trailerFile, setTrailerFile]);
+    const trailerFileToDelete = files.find((file) => file.trailer && file.trailer?.endsWith('.mp4'));
+    if (trailerFileToDelete) {
+      onDelete(trailerFileToDelete.id);
+    }
+    if (trailerFile) {
+      onDelete(trailerFile.id);
+      setTrailerFile(null);
+    }
+  }, [onDelete, trailerFile, setTrailerFile, files]);
 
   useEffect(() => {
     if (files.length > 0) {
-      const videoFile = files?.find((file) => file.file?.type?.startsWith('video/'));
+      const videoFile = files.find((file) => file.file?.type?.startsWith('video/'));
       setCurrentFileId(videoFile?.id);
     }
     setTrailerFile(files.find((file) => file.trailer?.endsWith('.mp4')));
@@ -40,7 +45,7 @@ function ChangeTrailerFileModal(props) {
       setCurrentFileId(fileId);
       addFile({ id: fileId, file });
     }
-  }, [setSelectedTrailer, currentFileId, setCurrentFileId, addFile]);
+  }, [currentFileId, addFile]);
 
   const uploadTrailers = useCallback(async () => {
     if (selectedTrailer) {
@@ -59,6 +64,7 @@ function ChangeTrailerFileModal(props) {
       }
     }
   }, [dispatch, selectedTrailer, onTrailerDataChange, currentFileId]);
+
   return (
     <div className="admin__movie__section__content__form__trailer">
       <label htmlFor="trailer">
@@ -71,11 +77,6 @@ function ChangeTrailerFileModal(props) {
         <video className="admin__movie__section__content__form__trailer__video" controls>
           <source src={URL.createObjectURL(selectedTrailer)} type="video/mp4" />
           Your browser does not support the video tag.
-          onError=
-          {(e) => {
-            e.target.onerror = null;
-            e.target.src = videoError;
-          }}
         </video>
       ) : null}
       {!selectedTrailer && trailerFile ? (
@@ -83,14 +84,13 @@ function ChangeTrailerFileModal(props) {
         <video
           className="admin__movie__section__content__form__trailer__video"
           controls
-        >
-          <source src={`http://localhost:4000/${trailerFile?.trailer}`} type="video/mp4" />
-          Your browser does not support the video tag.
-          onError=
-          {(e) => {
+          onError={(e) => {
             e.target.onerror = null;
             e.target.src = videoError;
           }}
+        >
+          <source src={`http://localhost:4000/${trailerFile?.trailer}`} type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       ) : null}
       <div className="admin__movie__section__content__form__movie__delete" onClick={handleDelete}>

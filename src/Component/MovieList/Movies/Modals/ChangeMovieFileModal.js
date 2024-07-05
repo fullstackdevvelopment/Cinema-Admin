@@ -19,13 +19,18 @@ function ChangeMovieFileModal(props) {
   const [movieFile, setMovieFile] = useState(null);
 
   const handleDelete = useCallback(() => {
-    onDelete(files.find(
+    const movieFileToDelete = files.find(
       (file) => file.moviePhoto && (file.moviePhoto.endsWith('.png')
         || file.moviePhoto.endsWith('.jpg') || file.moviePhoto.endsWith('.webp') || file.moviePhoto.endsWith('.jpeg')),
-    ).id);
-    onDelete(movieFile.id);
-    setMovieFile(null);
-  }, [onDelete, setMovieFile, movieFile]);
+    );
+    if (movieFileToDelete) {
+      onDelete(movieFileToDelete.id);
+    }
+    if (movieFile) {
+      onDelete(movieFile.id);
+      setMovieFile(null);
+    }
+  }, [onDelete, setMovieFile, movieFile, files]);
 
   useEffect(() => {
     if (files.length > 0) {
@@ -45,7 +50,7 @@ function ChangeMovieFileModal(props) {
       setCurrentFileId(fileId);
       addFile({ id: fileId, file });
     }
-  }, [setSelectedFile, currentFileId, setCurrentFileId, addFile]);
+  }, [currentFileId, addFile]);
 
   const uploadPhotos = useCallback(async () => {
     if (selectedFile) {
@@ -64,6 +69,7 @@ function ChangeMovieFileModal(props) {
       }
     }
   }, [dispatch, selectedFile, onFileDataChange, currentFileId]);
+
   return (
     <div className="admin__movie__section__content__form__movie">
       <label htmlFor="file">

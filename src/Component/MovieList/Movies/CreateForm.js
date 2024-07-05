@@ -126,7 +126,7 @@ function CreateForm() {
     },
     {
       id: 3,
-      type: 'number',
+      type: 'text',
       placeholder: 'Voters',
       value: voters,
       onChange: (e) => setVoters(e.target.value),

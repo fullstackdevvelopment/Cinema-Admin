@@ -17,7 +17,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 1200,
+  width: '100%',
   height: '100%',
   bgcolor: '#000',
   border: '4px solid #135F55',
@@ -70,6 +70,11 @@ function CreateFileModal(props) {
     }));
   }, [setFiles]);
 
+  const handleDeleteStills = useCallback((stillsId) => {
+    const updatedStills = stills.filter((still) => still.id !== stillsId);
+    setStills(updatedStills);
+  }, [stills, setStills]);
+
   return (
     <div className="modal__files">
       <Button onClick={handleOpen}>
@@ -104,6 +109,7 @@ function CreateFileModal(props) {
                     key={still.id}
                     stills={still}
                     onStillsDataChange={handleStillDataChange}
+                    onDelete={handleDeleteStills}
                   />
                 ))}
               </div>

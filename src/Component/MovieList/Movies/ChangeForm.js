@@ -99,8 +99,7 @@ function ChangeForm() {
   }, [setActorsArray]);
 
   const handleDeleteActors = useCallback((actorId) => {
-    const updatedActors = actorsArray.filter((actor) => actor.id !== actorId);
-    setActorsArray(updatedActors);
+    setActorsArray((prevActors) => prevActors.filter((actor) => actor.id !== actorId));
   }, [setActorsArray]);
 
   const handleSubmit = useCallback(async (event) => {

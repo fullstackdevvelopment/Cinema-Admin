@@ -1,11 +1,13 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as DownloadIcon } from '../../../../assets/icons/download.svg';
 import { uploadStills } from '../../../../store/actions/uploadStills';
 import errorImg from '../../../../assets/images/error.png';
 
 function CreateStillsFilesModal(props) {
-  const { stills, onStillsDataChange } = props;
+  const { stills, onDelete, onStillsDataChange } = props;
   const dispatch = useDispatch();
   const [localState, setLocalState] = useState({
     selectedFile: null,
@@ -18,6 +20,10 @@ function CreateStillsFilesModal(props) {
       selectedFile: file,
     }));
   }, [setLocalState]);
+
+  const handleDelete = useCallback(() => {
+    onDelete(stills.id);
+  }, [onDelete, stills]);
 
   const uploadStill = useCallback(async () => {
     const { selectedFile } = localState;
@@ -68,6 +74,7 @@ function CreateStillsFilesModal(props) {
       </label>
       <div onClick={uploadStill}>
         <p>Upload</p>
+        <FontAwesomeIcon className="stills__xmark" icon={faXmark} onClick={handleDelete} />
       </div>
     </div>
   );
