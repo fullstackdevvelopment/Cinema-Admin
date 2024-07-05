@@ -67,7 +67,7 @@ function MovieList(props) {
       </div>
       <div className="admin__movie__section__content__list__block">
         {paginatedMovie ? paginatedMovie.map((l) => (
-          <Card key={l.id} id={l.id} title={l.title} src={l.photos[0].moviePhoto} />
+          <Card key={l.id} id={l.id} title={l.title} src={l.photos[0]?.moviePhoto} />
         )) : null}
       </div>
       <Pagination
