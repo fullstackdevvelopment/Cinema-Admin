@@ -23,11 +23,11 @@ function ScheduleList(props) {
     setCurrentPage(page);
   }, [setCurrentPage]);
 
-  const totalPages = Math.ceil(list.length / 2);
+  const totalPages = list ? Math.ceil(list.length / 2) : 0;
   const startIndex = (currentPage - 1) * 2;
   const endIndex = startIndex + 2;
-  const paginatedSchedule = list.slice(startIndex, endIndex);
-  const paginatedScheduleCount = list.length;
+  const paginatedSchedule = list ? list.slice(startIndex, endIndex) : [];
+  const paginatedScheduleCount = list ? list.length : 0;
 
   useEffect(() => {
     if (paginatedSchedule && paginatedSchedule.length > 0) {
@@ -35,11 +35,11 @@ function ScheduleList(props) {
     } else {
       setFilteredScheduleCount(0);
     }
-  }, [paginatedSchedule, paginatedScheduleCount]);
+  }, [paginatedSchedule, paginatedScheduleCount, setFilteredScheduleCount]);
 
   const handleCreate = useCallback(() => {
     navigate('/schedule/create');
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="schedule__dashboard__table__block">
@@ -49,22 +49,29 @@ function ScheduleList(props) {
           <FontAwesomeIcon icon={faPlus} />
         </Button>
       </div>
-      {paginatedSchedule?.map((item) => (
-        <div key={item.id} className="schedule__dashboard__table__block__item">
-          <ScheduleItem
-            title={item.movie.title}
-            duration={item.movie.duration}
-            moviePhoto={item.movie.photos[0].moviePhoto}
-            times={item.schedules[0].times}
-            dates={item.schedules[0].date}
+      {list && list.length > 0 ? (
+        <>
+          {paginatedSchedule.map((item) => (
+            <div key={item.id} className="schedule__dashboard__table__block__item">
+              <ScheduleItem
+                title={item.movie.title}
+                duration={item.movie.duration}
+                moviePhoto={item.movie.photos[0].moviePhoto}
+                times={item.schedules[0].times}
+                dates={item.schedules[0].date}
+                scheduleId={item.id}
+              />
+            </div>
+          ))}
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            handlePageChange={handlePageChange}
           />
-        </div>
-      ))}
-      <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        handlePageChange={handlePageChange}
-      />
+        </>
+      ) : (
+        <p>No schedules available</p>
+      )}
     </div>
   );
 }

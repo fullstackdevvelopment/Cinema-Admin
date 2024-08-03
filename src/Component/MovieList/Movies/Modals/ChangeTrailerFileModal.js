@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -17,6 +17,7 @@ function ChangeTrailerFileModal(props) {
   const [selectedTrailer, setSelectedTrailer] = useState(null);
   const [currentFileId, setCurrentFileId] = useState(null);
   const [trailerFile, setTrailerFile] = useState(null);
+  const [uploadResult, setUploadResult] = useState('');
 
   const handleDelete = useCallback(() => {
     const trailerFileToDelete = files.find((file) => file.trailer && file.trailer?.endsWith('.mp4'));
@@ -53,12 +54,17 @@ function ChangeTrailerFileModal(props) {
       formData.append('file', selectedTrailer);
 
       try {
-        const response = await dispatch(uploadTrailer(formData));
-        onTrailerDataChange({
-          id: currentFileId,
-          movieId: Number(movieId),
-          trailer: response.payload.trailer.trailer,
-        });
+        const uploadTrailerResult = await dispatch(uploadTrailer(formData));
+        if (uploadTrailer.fulfilled.match(uploadTrailerResult)) {
+          setUploadResult('ok');
+          onTrailerDataChange({
+            id: currentFileId,
+            movieId: Number(movieId),
+            trailer: uploadTrailerResult.payload.trailer.trailer,
+          });
+        } else {
+          setUploadResult('fail');
+        }
       } catch (error) {
         console.error(error);
       }
@@ -99,6 +105,16 @@ function ChangeTrailerFileModal(props) {
       </div>
       <div className="admin__movie__section__content__form__movie__btn" onClick={uploadTrailers}>
         <p>Upload</p>
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {uploadResult === 'ok' ? (
+          <span className="ok">
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
+        ) : uploadResult === 'fail' ? (
+          <span className="fail">
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        ) : null}
       </div>
     </div>
   );

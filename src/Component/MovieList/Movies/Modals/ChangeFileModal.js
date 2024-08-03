@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFileArrowUp, faFloppyDisk, faPlus, faXmark,
+  faFileArrowUp, faFloppyDisk, faPlus, faTriangleExclamation, faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
 import { useParams } from 'react-router-dom';
@@ -32,7 +32,7 @@ const style = {
 
 function ChangeFileModal(props) {
   const {
-    files, setFiles, text, stills, setStills,
+    files, setFiles, text, stills, setStills, errors,
   } = props;
   const { movieId } = useParams();
   const [open, setOpen] = useState(false);
@@ -98,6 +98,21 @@ function ChangeFileModal(props) {
         {text}
         <FontAwesomeIcon icon={faFileArrowUp} />
       </Button>
+      {(errors?.files || errors?.stills) ? (
+        <div className="error__block">
+          <FontAwesomeIcon icon={faTriangleExclamation} />
+          {errors?.files ? (
+            <span className="files__error">
+              {errors.files}
+            </span>
+          ) : null}
+          {errors?.stills ? (
+            <span className="stills__error">
+              {errors.stills}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <div className="modal__files__close">

@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import moment from 'moment-timezone';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { deleteSchedule } from '../../store/actions/deleteSchedule';
 
 function ScheduleItem(props) {
   const {
-    title, duration, moviePhoto, times, dates,
+    title, duration, moviePhoto, times, dates, scheduleId,
   } = props;
+  const dispatch = useDispatch();
   const armenianTimeZone = 'Asia/Yerevan';
   const currentDates = moment().format('YYYY-MM-DD');
 
@@ -42,8 +47,18 @@ function ScheduleItem(props) {
 
   const formattedDate = getWeekDates(dates);
 
+  const handleDeleteSchedule = useCallback(() => {
+    dispatch(deleteSchedule(scheduleId));
+  }, [scheduleId]);
+
   return (
     <div className="schedule__dashboard__table__block__list">
+      <div className="schedule__dashboard__table__block__list__delete">
+        <FontAwesomeIcon
+          icon={faTrash}
+          onClick={handleDeleteSchedule}
+        />
+      </div>
       <div className="schedule__dashboard__table__block__list__item">
         <p>{title}</p>
         <p>{duration}</p>

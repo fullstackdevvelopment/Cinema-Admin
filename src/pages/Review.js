@@ -71,7 +71,7 @@ function Review() {
     default:
       length = null;
   }
-
+  console.log(paginatedUsers);
   return (
     <Wrapper>
       <div className="review__page">
@@ -100,6 +100,7 @@ function Review() {
                             <p>Photo</p>
                             <p>Full Name</p>
                             <p>Date</p>
+                            <p>Film</p>
                             <p>Review</p>
                           </div>
                         </div>
@@ -115,6 +116,7 @@ function Review() {
                             rating={review.rating}
                             selectedReviews={selectedReviews}
                             setSelectedReviews={setSelectedReviews}
+                            moviePhoto={review.movies.photos[0].moviePhoto}
                           />
                         ))}
                       </div>

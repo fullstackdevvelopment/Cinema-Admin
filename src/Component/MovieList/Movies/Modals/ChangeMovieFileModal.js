@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -17,6 +17,7 @@ function ChangeMovieFileModal(props) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [currentFileId, setCurrentFileId] = useState(null);
   const [movieFile, setMovieFile] = useState(null);
+  const [uploadResult, setUploadResult] = useState('');
 
   const handleDelete = useCallback(() => {
     const movieFileToDelete = files.find(
@@ -58,12 +59,17 @@ function ChangeMovieFileModal(props) {
       formData.append('file', selectedFile);
 
       try {
-        const response = await dispatch(uploadPhoto(formData));
-        onFileDataChange({
-          id: currentFileId,
-          movieId: Number(movieId),
-          moviePhoto: response.payload.photo.photo,
-        });
+        const uploadPhotoResult = await dispatch(uploadPhoto(formData));
+        if (uploadPhoto.fulfilled.match(uploadPhotoResult)) {
+          setUploadResult('ok');
+          onFileDataChange({
+            id: currentFileId,
+            movieId: Number(movieId),
+            moviePhoto: uploadPhotoResult.payload.photo.photo,
+          });
+        } else {
+          setUploadResult('fail');
+        }
       } catch (error) {
         console.error(error);
       }
@@ -105,6 +111,16 @@ function ChangeMovieFileModal(props) {
       </div>
       <div className="admin__movie__section__content__form__movie__btn" onClick={uploadPhotos}>
         <p>Upload</p>
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {uploadResult === 'ok' ? (
+          <span className="ok">
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
+        ) : uploadResult === 'fail' ? (
+          <span className="fail">
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        ) : null}
       </div>
     </div>
   );

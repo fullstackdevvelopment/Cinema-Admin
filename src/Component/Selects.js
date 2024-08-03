@@ -143,7 +143,7 @@ const customStyles = {
 function Selects(props) {
   const { setStartDate, setEndDate } = props;
 
-  const options = useMemo(() => generateOptions({ startDate: '2024-05-01', endDate: '2024-06-18' }), []);
+  const options = useMemo(() => generateOptions({ startDate: '2024-08-01', endDate: '2024-09-01' }), []);
 
   const startDateOptions = [{ value: 'Start Date', label: 'Start Date' }, ...options];
   const endDateOptions = [{ value: 'End Date', label: 'End Date' }, ...options];

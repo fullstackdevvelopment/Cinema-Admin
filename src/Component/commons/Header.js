@@ -3,16 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/images/logo.svg';
-import adminIcon from '../../assets/icons/adminIcon.svg';
+// import adminIcon from '../../assets/icons/adminIcon.svg';
 import vector from '../../assets/icons/vector.svg';
 import errorImg from '../../assets/images/error.png';
+import { adminData } from '../../store/actions/adminData';
 
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [token, setToken] = useState(sessionStorage.getItem('token'));
+  const data = useSelector((state) => state.adminData.admin);
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -42,6 +46,12 @@ function Header() {
     window.location.reload();
   };
 
+  useEffect(() => {
+    if (token) {
+      dispatch(adminData());
+    }
+  }, [dispatch, token]);
+
   return (
     <div className="header">
       <div className="container">
@@ -58,7 +68,8 @@ function Header() {
           </figure>
           <div className="header__nav__icon">
             <img
-              src={adminIcon}
+              className="admin__photo"
+              src={`http://localhost:4000/${data?.photo}`}
               alt="Admin"
               onError={(e) => {
                 e.target.onerror = null;

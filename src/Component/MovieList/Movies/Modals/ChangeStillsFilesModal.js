@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactComponent as DownloadIcon } from '../../../../assets/icons/download.svg';
 import { uploadStills } from '../../../../store/actions/uploadStills';
@@ -12,6 +12,7 @@ function ChangeStillsFilesModal(props) {
   } = props;
   const dispatch = useDispatch();
   const [selectedFile, setSelectedFile] = useState(selectedStill || null);
+  const [uploadResult, setUploadResult] = useState('');
 
   useEffect(() => {
     if (selectedStill) {
@@ -36,11 +37,16 @@ function ChangeStillsFilesModal(props) {
       formData.append('file', selectedFile);
 
       try {
-        const response = await dispatch(uploadStills(formData));
-        onStillsDataChange({
-          id: stills.id,
-          photo: response.payload.stills.photo,
-        });
+        const uploadStillsResult = await dispatch(uploadStills(formData));
+        if (uploadStills.fulfilled.match(uploadStillsResult)) {
+          setUploadResult('ok');
+          onStillsDataChange({
+            id: stills.id,
+            photo: uploadStillsResult.payload.stills.photo,
+          });
+        } else {
+          setUploadResult('fail');
+        }
       } catch (error) {
         console.error(error);
       }
@@ -78,6 +84,16 @@ function ChangeStillsFilesModal(props) {
       </label>
       <div onClick={uploadStill}>
         <p>Upload</p>
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {uploadResult === 'ok' ? (
+          <span className="ok">
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
+        ) : uploadResult === 'fail' ? (
+          <span className="fail">
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        ) : null}
         <FontAwesomeIcon className="stills__xmark" icon={faXmark} onClick={handleDelete} />
       </div>
     </div>

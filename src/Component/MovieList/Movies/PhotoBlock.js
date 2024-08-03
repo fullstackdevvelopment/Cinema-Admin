@@ -14,6 +14,7 @@ function PhotoBlock(props) {
   const [name, setName] = useState(actor.name || '');
   const [selectedFile, setSelectedFile] = useState(null);
   const dispatch = useDispatch();
+  const [uploadResult, setUploadResult] = useState('');
 
   const handleDelete = useCallback(() => {
     onDelete(actor.id);
@@ -34,12 +35,17 @@ function PhotoBlock(props) {
       formData.append('file', selectedFile);
 
       try {
-        const response = await dispatch(uploadFile(formData));
-        onActorDataChange({
-          id: actor.id,
-          name: response.payload.actor.name,
-          photo: response.payload.actor.photo,
-        });
+        const uploadFileResult = await dispatch(uploadFile(formData));
+        if (uploadFile.fulfilled.match(uploadFileResult)) {
+          setUploadResult('ok');
+          onActorDataChange({
+            id: actor.id,
+            name: uploadFileResult.payload.actor.name,
+            photo: uploadFileResult.payload.actor.photo,
+          });
+        } else {
+          setUploadResult('fail');
+        }
       } catch (error) {
         console.error(error);
       }
@@ -87,10 +93,24 @@ function PhotoBlock(props) {
       ) : null}
       <div
         className="admin__movie__section__content__form__actors__input__block__check"
-        onClick={handleUploadFiles}
       >
-        <FontAwesomeIcon icon={faCheck} />
-        <FontAwesomeIcon className="stills__xmark__actor" icon={faXmark} onClick={handleDelete} />
+        <span onClick={handleUploadFiles}>
+          Upload
+        </span>
+        <span onClick={handleDelete}>
+          Delete
+          <FontAwesomeIcon className="stills__xmark__actor" icon={faXmark} />
+        </span>
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {uploadResult === 'ok' ? (
+          <span className="ok">
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
+        ) : uploadResult === 'fail' ? (
+          <span className="fail">
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        ) : null}
       </div>
     </div>
   );

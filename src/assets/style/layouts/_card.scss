@@ -22,34 +22,64 @@
       display: flex;
       position: relative;
 
-      & svg {
+      & svg:nth-child(2) {
         color: #fff;
         font-size: 13px;
         padding-bottom: 2px;
         cursor: pointer;
         transition: all 0.4s ease-in-out;
         position: absolute;
-        top: -230px;
+        top: -268px;
         right: 5px;
         border-radius: 50%;
         border: 2px hidden #fff;
+
+        &:hover {
+          border: 2px solid #fff;
+          font-size: 16px;
+          background: #000;
+          color: #E8920B;
+          padding: 5px;
+          border-radius: 50%;
+          top: -271px;
+          right: 1px;
+        }
+
+        &:focus-visible {
+          color: #000;
+          border-bottom: 2px solid #000;
+        }
       }
 
-      & svg:hover {
-        border: 2px solid #fff;
-        font-size: 16px;
-        background: #000;
-        color: #E8920B;
-        padding: 5px;
+      & svg:nth-child(3) {
+        color: #fff;
+        font-size: 13px;
+        padding-bottom: 2px;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        position: absolute;
+        top: -268px;
+        left: 5px;
         border-radius: 50%;
-        top: -231px;
-        right: 1px;
+        border: 2px hidden #fff;
+
+        &:hover {
+          border: 2px solid #fff;
+          font-size: 16px;
+          background: #000;
+          color: #E8920B;
+          padding: 5px;
+          border-radius: 50%;
+          top: -271px;
+          left: 1px;
+        }
+
+        &:focus-visible {
+          color: #000;
+          border-bottom: 2px solid #000;
+        }
       }
 
-      & svg:focus-visible {
-        color: #000;
-        border-bottom: 2px solid #000;
-      }
 
 
       & h2 {
@@ -58,6 +88,7 @@
         line-height: 18.75px;
         text-align: left;
         color: #fff;
+        font-variant: all-small-caps;
       }
     }
 

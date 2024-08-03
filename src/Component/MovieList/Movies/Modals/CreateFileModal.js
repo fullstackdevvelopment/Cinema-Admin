@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFileArrowUp, faFloppyDisk, faPlus, faXmark,
+  faFileArrowUp, faFloppyDisk, faPlus, faTriangleExclamation, faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
 import PropTypes from 'prop-types';
@@ -31,16 +31,12 @@ const style = {
 
 function CreateFileModal(props) {
   const {
-    files, setFiles, text, stills, setStills,
+    files, setFiles, text, stills, setStills, errors,
   } = props;
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const addFile = useCallback((file) => {
-    setFiles((prevFiles) => [...prevFiles, file]);
-  }, [setFiles]);
 
   const addStills = useCallback(() => {
     setStills((prevActors) => {
@@ -81,6 +77,21 @@ function CreateFileModal(props) {
         {text}
         <FontAwesomeIcon icon={faFileArrowUp} />
       </Button>
+      {(errors?.files || errors?.stills) ? (
+        <div className="error__block">
+          <FontAwesomeIcon icon={faTriangleExclamation} />
+          {errors?.files ? (
+            <span className="files__error">
+              {errors.files}
+            </span>
+          ) : null}
+          {errors?.stills ? (
+            <span className="stills__error">
+              {errors.stills}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <div className="modal__files__close">
@@ -90,13 +101,12 @@ function CreateFileModal(props) {
             <div className="modal__files__movie">
               <p className="modal__files__movie__title">Movie Photo</p>
               <CreateMovieFileModal
-                addFile={addFile}
+                setFiles={setFiles}
                 files={files}
                 onFileDataChange={handleFileResponse}
-                setFiles={setFiles}
               />
               <CreateTrailerFileModal
-                addFile={addFile}
+                setFiles={setFiles}
                 files={files}
                 onTrailerDataChange={handleFileResponse}
               />

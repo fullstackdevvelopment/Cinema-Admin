@@ -12,6 +12,7 @@ function ReviewCard(props) {
     rating,
     selectedReviews,
     setSelectedReviews,
+    moviePhoto,
   } = props;
 
   const [isChecked, setIsChecked] = useState(false);
@@ -54,6 +55,11 @@ function ReviewCard(props) {
           {moment(createdAt)
             .format('YYYY.MM.DD')}
         </p>
+        <img
+          className="review__card__content__image"
+          src={`http://localhost:4000/${moviePhoto}`}
+          alt="moviePhoto"
+        />
         <figcaption>
           <p>
             {commentText}

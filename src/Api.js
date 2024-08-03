@@ -23,6 +23,10 @@ class Api {
     return api.put(`/movie/change/${movieId}`, formData);
   }
 
+  static deleteMovie(movieId) {
+    return api.put(`/movie/delete/${movieId}`);
+  }
+
   static login(data) {
     return api.post('/login', data);
   }
@@ -75,6 +79,10 @@ class Api {
     return api.post('/upload/photo', data);
   }
 
+  static adminData() {
+    return api.get('/data');
+  }
+
   static uploadTrailer(data) {
     return api.post('/upload/trailer', data);
   }
@@ -85,6 +93,10 @@ class Api {
 
   static scheduleList() {
     return api.get('/schedule/list');
+  }
+
+  static deleteSchedule(scheduleId) {
+    return api.put(`/schedule/delete/${scheduleId}`);
   }
 
   static createSchedule(data) {

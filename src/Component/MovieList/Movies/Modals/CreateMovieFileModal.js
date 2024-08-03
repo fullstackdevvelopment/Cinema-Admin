@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { uniqueId } from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as DownloadIcon } from '../../../../assets/icons/download.svg';
 import { uploadPhoto } from '../../../../store/actions/uploadPhoto';
 import errorImg from '../../../../assets/images/error.png';
 
 function CreateMovieFileModal(props) {
   const {
-    addFile, files, onFileDataChange,
+    setFiles, files, onFileDataChange,
   } = props;
   const dispatch = useDispatch();
   const [selectedFile, setSelectedFile] = useState(null);
@@ -15,6 +17,7 @@ function CreateMovieFileModal(props) {
   const [movieFile] = useState(files.find((file) => file.photo?.endsWith('.webp'))
   || files.find((file) => file.photo?.endsWith('.png'))
   || files.find((file) => file.photo?.endsWith('.jpg')));
+  const [uploadResult, setUploadResult] = useState('');
 
   useEffect(() => {
     if (files.length > 0) {
@@ -22,6 +25,10 @@ function CreateMovieFileModal(props) {
       setCurrentFileId(photoFile?.id);
     }
   }, [files]);
+
+  const addFile = useCallback((file) => {
+    setFiles((prevFiles) => [...prevFiles, file]);
+  }, [setFiles]);
 
   const handleFileChange = useCallback((event) => {
     const file = event.target.files[0];
@@ -39,16 +46,21 @@ function CreateMovieFileModal(props) {
       formData.append('file', selectedFile);
 
       try {
-        const response = await dispatch(uploadPhoto(formData));
-        onFileDataChange({
-          id: currentFileId,
-          photo: response.payload.photo.photo,
-        });
+        const uploadPhotoResult = await dispatch(uploadPhoto(formData));
+        if (uploadPhoto.fulfilled.match(uploadPhotoResult)) {
+          setUploadResult('ok');
+          onFileDataChange({
+            id: currentFileId,
+            photo: uploadPhotoResult.payload.photo.photo,
+          });
+        } else {
+          setUploadResult('fail');
+        }
       } catch (error) {
         console.error(error);
       }
     }
-  }, [dispatch, selectedFile, onFileDataChange, currentFileId]);
+  }, [dispatch, selectedFile, onFileDataChange, currentFileId, uploadResult]);
 
   return (
     <div className="admin__movie__section__content__form__movie">
@@ -81,6 +93,16 @@ function CreateMovieFileModal(props) {
       </label>
       <div className="admin__movie__section__content__form__movie__btn" onClick={uploadPhotos}>
         <p>Upload</p>
+        {/* eslint-disable-next-line no-nested-ternary */}
+        {uploadResult === 'ok' ? (
+          <span className="ok">
+            <FontAwesomeIcon icon={faCheck} />
+          </span>
+        ) : uploadResult === 'fail' ? (
+          <span className="fail">
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        ) : null}
       </div>
     </div>
   );
