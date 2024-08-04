@@ -37,22 +37,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 105px;
       height: 58px;
       border-radius: 50%;
 
-      & img:first-child {
+      & .vector {
         width: 100%;
         height: 100%;
         border-radius: 50%;
       }
 
       & .admin__photo {
-        width: 100%;
-        height: 100%;
+        width: 58px;
+        height: 58px;
         border-radius: 50%;
         background: #d1e7ff;
         border: 4px solid #e8920b;
+        object-fit: cover;
       }
     }
   }

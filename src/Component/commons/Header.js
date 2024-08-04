@@ -84,6 +84,7 @@ function Header() {
               onClick={handleClick}
             >
               <img
+                className="vector"
                 src={vector}
                 alt="Vector"
                 onError={(e) => {
