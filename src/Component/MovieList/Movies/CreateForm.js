@@ -9,6 +9,9 @@ import { uniqueId } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ToastContainer, toast } from 'react-toastify';
+import {
+  FormControl, FormControlLabel, Radio, RadioGroup,
+} from '@mui/material';
 import { createMovie } from '../../../store/actions/createMovie';
 import PhotoBlock from './PhotoBlock';
 import CreateFileModal from './Modals/CreateFileModal';
@@ -33,6 +36,7 @@ function CreateForm() {
   const [voters, setVoters] = useState('');
   const [actorArray, setActorArray] = useState([]);
   const [errors, setErrors] = useState(null);
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
@@ -58,6 +62,7 @@ function CreateForm() {
         releaseDate,
         director,
         voters: Number(voters),
+        status,
       };
       try {
         const createMovieResult = await dispatch(createMovie(formData));
@@ -257,6 +262,20 @@ function CreateForm() {
               </span>
             </div>
           ) : null}
+        </div>
+        <div className="admin__movie__section__content__form__status">
+          <p className="admin__movie__section__content__form__status__title">Select Movie Status</p>
+          <FormControl component="fieldset">
+            <RadioGroup
+              aria-label="status"
+              name="status"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
+              <FormControlLabel value="Latest" control={<Radio />} label="Latest" />
+              <FormControlLabel value="Coming Soon" control={<Radio />} label="Coming Soon" />
+            </RadioGroup>
+          </FormControl>
         </div>
         <div className="admin__movie__section__content__form__first__input__block">
           <div className="admin__movie__section__content__form__first__input__block__title">

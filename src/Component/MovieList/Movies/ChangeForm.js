@@ -7,6 +7,9 @@ import { uniqueId } from 'lodash';
 import { useNavigate, useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ToastContainer, toast } from 'react-toastify';
+import {
+  FormControl, FormControlLabel, Radio, RadioGroup,
+} from '@mui/material';
 import { singleMovie } from '../../../store/actions/singleMovie';
 import PhotoBlock from './PhotoBlock';
 import ChangeFileModal from './Modals/ChangeFileModal';
@@ -34,6 +37,7 @@ function ChangeForm() {
   const [actorsArray, setActorsArray] = useState([]);
   const { movieId } = useParams();
   const [errors, setErrors] = useState(null);
+  const [status, setStatus] = useState(null);
 
   useEffect(() => {
     dispatch(singleMovie(movieId));
@@ -75,6 +79,7 @@ function ChangeForm() {
           trailer: trailer.trailer,
         })),
       ]);
+      setStatus(movie.status);
     }
   }, [movie]);
 
@@ -122,6 +127,7 @@ function ChangeForm() {
       releaseDate,
       director,
       voters,
+      status,
     };
     try {
       const updateMovieResult = await dispatch(updateMovie({ formData, movieId }));
@@ -166,7 +172,7 @@ function ChangeForm() {
   }, [dispatch, actorsArray, title, duration,
     storyLine, rating, details, language,
     releaseDate, director, voters, categoriesArray,
-    filesArray, movieId, stillsArray]);
+    filesArray, movieId, stillsArray, status]);
 
   const movieInputs = [
     {
@@ -230,6 +236,7 @@ function ChangeForm() {
   const handleGoBack = useCallback(() => {
     navigate('/movie/list');
   }, [navigate]);
+  console.log(status);
 
   return (
     <form className="admin__movie__section__content__form" onSubmit={handleSubmit}>
@@ -252,28 +259,42 @@ function ChangeForm() {
           setSelectedCategories={setCategoriesArray}
         />
         {rating !== null && (
-        <div className="admin__movie__section__content__form__rating">
-          <p>Edit Movie Rating</p>
-          <ReactStars
-            classNames="review__stars"
-            size={30}
-            count={5}
-            isHalf
-            value={rating}
-            color="white"
-            activeColor="orange"
-            onChange={setRating}
-          />
-          {errors?.errors?.rating ? (
-            <div className="error__block">
-              <span className="rating__error">
-                <FontAwesomeIcon icon={faTriangleExclamation} />
-                {errors?.errors?.rating}
-              </span>
-            </div>
-          ) : null}
-        </div>
+          <div className="admin__movie__section__content__form__rating">
+            <p>Edit Movie Rating</p>
+            <ReactStars
+              classNames="review__stars"
+              size={30}
+              count={5}
+              isHalf
+              value={rating}
+              color="white"
+              activeColor="orange"
+              onChange={setRating}
+            />
+            {errors?.errors?.rating ? (
+              <div className="error__block">
+                <span className="rating__error">
+                  <FontAwesomeIcon icon={faTriangleExclamation} />
+                  {errors?.errors?.rating}
+                </span>
+              </div>
+            ) : null}
+          </div>
         )}
+        <div className="admin__movie__section__content__form__status">
+          <p className="admin__movie__section__content__form__status__title">Select Movie Status</p>
+          <FormControl component="fieldset">
+            <RadioGroup
+              aria-label="status"
+              name="status"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
+              <FormControlLabel value="Latest" control={<Radio />} label="Latest" />
+              <FormControlLabel value="Coming Soon" control={<Radio />} label="Coming Soon" />
+            </RadioGroup>
+          </FormControl>
+        </div>
         <div className="admin__movie__section__content__form__first__input__block">
           <div className="admin__movie__section__content__form__first__input__block__title">
             <p>Please fill out all fields</p>

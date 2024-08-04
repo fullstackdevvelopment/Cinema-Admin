@@ -965,6 +965,70 @@
           }
         }
 
+        &__status {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          margin-bottom: 30px;
+
+          &__title {
+            color: #fff;
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 1.75;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+            padding: 9px 8px 6px 8px;
+
+            &:hover {
+              color: #E8920B;
+            }
+          }
+
+          & .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+
+              & .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                & .MuiButtonBase-root.MuiRadio-root.MuiRadio-colorPrimary.PrivateSwitchBase-root.MuiRadio-root.MuiRadio-colorPrimary.MuiRadio-root.MuiRadio-colorPrimary.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+                  color: #e8920b;
+
+                }
+
+                & .MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+                  color: #fff;
+                  transition: all 0.4s ease-in-out;
+                  cursor: pointer;
+                  font-weight: 500;
+                  font-size: 14px;
+                  line-height: 1.75;
+                  letter-spacing: 0.02857em;
+                  text-transform: uppercase;
+                  padding: 9px 8px 6px 8px;
+
+                  &:hover {
+                    color: #E8920B;
+                  }
+                }
+              }
+            }
+          }
+        }
+
         &__actors {
           display: flex;
           width: 100%;
