@@ -61,7 +61,7 @@ function ScheduleItem(props) {
       </div>
       <div className="schedule__dashboard__table__block__list__item">
         <p>{title}</p>
-        <p>{duration}</p>
+        <p>{`${duration} min.`}</p>
         <img src={`http://localhost:4000/${moviePhoto}`} alt="title" />
       </div>
       <div className="schedule__dashboard__table__block__list__item">

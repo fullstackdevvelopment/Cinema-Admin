@@ -51,8 +51,8 @@ class Api {
     return api.get(`/user/list?page=${page}&limit=${limit}`);
   }
 
-  static movieList(page = 1, limit = 6) {
-    return api.get(`/movie/list?page=${page}&limit=${limit}`);
+  static movieList() {
+    return api.get('/movie/list');
   }
 
   static ticketList(page = 1, limit = 6) {
@@ -101,6 +101,10 @@ class Api {
 
   static createSchedule(data) {
     return api.post('/schedule/create', data);
+  }
+
+  static deleteUser(userId) {
+    return api.put(`/delete/${userId}`);
   }
 }
 

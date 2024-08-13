@@ -70,7 +70,7 @@ function ScheduleList(props) {
           />
         </>
       ) : (
-        <p>No schedules available</p>
+        <p style={{ color: '#fff', marginLeft: 8 }}>No schedules available</p>
       )}
     </div>
   );

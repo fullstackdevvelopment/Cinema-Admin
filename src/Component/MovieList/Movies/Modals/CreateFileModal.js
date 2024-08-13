@@ -4,13 +4,15 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFileArrowUp, faFloppyDisk, faPlus, faTriangleExclamation, faXmark,
+  faFileArrowUp, faPlus, faTriangleExclamation, faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import CreateMovieFileModal from './CreateMovieFileModal';
 import CreateTrailerFileModal from './CreateTrailerFileModal';
 import CreateStillsFilesModal from './CreateStillsFilesModal';
+import { uploadStills } from '../../../../store/actions/uploadStills';
 
 const style = {
   position: 'absolute',
@@ -33,20 +35,23 @@ function CreateFileModal(props) {
   const {
     files, setFiles, text, stills, setStills, errors,
   } = props;
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const addStills = useCallback(() => {
-    setStills((prevActors) => {
-      const newStills = { id: uniqueId(), photo: '' };
-      return [...prevActors, newStills];
+    setStills((prevStills) => {
+      const newStills = {
+        id: uniqueId(), photo: '', selectedFile: null, uploadResult: '',
+      };
+      return [...prevStills, newStills];
     });
   }, [setStills]);
 
   const handleStillDataChange = useCallback((newStillData) => {
-    setStills((prevActors) => prevActors.map((still) => {
+    setStills((prevStills) => prevStills.map((still) => {
       if (still.id === newStillData.id) {
         return {
           ...still,
@@ -71,6 +76,58 @@ function CreateFileModal(props) {
     setStills(updatedStills);
   }, [stills, setStills]);
 
+  const handleSelectedFileChange = useCallback((id, file) => {
+    setStills((prevStills) => prevStills.map((still) => {
+      if (still.id === id) {
+        return {
+          ...still,
+          selectedFile: file,
+          uploadResult: '',
+        };
+      }
+      return still;
+    }));
+  }, [setStills]);
+
+  const setUploadResult = useCallback((id, result) => {
+    setStills((prevStills) => prevStills.map((still) => {
+      if (still.id === id) {
+        return {
+          ...still,
+          uploadResult: result,
+        };
+      }
+      return still;
+    }));
+  }, [setStills]);
+
+  const uploadAllStills = useCallback(async () => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const still of stills) {
+      if (still.selectedFile) {
+        const formData = new FormData();
+        formData.append('file', still.selectedFile);
+
+        try {
+          // eslint-disable-next-line no-await-in-loop
+          const uploadStillsResult = await dispatch(uploadStills(formData));
+          if (uploadStills.fulfilled.match(uploadStillsResult)) {
+            handleStillDataChange({
+              id: still.id,
+              photo: uploadStillsResult.payload.stills.photo,
+            });
+            setUploadResult(still.id, 'ok');
+          } else {
+            console.error('Upload failed for still:', still.id);
+            setUploadResult(still.id, 'fail');
+          }
+        } catch (error) {
+          console.error('Error uploading still:', still.id, error);
+          setUploadResult(still.id, 'fail');
+        }
+      }
+    }
+  }, [dispatch, stills, handleStillDataChange, setUploadResult]);
   return (
     <div className="modal__files">
       <Button onClick={handleOpen}>
@@ -120,6 +177,7 @@ function CreateFileModal(props) {
                     stills={still}
                     onStillsDataChange={handleStillDataChange}
                     onDelete={handleDeleteStills}
+                    onFileChange={handleSelectedFileChange}
                   />
                 ))}
               </div>
@@ -131,7 +189,9 @@ function CreateFileModal(props) {
             </div>
           </div>
           <div className="modal__files__save">
-            <FontAwesomeIcon onClick={handleClose} icon={faFloppyDisk} />
+            <Button onClick={uploadAllStills}>
+              Upload Stills
+            </Button>
           </div>
         </Box>
       </Modal>
@@ -152,9 +212,13 @@ CreateFileModal.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       photo: PropTypes.string,
+      selectedFile: PropTypes.object,
+      uploadResult: PropTypes.string,
     }),
   ).isRequired,
   setStills: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  errors: PropTypes.object,
 };
 
 export default CreateFileModal;

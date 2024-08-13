@@ -8,13 +8,13 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 import { movieLIst } from '../../../store/actions/movieList';
 import Pagination from '../../../helpers/Pagination';
-import Selects from '../../Selects';
+import DatePickerCalendar from '../../DatePickerCalendar';
 
 function MovieList(props) {
   const { setFilteredMovieCount } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const list = useSelector((state) => state.movieList.list);
+  const list = useSelector((state) => state.movieList.list?.allMovies);
   const [currentPage, setCurrentPage] = useState(1);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -36,7 +36,7 @@ function MovieList(props) {
     if (!startDate || !endDate) return list;
     return list.filter((movie) => {
       const movieDate = moment(movie.createdAt).format('YYYY-MM-DD');
-      return movieDate >= startDate && movieDate <= endDate;
+      return moment(movieDate).isBetween(moment(startDate), moment(endDate), undefined, '[]');
     });
   }, [list, startDate, endDate]);
 
@@ -56,31 +56,34 @@ function MovieList(props) {
   }, [paginatedMovie, paginatedMovieCount]);
 
   return (
-    <div className="admin__movie__section__content__list">
-      <div className="admin__movie__section__content__list__select">
-        <div className="movies__nav__dashboard__select__item">
-          <Selects setStartDate={setStartDate} setEndDate={setEndDate} />
-        </div>
-      </div>
-      <div className="admin__movie__section__content__list__create">
-        <FontAwesomeIcon icon={faPlus} onClick={handleCreate} />
-      </div>
-      <div className="admin__movie__section__content__list__block">
-        {paginatedMovie ? paginatedMovie.map((l) => (
-          <Card
-            key={l.id}
-            movieId={l.id}
-            title={l.title}
-            src={l.photos[0]?.moviePhoto}
-          />
-        )) : null}
-      </div>
-      <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        handlePageChange={handlePageChange}
+    <>
+      <DatePickerCalendar
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
       />
-    </div>
+      <div className="admin__movie__section__content__list">
+        <div className="admin__movie__section__content__list__create">
+          <FontAwesomeIcon icon={faPlus} onClick={handleCreate} />
+        </div>
+        <div className="admin__movie__section__content__list__block">
+          {paginatedMovie ? paginatedMovie.map((l) => (
+            <Card
+              key={l.id}
+              movieId={l.id}
+              title={l.title}
+              src={l.photos[0]?.moviePhoto}
+            />
+          )) : null}
+        </div>
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      </div>
+    </>
   );
 }
 

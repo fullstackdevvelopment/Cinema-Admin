@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactStars from 'react-rating-stars-component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
@@ -10,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import {
   FormControl, FormControlLabel, Radio, RadioGroup,
 } from '@mui/material';
+import Button from '@mui/material/Button';
 import { singleMovie } from '../../../store/actions/singleMovie';
 import PhotoBlock from './PhotoBlock';
 import ChangeFileModal from './Modals/ChangeFileModal';
@@ -17,6 +17,7 @@ import ChangeCategoryModal from './Modals/ChangeCategoryModal';
 import { updateMovie } from '../../../store/actions/updateMovie';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-toastify/dist/ReactToastify.css';
+import { uploadFile } from '../../../store/actions/uploadFile';
 
 function ChangeForm() {
   const dispatch = useDispatch();
@@ -28,12 +29,10 @@ function ChangeForm() {
   const [title, setTitle] = useState('');
   const [duration, setDuration] = useState('');
   const [storyLine, setStoryLine] = useState('');
-  const [rating, setRating] = useState(null);
   const [details, setDetails] = useState('');
   const [language, setLanguage] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
   const [director, setDirector] = useState('');
-  const [voters, setVoters] = useState('');
   const [actorsArray, setActorsArray] = useState([]);
   const { movieId } = useParams();
   const [errors, setErrors] = useState(null);
@@ -48,12 +47,10 @@ function ChangeForm() {
       setTitle(movie.title);
       setDuration(movie.duration);
       setStoryLine(movie.storyLine);
-      setRating(movie.rating);
       setDetails(movie.details);
       setLanguage(movie.language);
       setReleaseDate(movie.releaseDate);
       setDirector(movie.director);
-      setVoters(movie.voters);
       setStillsArray(movie.stills.map((still) => ({
         id: uniqueId(),
         stillPath: still.stillPath,
@@ -84,21 +81,20 @@ function ChangeForm() {
   }, [movie]);
 
   const handleActorDataChange = useCallback((newActorData) => {
-    setActorsArray((prevActors) => prevActors.map((actor) => {
-      if (actor.id === newActorData.id) {
-        return {
-          ...actor,
-          name: newActorData.name,
-          photo: newActorData.photo,
-        };
-      }
-      return actor;
-    }));
-  }, [setActorsArray]);
+    setActorsArray((prevActors) => prevActors.map(
+      (actor) => (actor.id === newActorData.id ? { ...actor, ...newActorData } : actor),
+    ));
+  }, []);
 
   const addActor = useCallback(() => {
     setActorsArray((prevActors) => {
-      const newActor = { id: Number(uniqueId()), name: '', photo: '' };
+      const newActor = {
+        id: uniqueId(),
+        name: '',
+        photo: '',
+        selectedFile: null,
+        uploadResult: '',
+      };
       return [...prevActors, newActor];
     });
   }, [setActorsArray]);
@@ -122,11 +118,9 @@ function ChangeForm() {
       title,
       duration,
       storyLine,
-      rating,
       details,
       releaseDate,
       director,
-      voters,
       status,
     };
     try {
@@ -158,9 +152,6 @@ function ChangeForm() {
         if (stills === '[]') {
           newErrors.stills = 'Stills must be not empty';
         }
-        if (voters === '') {
-          newErrors.voters = 'Voters must be not empty';
-        }
         setErrors({
           ...newErrors,
           errors: updateMovieResult.payload.errors,
@@ -170,8 +161,8 @@ function ChangeForm() {
       console.error(error);
     }
   }, [dispatch, actorsArray, title, duration,
-    storyLine, rating, details, language,
-    releaseDate, director, voters, categoriesArray,
+    storyLine, details, language,
+    releaseDate, director, categoriesArray,
     filesArray, movieId, stillsArray, status]);
 
   const movieInputs = [
@@ -193,14 +184,6 @@ function ChangeForm() {
     },
     {
       id: 3,
-      type: 'number',
-      placeholder: 'Voters',
-      value: voters,
-      onChange: (e) => setVoters(e.target.value),
-      error: errors?.voters,
-    },
-    {
-      id: 4,
       type: 'text',
       placeholder: 'Details',
       value: details,
@@ -208,7 +191,7 @@ function ChangeForm() {
       error: errors?.errors.details,
     },
     {
-      id: 5,
+      id: 4,
       type: 'text',
       placeholder: 'Language',
       value: language,
@@ -216,7 +199,7 @@ function ChangeForm() {
       error: errors?.errors.language,
     },
     {
-      id: 6,
+      id: 5,
       type: 'text',
       placeholder: 'Release Date',
       value: releaseDate,
@@ -224,7 +207,7 @@ function ChangeForm() {
       error: errors?.errors.releaseDate,
     },
     {
-      id: 7,
+      id: 6,
       type: 'text',
       placeholder: 'Director',
       value: director,
@@ -236,8 +219,57 @@ function ChangeForm() {
   const handleGoBack = useCallback(() => {
     navigate('/movie/list');
   }, [navigate]);
-  console.log(status);
 
+  const handleActorData = useCallback((newActorData) => {
+    setActorsArray((prevActorsArray) => prevActorsArray.map((actor) => {
+      if (actor.id === newActorData.id) {
+        return {
+          id: newActorData.id,
+          name: newActorData.name,
+          photo: newActorData.photo,
+          uploadResult: 'ok',
+        };
+      }
+      return actor;
+    }));
+  }, [setActorsArray, actorsArray]);
+
+  const setUploadResult = useCallback((id, result) => {
+    setActorsArray((prevActorsArray) => prevActorsArray.map(
+      (actor) => (actor.id === id ? {
+        ...actor,
+        uploadResult: result,
+      } : actor),
+    ));
+  }, []);
+
+  const handleUploadActors = useCallback(async () => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const actor of actorsArray) {
+      if (actor.name && actor.selectedFile) {
+        const formData = new FormData();
+        formData.append('name', actor.name);
+        formData.append('file', actor.selectedFile);
+        try {
+          // eslint-disable-next-line no-await-in-loop
+          const uploadFileResult = await dispatch(uploadFile(formData));
+          if (uploadFile.fulfilled.match(uploadFileResult)) {
+            setUploadResult(actor.id, 'ok');
+            handleActorData({
+              id: actor.id,
+              name: uploadFileResult.payload.actor.name,
+              photo: uploadFileResult.payload.actor.photo,
+            });
+          } else {
+            setUploadResult(actor.id, 'fail');
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }
+  }, [dispatch, actorsArray, setUploadResult, handleActorData]);
+  console.log(actorsArray);
   return (
     <form className="admin__movie__section__content__form" onSubmit={handleSubmit}>
       <div className="admin__movie__section__content__form__back" onClick={handleGoBack}>
@@ -258,29 +290,6 @@ function ChangeForm() {
           selectedCategories={categoriesArray}
           setSelectedCategories={setCategoriesArray}
         />
-        {rating !== null && (
-          <div className="admin__movie__section__content__form__rating">
-            <p>Edit Movie Rating</p>
-            <ReactStars
-              classNames="review__stars"
-              size={30}
-              count={5}
-              isHalf
-              value={rating}
-              color="white"
-              activeColor="orange"
-              onChange={setRating}
-            />
-            {errors?.errors?.rating ? (
-              <div className="error__block">
-                <span className="rating__error">
-                  <FontAwesomeIcon icon={faTriangleExclamation} />
-                  {errors?.errors?.rating}
-                </span>
-              </div>
-            ) : null}
-          </div>
-        )}
         <div className="admin__movie__section__content__form__status">
           <p className="admin__movie__section__content__form__status__title">Select Movie Status</p>
           <FormControl component="fieldset">
@@ -292,6 +301,7 @@ function ChangeForm() {
             >
               <FormControlLabel value="Latest" control={<Radio />} label="Latest" />
               <FormControlLabel value="Coming Soon" control={<Radio />} label="Coming Soon" />
+              <FormControlLabel value="Featured movies" control={<Radio />} label="Featured movies" />
             </RadioGroup>
           </FormControl>
         </div>
@@ -362,6 +372,11 @@ function ChangeForm() {
                 Add new
                 <FontAwesomeIcon icon={faPlus} />
               </p>
+            </div>
+            <div className="admin__movie__section__content__form__actors__input__btn">
+              <Button onClick={handleUploadActors}>
+                Upload Actors
+              </Button>
             </div>
           </div>
           <div className="admin__movie__section__content__btn">

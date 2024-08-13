@@ -4,14 +4,16 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFileArrowUp, faFloppyDisk, faPlus, faTriangleExclamation, faXmark,
+  faFileArrowUp, faPlus, faTriangleExclamation, faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { uniqueId } from 'lodash';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import ChangeMovieFileModal from './ChangeMovieFileModal';
 import ChangeTrailerFileModal from './ChangeTrailerFileModal';
 import ChangeStillsFilesModal from './ChangeStillsFilesModal';
+import { uploadStills } from '../../../../store/actions/uploadStills';
 
 const style = {
   position: 'absolute',
@@ -37,6 +39,7 @@ function ChangeFileModal(props) {
   const { movieId } = useParams();
   const [open, setOpen] = useState(false);
   const [selectedStill, setSelectedStill] = useState({});
+  const dispatch = useDispatch();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -55,7 +58,7 @@ function ChangeFileModal(props) {
     setStills((prevActors) => prevActors.map((still) => {
       if (still.id === newStillData.id) {
         return {
-          ...still,
+          id: newStillData.id,
           stillPath: newStillData.photo,
           movieId: Number(movieId),
         };
@@ -91,6 +94,59 @@ function ChangeFileModal(props) {
       return file;
     }));
   }, [setFiles]);
+
+  const setUploadResult = useCallback((id, result) => {
+    setStills((prevStills) => prevStills.map((still) => {
+      if (still.id === id) {
+        return {
+          ...still,
+          uploadResult: result,
+        };
+      }
+      return still;
+    }));
+  }, [setStills]);
+
+  const handleSelectedFileChange = useCallback((id, file) => {
+    setStills((prevStills) => prevStills.map((still) => {
+      if (still.id === id) {
+        return {
+          ...still,
+          selectedFile: file,
+          uploadResult: '',
+        };
+      }
+      return still;
+    }));
+  }, [setStills]);
+
+  const uploadAllStills = useCallback(async () => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const still of stills) {
+      if (still.selectedFile) {
+        const formData = new FormData();
+        formData.append('file', still.selectedFile);
+
+        try {
+          // eslint-disable-next-line no-await-in-loop
+          const uploadStillsResult = await dispatch(uploadStills(formData));
+          if (uploadStills.fulfilled.match(uploadStillsResult)) {
+            handleStillDataChange({
+              id: still.id,
+              photo: uploadStillsResult.payload.stills.photo,
+            });
+            setUploadResult(still.id, 'ok');
+          } else {
+            console.error('Upload failed for still:', still.id);
+            setUploadResult(still.id, 'fail');
+          }
+        } catch (error) {
+          console.error('Error uploading still:', still.id, error);
+          setUploadResult(still.id, 'fail');
+        }
+      }
+    }
+  }, [dispatch, stills, handleStillDataChange, setUploadResult]);
 
   return (
     <div className="modal__files">
@@ -141,10 +197,10 @@ function ChangeFileModal(props) {
                   <ChangeStillsFilesModal
                     key={still.id}
                     stills={still}
-                    onStillsDataChange={handleStillDataChange}
                     onDelete={handleDeleteStills}
                     selectedStill={selectedStill[still.id]}
                     setSelectedStill={(file) => handleSelectStill(still.id, file)}
+                    onFileChange={handleSelectedFileChange}
                   />
                 ))}
               </div>
@@ -156,7 +212,9 @@ function ChangeFileModal(props) {
             </div>
           </div>
           <div className="modal__files__save">
-            <FontAwesomeIcon onClick={handleClose} icon={faFloppyDisk} />
+            <Button onClick={uploadAllStills}>
+              Upload Stills
+            </Button>
           </div>
         </Box>
       </Modal>

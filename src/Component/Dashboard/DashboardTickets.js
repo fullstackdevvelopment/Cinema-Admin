@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ticketList } from '../../store/actions/ticketList';
 import Pagination from '../../helpers/Pagination';
-import Selects from '../Selects';
+import DatePickerCalendar from '../DatePickerCalendar';
 
 function DashboardTickets(props) {
   const { setFilteredTicketsCount } = props;
@@ -29,7 +29,7 @@ function DashboardTickets(props) {
     if (!startDate || !endDate) return tickets;
     return tickets.filter((ticket) => {
       const ticketDate = moment(ticket.createdAt).format('YYYY-MM-DD');
-      return ticketDate >= startDate && ticketDate <= endDate;
+      return moment(ticketDate).isBetween(moment(startDate), moment(endDate), undefined, '[]');
     });
   }, [tickets, startDate, endDate]);
 
@@ -49,11 +49,12 @@ function DashboardTickets(props) {
   }, [setFilteredTicketsCount, paginatedUsersCount]);
   return (
     <div style={{ position: 'relative' }}>
-      <div className="movies__nav__dashboard__header__select">
-        <div className="movies__nav__dashboard__select__item">
-          <Selects setStartDate={setStartDate} setEndDate={setEndDate} />
-        </div>
-      </div>
+      <DatePickerCalendar
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+      />
       <table className="movies__dashboard__table">
         <thead>
           <tr className="movies__dashboard__table__thead">
@@ -94,7 +95,7 @@ function DashboardTickets(props) {
               </td>
               {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
               <td className="movies__dashboard__table__item__info__items">
-                <FontAwesomeIcon icon={faCheck} />
+                <FontAwesomeIcon icon={faTrashCan} />
               </td>
             </tr>
           ))}

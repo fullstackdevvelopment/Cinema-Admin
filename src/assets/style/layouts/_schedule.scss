@@ -282,6 +282,10 @@
           outline: none;
           text-align: left;
           margin-right: 70px;
+
+          &::placeholder {
+            color: #135F55;
+          }
         }
 
         & button {
@@ -292,6 +296,9 @@
           line-height: 21px;
           text-align: left;
           transition: all 0.4s ease-in-out;
+          display: flex;
+          width: 40%;
+          align-items: center;
 
           &:hover {
             color: #E8920B;

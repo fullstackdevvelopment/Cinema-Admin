@@ -5,9 +5,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/images/logo.svg';
-// import adminIcon from '../../assets/icons/adminIcon.svg';
 import vector from '../../assets/icons/vector.svg';
-import errorImg from '../../assets/images/error.png';
+import errorImg from '../../assets/images/userError.webp';
 import { adminData } from '../../store/actions/adminData';
 
 function Header() {

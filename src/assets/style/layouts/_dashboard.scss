@@ -103,11 +103,15 @@
       justify-content: center;
       position: absolute;
       top: -79px;
-      right: 60px;
+      right: 50px;
+      width: 45%;
     }
   }
   &__select__item {
-     width: 45%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
    }
 }
 
@@ -163,6 +167,17 @@
       padding: 24px 10px;
       margin-bottom: 10px;
       border-radius: 30px;
+
+      &__items:nth-child(5) {
+        & svg {
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: #9a620a;
+          }
+        }
+      }
 
       &__items {
         color: rgb(19, 95, 85);

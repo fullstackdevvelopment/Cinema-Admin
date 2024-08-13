@@ -1,56 +1,39 @@
-import React, {
-  useCallback, useState,
-} from 'react';
+import React, { useCallback, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ReactComponent as DownloadIcon } from '../../../assets/icons/download.svg';
-import { uploadFile } from '../../../store/actions/uploadFile';
 import errorImg from '../../../assets/images/error.png';
 
 function PhotoBlock(props) {
-  const { actor, onActorDataChange, onDelete } = props;
+  const {
+    actor, onActorDataChange, onDelete,
+  } = props;
   const [name, setName] = useState(actor.name || '');
   const [selectedFile, setSelectedFile] = useState(null);
-  const dispatch = useDispatch();
-  const [uploadResult, setUploadResult] = useState('');
+
+  const handleNameChange = useCallback((event) => {
+    const newName = event.target.value;
+    setName(newName);
+    onActorDataChange({
+      id: actor.id,
+      name: newName,
+    });
+  }, [actor.id, onActorDataChange]);
+
+  const handleChangeFile = useCallback((event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    onActorDataChange({
+      id: actor.id,
+      selectedFile: file,
+    });
+  }, [actor.id, onActorDataChange]);
 
   const handleDelete = useCallback(() => {
     onDelete(actor.id);
   }, [onDelete, actor]);
 
-  const handleNameChange = useCallback((event) => {
-    setName(event.target.value);
-  }, [setName]);
-
-  const handleChangeFile = useCallback((event) => {
-    setSelectedFile(event.target.files[0]);
-  }, [setSelectedFile]);
-
-  const handleUploadFiles = useCallback(async () => {
-    if (selectedFile && name) {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('file', selectedFile);
-
-      try {
-        const uploadFileResult = await dispatch(uploadFile(formData));
-        if (uploadFile.fulfilled.match(uploadFileResult)) {
-          setUploadResult('ok');
-          onActorDataChange({
-            id: actor.id,
-            name: uploadFileResult.payload.actor.name,
-            photo: uploadFileResult.payload.actor.photo,
-          });
-        } else {
-          setUploadResult('fail');
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }, [dispatch, selectedFile, name, actor.id, onActorDataChange]);
   return (
     <div className="admin__movie__section__content__form__actors__input__block">
       <input
@@ -91,22 +74,17 @@ function PhotoBlock(props) {
           }}
         />
       ) : null}
-      <div
-        className="admin__movie__section__content__form__actors__input__block__check"
-      >
-        <span onClick={handleUploadFiles}>
-          Upload
-        </span>
+      <div className="admin__movie__section__content__form__actors__input__block__check">
         <span onClick={handleDelete}>
           Delete
           <FontAwesomeIcon className="stills__xmark__actor" icon={faXmark} />
         </span>
         {/* eslint-disable-next-line no-nested-ternary */}
-        {uploadResult === 'ok' ? (
+        {actor.uploadResult === 'ok' ? (
           <span className="ok">
             <FontAwesomeIcon icon={faCheck} />
           </span>
-        ) : uploadResult === 'fail' ? (
+        ) : actor.uploadResult === 'fail' ? (
           <span className="fail">
             <FontAwesomeIcon icon={faXmark} />
           </span>

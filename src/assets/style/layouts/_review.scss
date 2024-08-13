@@ -71,6 +71,7 @@
       flex-direction: column;
       width: 100%;
       margin-bottom: 20px;
+      position: relative;
 
       &__header {
         display: flex;
@@ -138,7 +139,7 @@
       align-items: flex-start;
       justify-content: center;
       flex-direction: column;
-      margin-bottom: 20px;
+      margin-bottom: 120px;
 
       & h2 {
         color: rgb(255, 255, 255);

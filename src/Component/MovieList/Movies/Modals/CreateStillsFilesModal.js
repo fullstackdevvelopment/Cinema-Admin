@@ -1,53 +1,22 @@
-import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as DownloadIcon } from '../../../../assets/icons/download.svg';
-import { uploadStills } from '../../../../store/actions/uploadStills';
 import errorImg from '../../../../assets/images/error.png';
 
 function CreateStillsFilesModal(props) {
-  const { stills, onDelete, onStillsDataChange } = props;
-  const dispatch = useDispatch();
-  const [localState, setLocalState] = useState({
-    selectedFile: null,
-  });
-  const [uploadResult, setUploadResult] = useState('');
+  const {
+    stills, onDelete, onFileChange,
+  } = props;
 
   const handleFileChange = useCallback((event) => {
     const file = event.target.files[0];
-    setLocalState((prevState) => ({
-      ...prevState,
-      selectedFile: file,
-    }));
-  }, [setLocalState]);
+    onFileChange(stills.id, file);
+  }, [onFileChange, stills.id]);
 
   const handleDelete = useCallback(() => {
     onDelete(stills.id);
   }, [onDelete, stills]);
-
-  const uploadStill = useCallback(async () => {
-    const { selectedFile } = localState;
-    if (selectedFile) {
-      const formData = new FormData();
-      formData.append('file', selectedFile);
-
-      try {
-        const uploadStillsResult = await dispatch(uploadStills(formData));
-        if (uploadStills.fulfilled.match(uploadStillsResult)) {
-          setUploadResult('ok');
-          onStillsDataChange({
-            id: stills.id,
-            photo: uploadStillsResult.payload.stills.photo,
-          });
-        } else {
-          setUploadResult('fail');
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }, [dispatch, localState, stills, onStillsDataChange]);
 
   return (
     <div className="admin__movie__section__content__form__movie__stills">
@@ -60,10 +29,10 @@ function CreateStillsFilesModal(props) {
         />
         Stills
         <DownloadIcon />
-        {localState.selectedFile && (
+        {stills.selectedFile && (
           <img
             className="admin__movie__section__content__form__first__input__userPhoto"
-            src={URL.createObjectURL(localState.selectedFile)}
+            src={URL.createObjectURL(stills.selectedFile)}
             alt="Selected"
             onError={(e) => {
               e.target.onerror = null;
@@ -71,7 +40,7 @@ function CreateStillsFilesModal(props) {
             }}
           />
         )}
-        {stills && stills.photo ? (
+        {stills.photo ? (
           <img
             className="admin__movie__section__content__form__first__input__userPhoto"
             src={`http://localhost:4000/${stills.photo}`}
@@ -83,19 +52,18 @@ function CreateStillsFilesModal(props) {
           />
         ) : null}
       </label>
-      <div onClick={uploadStill}>
-        <p>Upload</p>
+      <div>
+        <FontAwesomeIcon className="stills__xmark" icon={faXmark} onClick={handleDelete} />
         {/* eslint-disable-next-line no-nested-ternary */}
-        {uploadResult === 'ok' ? (
+        {stills.uploadResult === 'ok' ? (
           <span className="ok">
             <FontAwesomeIcon icon={faCheck} />
           </span>
-        ) : uploadResult === 'fail' ? (
+        ) : stills.uploadResult === 'fail' ? (
           <span className="fail">
             <FontAwesomeIcon icon={faXmark} />
           </span>
         ) : null}
-        <FontAwesomeIcon className="stills__xmark" icon={faXmark} onClick={handleDelete} />
       </div>
     </div>
   );

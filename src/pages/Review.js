@@ -9,7 +9,7 @@ import Wrapper from '../Component/commons/Wrapper';
 import { reviewList } from '../store/actions/reviewList';
 import { deleteReview } from '../store/actions/deleteReview';
 import Pagination from '../helpers/Pagination';
-import Selects from '../Component/Selects';
+import DatePickerCalendar from '../Component/DatePickerCalendar';
 
 function Review() {
   const [loading, setLoading] = useState(true);
@@ -52,7 +52,7 @@ function Review() {
     if (!startDate || !endDate) return list;
     return list.filter((user) => {
       const userDate = moment(user.createdAt).format('YYYY-MM-DD');
-      return userDate >= startDate && userDate <= endDate;
+      return moment(userDate).isBetween(moment(startDate), moment(endDate), undefined, '[]');
     });
   }, [list, startDate, endDate]);
 
@@ -71,7 +71,6 @@ function Review() {
     default:
       length = null;
   }
-  console.log(paginatedUsers);
   return (
     <Wrapper>
       <div className="review__page">
@@ -88,51 +87,50 @@ function Review() {
                   <h2>Review List</h2>
                   <p>{`${length} Review`}</p>
                 </div>
-                {length > 0 ? (
-                  <>
-                    <div className="review__page__section__nav">
-                      <Selects setStartDate={setStartDate} setEndDate={setEndDate} />
-                    </div>
-                    <div className="review__page__section__content">
-                      <div className="review__page__section__content__header">
-                        <div className="review__page__section__content__header__block">
-                          <div>
-                            <p>Photo</p>
-                            <p>Full Name</p>
-                            <p>Date</p>
-                            <p>Film</p>
-                            <p>Review</p>
-                          </div>
-                        </div>
-                        {paginatedUsers && paginatedUsers.map((review) => (
-                          <ReviewCard
-                            key={review.id}
-                            id={review.id}
-                            commentText={review.commentText}
-                            createdAt={review.createdAt}
-                            photo={review.users.photo}
-                            firstName={review.users.firstName}
-                            lastName={review.users.lastName}
-                            rating={review.rating}
-                            selectedReviews={selectedReviews}
-                            setSelectedReviews={setSelectedReviews}
-                            moviePhoto={review.movies.photos[0].moviePhoto}
-                          />
-                        ))}
+                <div className="review__page__section__content">
+                  <DatePickerCalendar
+                    startDate={startDate}
+                    endDate={endDate}
+                    setStartDate={setStartDate}
+                    setEndDate={setEndDate}
+                  />
+                  <div className="review__page__section__content__header">
+                    <div className="review__page__section__content__header__block">
+                      <div>
+                        <p>Photo</p>
+                        <p>Full Name</p>
+                        <p>Date</p>
+                        <p>Film</p>
+                        <p>Review</p>
                       </div>
                     </div>
-                    {selectedReviews.length > 0 && (
-                      <div className="review__page__section__btn">
-                        <button type="button" onClick={handleDelete}>Delete</button>
-                      </div>
-                    )}
-                    <Pagination
-                      totalPages={totalPages}
-                      currentPage={currentPage}
-                      handlePageChange={handlePageChange}
-                    />
-                  </>
-                ) : null}
+                    {length > 0 && paginatedUsers && paginatedUsers.map((review) => (
+                      <ReviewCard
+                        key={review.id}
+                        id={review.id}
+                        commentText={review.commentText}
+                        createdAt={review.createdAt}
+                        photo={review.users.photo}
+                        firstName={review.users.firstName}
+                        lastName={review.users.lastName}
+                        rating={review.rating}
+                        selectedReviews={selectedReviews}
+                        setSelectedReviews={setSelectedReviews}
+                        moviePhoto={review.movies.photos[0].moviePhoto}
+                      />
+                    ))}
+                  </div>
+                </div>
+                {selectedReviews.length > 0 && (
+                <div className="review__page__section__btn">
+                  <button type="button" onClick={handleDelete}>Delete</button>
+                </div>
+                )}
+                <Pagination
+                  totalPages={totalPages}
+                  currentPage={currentPage}
+                  handlePageChange={handlePageChange}
+                />
               </section>
             )}
           </div>
