@@ -1,0 +1,19 @@
+@media only screen and (min-width: 991px) and (max-width: 1200px) {
+  @import "max-1200";
+}
+
+@media only screen and (min-width: 767px) and (max-width: 990px) {
+  @import "max-991";
+}
+
+@media only screen and (min-width: 575px) and (max-width: 767px) {
+  @import "max-767";
+}
+
+@media only screen and (min-width: 375px) and (max-width: 575px) {
+  @import "max-575";
+}
+
+@media only screen and (max-width: 375px) {
+  @import "max-375";
+}

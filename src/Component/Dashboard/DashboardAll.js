@@ -85,7 +85,7 @@ function DashboardAll(props) {
                   <td className="movies__dashboard__table__item">Full Name</td>
                   <td className="movies__dashboard__table__item">Date</td>
                   <td className="movies__dashboard__table__item">Buy Films</td>
-                  <td className="movies__dashboard__table__item">Total Price</td>
+                  <td className="movies__dashboard__table__item">Total</td>
                   {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                   <td className="movies__dashboard__table__item" />
                 </tr>

@@ -269,7 +269,6 @@ function ChangeForm() {
       }
     }
   }, [dispatch, actorsArray, setUploadResult, handleActorData]);
-  console.log(actorsArray);
   return (
     <form className="admin__movie__section__content__form" onSubmit={handleSubmit}>
       <div className="admin__movie__section__content__form__back" onClick={handleGoBack}>

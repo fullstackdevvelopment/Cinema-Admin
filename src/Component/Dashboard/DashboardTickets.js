@@ -68,6 +68,9 @@ function DashboardTickets(props) {
               Date
             </td>
             <td className="movies__dashboard__table__item">
+              Movie Id
+            </td>
+            <td className="movies__dashboard__table__item">
               Price
             </td>
             {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
@@ -87,7 +90,11 @@ function DashboardTickets(props) {
                 {ticket.users.lastName}
               </td>
               <td className="movies__dashboard__table__item__info__items">
-                {moment(ticket.createdAt).format('YYYY.MM.DD')}
+                {moment(ticket.createdAt)
+                  .format('YYYY.MM.DD')}
+              </td>
+              <td className="movies__dashboard__table__item__info__items">
+                {ticket.movies.id}
               </td>
               <td className="movies__dashboard__table__item__info__items__price">
                 $

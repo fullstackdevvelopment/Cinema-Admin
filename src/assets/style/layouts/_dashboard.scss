@@ -1,6 +1,6 @@
 .admin__dashboard {
   width: 100%;
-  padding: 50px;
+  padding: 50px 0;
   display: flex;
   margin-bottom: 80px;
 
@@ -13,7 +13,7 @@
     width: 75%;
     align-items: center;
     justify-content: center;
-    border-radius: 0 50px 50px 0;
+    border-radius: 50px;
     background-color: #000;
     padding: 200px;
     height: inherit;
@@ -85,6 +85,7 @@
     text-align: left;
     margin-right: 60px;
   }
+
   &__banner {
     width: 100%;
     display: flex;
@@ -92,6 +93,7 @@
     justify-content: space-between;
     padding-right: 24px;
   }
+
   &__header {
     display: flex;
     justify-content: center;
@@ -107,12 +109,13 @@
       width: 45%;
     }
   }
+
   &__select__item {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-   }
+  }
 }
 
 .movies__dashboard__table {
@@ -137,7 +140,7 @@
       display: flex;
       width: 100%;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
   }
 
@@ -156,7 +159,6 @@
     font-weight: 700;
     line-height: 28px;
     text-align: center;
-    width: 20%;
 
     &__info {
       width: 100%;
@@ -202,6 +204,49 @@
 
         }
       }
+
+      &__items:nth-child(1) {
+        width: 10%;
+      }
+
+      &__items:nth-child(2) {
+        width: 30%;
+      }
     }
+  }
+
+  &__item:nth-child(1) {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__item:nth-child(2) {
+    width: 23%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__item:nth-child(3) {
+    width: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__item:nth-child(4) {
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__item:nth-child(5) {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 }

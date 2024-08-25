@@ -8,6 +8,7 @@ import logo from '../../assets/images/logo.svg';
 import vector from '../../assets/icons/vector.svg';
 import errorImg from '../../assets/images/userError.webp';
 import { adminData } from '../../store/actions/adminData';
+import AccountMenu from './AccountMenu';
 
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -93,6 +94,7 @@ function Header() {
               />
             </Button>
           </div>
+          <AccountMenu />
         </nav>
       </div>
       <Menu

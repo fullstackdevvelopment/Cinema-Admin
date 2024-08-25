@@ -1,0 +1,476 @@
+.container {
+  box-sizing: border-box;
+  max-width: 991px;
+  width: 100%;
+}
+
+.movies__nav__item {
+  font-size: 18px;
+  width: 100%;
+}
+
+.movies__nav__item.active::after, .movies__nav__item.active::before {
+  width: 100%;
+}
+
+.movies__nav .movies__nav__item.active span:before {
+  right: -60px;
+  top: -112px;
+}
+
+.movies__nav span {
+  width: 100%;
+  height: 100%;
+}
+
+.movies__nav__item.active::before {
+  right: 0;
+}
+
+.movies__nav__item.active::after {
+  right: 0;
+}
+
+.admin__dashboard__article {
+  padding-left: 30px;
+}
+
+.admin__dashboard__header {
+  padding-left: 30px;
+}
+
+.calendar {
+  width: 60%;
+  right: 12px;
+}
+
+.calendar__span {
+  width: 1%;
+  font-size: 36px;
+}
+
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+.movies__dashboard__table__item {
+  font-size: 16px;
+}
+
+.movies__dashboard__table__item__info {
+  padding: 16px 10px;
+}
+
+.movies__dashboard__table__item__info__items {
+  font-size: 12px;
+}
+
+.admin__dashboard__title {
+  font-size: 18px;
+}
+
+.admin__dashboard__dec {
+  font-size: 14px;
+}
+
+.movies__nav__dashboard__item {
+  font-size: 20px;
+}
+
+.movies__dashboard__table__item__info__items__price {
+  font-size: 12px;
+}
+
+.pagination .pagination__btn {
+  width: 75px;
+}
+
+.pagination .empty {
+  width: 75px;
+}
+
+.pagination span {
+  width: 35px;
+  font-size: 12px;
+}
+
+.admin__movie__section__title h2 {
+  font-size: 18px;
+}
+
+.admin__movie__section__title p {
+  font-size: 14px;
+}
+
+.admin__movie__section__nav nav ul li a {
+  font-size: 20px;
+}
+
+.admin__movie__section {
+  padding: 0;
+}
+
+.admin__movie__section__content__list {
+  width: 80%;
+}
+
+.admin__movie__section__content__list__create svg {
+  font-size: 18px;
+}
+
+.card figure figcaption svg:nth-child(2) {
+  padding: 6px;
+  top: -233px;
+  right: 5px;
+  background: #000;
+}
+
+.card figure figcaption svg:nth-child(3) {
+  padding: 6px;
+  top: -233px;
+  left: 5px;
+  background: #000;
+}
+
+.card figure figcaption h2 {
+  font-size: 12px;
+}
+
+.admin__movie__section__content__form__back {
+  right: 15px;
+}
+
+.admin__movie__section__content__form__status__title {
+  font-size: 14px;
+}
+
+.modal__files button {
+  font-size: 14px;
+}
+
+.modal__category button {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root .MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+  font-size: 12px;
+}
+
+.admin__movie__section__content__form {
+  padding: 0 15px 0 30px;
+  margin: 0;
+}
+
+.admin__movie__section__content__form__first__input__block__title p {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__form__first__input {
+
+  & div {
+    width: 50%;
+  }
+}
+
+.admin__movie__section__content__form__first__input__label {
+  font-size: 12px;
+}
+
+.admin__movie__section__content__form__first__input input {
+  font-size: 12px;
+  width: 90%;
+}
+
+.admin__movie__section__content__form__first__input .input__block {
+  width: 50%;
+}
+
+.admin__movie__section__content__form__first__textarea textarea {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__form__actors__input {
+  padding: 20px 26px;
+  margin-bottom: 30px;
+}
+
+.admin__movie__section__content__form__actors__title h2 {
+  font-size: 18px;
+}
+
+.admin__movie__section__content__form__actors__input__btn button {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__form__actors__input__block input {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__form__actors__input__block__check span {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__form__actors__input__block label {
+  border: 2px solid #135F55;
+  margin: 0 30px;
+}
+
+.admin__movie__section__content__form__actors__input__block img {
+  right: 152px;
+}
+
+.admin__movie__section__content__btn {
+  margin-bottom: 20px;
+}
+
+.admin__movie__section__content__form__movie label {
+  padding: 70px 40px;
+}
+
+.admin__movie__section__content__form__movie__stills label {
+  padding: 2px 37px;
+}
+
+.admin__movie__section__content__cat__list div {
+  width: 16%;
+}
+
+.admin__movie__section__content__cat__list div p {
+  font-size: 14px;
+}
+
+.user__page__section__title h2 {
+  font-size: 18px;
+}
+
+.user__page__section__title p {
+  font-size: 14px;
+}
+
+.user__page__section__title {
+  padding-left: 20px;
+}
+
+.user__page__section__content {
+  padding-left: 20px;
+}
+
+.user__page__section__content__header__block div p {
+  font-size: 18px;
+}
+
+.css-eqpfi5-MuiAccordionSummary-content {
+  width: 100%;
+}
+
+.user__card__content__photos {
+  width: 100%;
+}
+
+.user__card__content__photos__user {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.user__card__content p {
+  margin: 0;
+  font-size: 14px;
+  width: 125px;
+}
+
+.user__card__content__photos__film {
+  margin-right: 10px;
+  width: 60px;
+}
+
+.user__card__content__photos__film__block img {
+  width: 100%;
+  height: 100%;
+}
+
+.user__card__content__photos__film__block h3 {
+  font-size: 12px;
+}
+
+.MuiCollapse-root {
+  padding: 0 20px 0 200px;
+  width: 100%;
+  margin: 0;
+}
+
+.user__card__content__photos__list {
+  width: 60px;
+}
+
+.MuiAccordionDetails-root.user__card__content__list.css-15v22id-MuiAccordionDetails-root {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiAccordion-root.MuiAccordion-rounded.MuiAccordion-gutters.user__card__content.css-1086bdv-MuiPaper-root-MuiAccordion-root {
+  margin-bottom: 20px;
+}
+
+.review__page__section {
+  padding: 0 20px 100px 0;
+}
+
+.review__page__section__title {
+  padding-left: 20px;
+}
+
+.review__page__section__content__header__block div p {
+  font-size: 14px;
+}
+
+.checkbox__label {
+  width: 30px;
+  height: 30px;
+}
+
+.check__icon {
+  top: 5px;
+  left: 7px;
+  width: 15px;
+}
+
+.review__card__content {
+  width: 95%;
+}
+
+.review__card__content figure {
+  width: 7%;
+  height: 100%;
+}
+
+.review__card__content p {
+  font-size: 13px;
+  width: 20%;
+}
+
+.review__card__content p:nth-child(3) {
+  width: 15%;
+}
+
+.review__card__content__image {
+  width: 10%;
+}
+
+.review__card__content figcaption {
+  width: 45%;
+}
+
+.review__card__content figcaption p {
+  font-size: 14px;
+  width: 100%;
+}
+
+.review__card__content div {
+  & span {
+    font-size: 22px !important;
+  }
+}
+
+.review__page__section__content__header__block div p:nth-child(4) {
+  width: 10%;
+}
+
+.review__page__section__content__header__block div p:nth-child(3) {
+  width: 15%;
+}
+
+.review__page__section__content__header__block div p:nth-child(2) {
+  width: 20%;
+}
+
+.review__page__section__content__header__block div p:nth-child(1) {
+  width: 10%;
+}
+
+.schedule__dashboard__title {
+  font-size: 18px;
+}
+
+.schedule__dashboard__dec {
+  font-size: 14px;
+}
+
+.schedule__dashboard__header button {
+  font-size: 14px;
+}
+
+.schedule__dashboard__table__block__list__delete {
+  right: 7px;
+  top: 7px;
+}
+
+.schedule__dashboard__table__block__list__delete svg {
+  font-size: 20px;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) p:nth-child(1) {
+  font-size: 30px;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) p:nth-child(2) {
+  font-size: 14px;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) {
+  width: 22%;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(3) {
+  width: 78%;
+}
+
+.schedule__dashboard__table__block__list__item__block__item {
+  width: calc(100% / 7 - 18px);
+}
+
+.schedule__dashboard__table__block__list__item__block {
+  justify-content: space-between;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(1) {
+  font-size: 12px;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(2) {
+  font-size: 30px;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(3) {
+  font-size: 14px;
+}
+
+.schedule__dashboard__table__block__list__item__schedule__item p {
+  font-size: 12px;
+  padding: 8px 2px;
+}
+
+.schedule__dashboard__create__block__img {
+  width: 15%;
+}
+
+.schedule__dashboard__create__block p {
+  font-size: 18px;
+}
+
+.react-datepicker-wrapper {
+  width: 40%;
+}
+
+.schedule__dashboard__create__block__input button {
+  font-size: 14px;
+}
+
+.schedule__dashboard__article {
+  margin-bottom: 50px;
+}
+
+.schedule__dashboard__create__block {
+  margin-bottom: 70px;
+}
+

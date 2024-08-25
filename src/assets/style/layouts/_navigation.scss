@@ -18,14 +18,14 @@
 }
 
 .movies__nav__item.active::before {
-  right: -24px;
+  right: 0;
   top: 113px;
   border-top-right-radius: 50px;
   z-index: 1;
 }
 
 .movies__nav__item.active::after {
-  right: -24px;
+  right: 0;
   top: -40px;
   border-bottom-right-radius: 50px;
   z-index: 1;
@@ -43,7 +43,7 @@
   text-decoration: none;
   position: relative;
   padding: 40px 44px;
-  width: 253px;
+  width: 100%;
   margin: 10px 0;
 }
 
@@ -59,19 +59,20 @@
 .movies__nav span {
   position: relative;
   display: block;
-  width: 1px;
+  width: 100%;
+  height: 100%;
 }
 
 .movies__nav .movies__nav__item.active span:before {
   content: "";
   position: absolute;
   background-color: #000;
-  width: 60px;
+  width: 40%;
   height: 191px;
   display: block;
 }
 
 .movies__nav .movies__nav__item.active span:before {
-  right: -232px;
+  right: -82px;
   top: -112px;
 }

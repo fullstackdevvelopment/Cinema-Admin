@@ -1,6 +1,6 @@
 .review__page {
   width: 100%;
-  padding: 50px;
+  padding: 50px 0;
   display: flex;
   margin-bottom: 80px;
 
@@ -83,13 +83,13 @@
           display: flex;
           width: 100%;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-end;
           margin-bottom: 10px;
 
           & div {
             display: flex;
-            width: 100%;
-            justify-content: flex-end;
+            width: 91%;
+            justify-content: flex-start;
 
             & p {
               color: #fff;
@@ -100,23 +100,23 @@
             }
 
             & p:nth-child(5) {
-              margin-right: 233px;
+
             }
 
             & p:nth-child(4) {
-              margin-right: 70px;
+              width: 15%;
             }
 
             & p:nth-child(3) {
-              margin-right: 46px;
+              width: 13%;
             }
 
             & p:nth-child(2) {
-              margin-right: 50px;
+              width: 20%;
             }
 
             & p:nth-child(1) {
-              margin-right: 24px;
+              width: 12%;
             }
           }
         }
@@ -241,7 +241,7 @@ input[type="checkbox"]:checked ~ .check__icon {
 .review__card__content figcaption {
   width: 320px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-end;
   position: relative;
 }
@@ -283,5 +283,4 @@ input[type="checkbox"]:checked ~ .check__icon {
   top: 0;
   right: 2px;
 }
-
 

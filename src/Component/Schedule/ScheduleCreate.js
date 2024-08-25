@@ -32,8 +32,6 @@ function ScheduleCreate() {
     setLoading((prevLoading) => ({ ...prevLoading, [movieId]: true }));
     const showTime = moment(showTimes[movieId]).format('YYYY-MM-DD HH:mm');
     const time = moment(new Date()).format('YYYY-MM-DD HH:mm');
-    console.log(showTime);
-    console.log(time);
     if (showTime !== time) {
       const createScheduleResult = await dispatch(createSchedule({ movieId, showTime }));
       if (createSchedule.fulfilled.match(createScheduleResult)) {
@@ -95,11 +93,11 @@ function ScheduleCreate() {
     <div className="schedule__dashboard__create">
       {paginatedSchedule?.map((item) => (
         <div key={item.id} className="schedule__dashboard__create__block">
-          <div className="schedule__dashboard__create__block__img">
-            <p>{item.title}</p>
-            <img src={`http://localhost:4000/${item.photos[0].moviePhoto}`} alt={item.title} />
-          </div>
+          <p>{item.title}</p>
           <div className="schedule__dashboard__create__block__input">
+            <div className="schedule__dashboard__create__block__img">
+              <img src={`http://localhost:4000/${item.photos[0].moviePhoto}`} alt={item.title} />
+            </div>
             <DatePicker
               selected={showTimes[item.id]}
               onChange={(date) => handleDateChange(date, item.id)}

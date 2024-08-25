@@ -1,0 +1,564 @@
+body {
+  padding: 0 !important;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 767px;
+  width: 100%;
+}
+
+.header__nav__logo {
+  width: 65px;
+  height: 65px;
+}
+
+.header__nav__icon .admin__photo {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #e8920b;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.MuiButton-colorPrimary.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.MuiButton-colorPrimary.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  padding: 0;
+  font-size: 14px;
+}
+
+.header__nav__icon .vector {
+  width: 50%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 0;
+}
+
+#basic-menu.MuiPopover-root.MuiMenu-root.header__menu.MuiModal-root.css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  background-color: #000;
+  border: 2px solid #e8920b;
+  box-shadow: 0 0 0 0;
+  border-radius: 8px;
+  right: 11px !important;
+  left: 650px !important;
+  top: 10px !important;
+  position: absolute;
+}
+
+.MuiBox-root.css-5nwj3y {
+  display: flex;
+}
+
+.header__nav__icon {
+  display: none;
+}
+
+.css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 999999 !important;
+}
+
+.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  transition: 0.2s !important;
+}
+
+.css-eqeipb-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform-origin: 1200px 0 !important;
+  background-color: #135F55 !important;
+  transition: 0.2s !important;
+  overflow: hidden !important;
+}
+
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  width: 200px !important;
+  height: 50px !important;
+  color: #fff;
+  font-size: 22px !important;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    color: #9a620a !important;
+    & svg {
+      color: #9a620a !important;
+    }
+  }
+
+  & svg {
+    color: #fff !important;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.active {
+  color: #e8920b !important;
+
+  & svg {
+    color: #e8920b !important;
+  }
+}
+
+.sign__in__page__title h1 {
+  font-size: 30px;
+}
+
+.sign__in__page__title h2 {
+  font-size: 40px;
+}
+
+.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-137ul40-MuiButtonBase-root-MuiIconButton-root {
+  background: #e8920b !important;
+  padding: 3px !important;
+}
+
+.css-1sh9f28-MuiAvatar-root {
+  background-color: #e8920b !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root.rotate {
+  transform: rotate(90deg);
+  transition: all 0.4s ease-in-out;
+}
+
+.css-i4bv87-MuiSvgIcon-root.normal {
+  transform: rotate(180deg);
+  transition: all 0.4s ease-in-out;
+}
+
+.css-eqeipb-MuiPaper-root-MuiPopover-paper-MuiMenu-paper::before {
+  display: none !important;
+}
+
+.MuiDivider-root.MuiDivider-fullWidth.css-9mgopn-MuiDivider-root {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.close.css-i4bv87-MuiSvgIcon-root {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+
+.header__movie {
+  display: none;
+}
+
+.schedule__dashboard__container {
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule__dashboard__section {
+  width: 90%;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule__dashboard__article {
+  padding: 14px 0 0 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.schedule__dashboard__table__block__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) {
+  width: 22%;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) p:nth-child(1) {
+  font-size: 30px;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) p:nth-child(2) {
+  font-size: 14px;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(3) {
+  width: 78%;
+}
+
+.schedule__dashboard__table__block__list__item__block__item {
+  padding: 0 4px 5px 4px;
+  margin-right: 0;
+}
+
+.schedule__dashboard__table__block__list__item__block {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(1) {
+  font-size: 14px;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(2) {
+  font-size: 35px;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(3) {
+  font-size: 14px;
+}
+
+.pagination .pagination__btn {
+  width: 75px;
+}
+
+.pagination .empty {
+  width: 75px;
+}
+
+.pagination span {
+  width: 35px;
+  font-size: 12px;
+}
+
+.admin__dashboard {
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  margin-bottom: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin__dashboard__container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin__dashboard__section {
+  width: 90%;
+  border-radius: 50px;
+  background-color: #000;
+  padding: 20px 0;
+}
+
+.admin__dashboard__article {
+  padding-left: 33px;
+}
+
+.admin__dashboard__header {
+  padding-left: 33px;
+}
+
+.admin__dashboard__table {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.react-datepicker-wrapper {
+  width: 40%;
+}
+
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+.movies__dashboard__table__item {
+  font-size: 18px;
+}
+
+.movies__dashboard__table__item__info__items__price {
+  color: rgb(19, 95, 85);
+  font-family: Roboto, "sans-serif";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+  width: 20%;
+}
+
+.admin__movie {
+  align-items: center;
+  justify-content: center;
+}
+
+.admin__movie__container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.admin__movie__section {
+  display: flex;
+  align-items: flex-start;
+  width: 90%;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #000;
+  border-radius: 50px;
+  padding: 0 0 100px 0;
+}
+
+.admin__movie__section__content__list__block {
+  align-items: flex-start;
+}
+
+.card {
+  margin: 6px;
+}
+
+.card figure figcaption svg:nth-child(2) {
+  top: -190px;
+}
+
+.card figure figcaption svg:nth-child(3) {
+  top: -190px;
+}
+
+.admin__movie__section__content__form {
+  margin-left: 0;
+}
+
+.admin__movie__section__content__form__back {
+  right: 11px;
+}
+
+.admin__movie__section__content__form__first {
+  padding: 0 10px;
+}
+
+.admin__movie__section__content__form__status__title {
+  font-size: 14px;
+  padding: 9px 8px 6px 0;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root .MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+  font-size: 12px;
+}
+
+.admin__movie__section__content__form__first__input__block__title p {
+  font-size: 14px;
+  padding: 9px 8px 6px 0;
+}
+
+.admin__movie__section__nav {
+  padding-left: 10px;
+}
+
+.admin__movie__section__title {
+  padding-left: 25px;
+}
+
+.admin__movie__section__content__form__first__input {
+  justify-content: space-between;
+}
+
+.admin__movie__section__content__form__first__input .input__block {
+  width: 50%;
+}
+
+.admin__movie__section__content__form__second {
+  padding: 0 10px;
+}
+
+.admin__movie__section__content__form__actors__input__block img {
+  right: 177px;
+}
+
+.admin__movie__section__content__form__movie label {
+  padding: 50px 20px;
+}
+
+.admin__movie__section__content__form__movie__stills label {
+  padding: 2px 30px;
+}
+
+.admin__movie__section__content__cat__list div {
+  width: 20%;
+}
+
+.admin__movie__section__content__cat__list div p {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__cat__list div .check {
+  height: 14px;
+}
+
+.admin__movie__section__content__cat__list div svg {
+  height: 14px;
+}
+
+.user__page__section {
+  padding: 0 0 100px 0;
+  border-radius: 50px;
+  width: 90%;
+}
+
+.user__page__section__content {
+  padding: 0 6px;
+}
+.MuiAccordionSummary-content.MuiAccordionSummary-contentGutters.css-eqpfi5-MuiAccordionSummary-content {
+  width: 100% !important;
+}
+
+.user__card__content__photos {
+  width: 100%;
+}
+
+.user__card__content__photos__user {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.user__card__content p {
+  margin: 0 80px 0 0;
+  font-size: 14px;
+}
+
+.user__card__content__photos__film {
+  margin-right: 12px;
+  width: 50px;
+}
+
+.user__card__content__photos__film__block img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.user__card__content__photos__film__block h3 {
+  font-size: 12px;
+}
+
+.MuiCollapse-root {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0 46px 0 288px;
+  margin: 0;
+}
+
+.user__card__content__photos__list {
+  width: 50px;
+  margin-right: 12px;
+}
+
+.user__card__content__list {
+  width: min-content;
+}
+
+.review__page__section {
+  width: 90%;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #000;
+  border-radius: 50px;
+  padding: 0 0 100px 0;
+  height: inherit;
+}
+
+.review__page__section__title {
+  padding-left: 30px;
+}
+
+.checkbox__label {
+  width: 30px;
+  height: 30px;
+}
+
+.check__icon {
+  top: 5px;
+  left: 7px;
+  width: 14px;
+}
+
+.review__card__content {
+  width: 92%;
+}
+
+.review__card__content figure {
+  width: 6%;
+}
+
+.review__card__content p {
+  font-size: 14px;
+}
+.review__card__content p:nth-child(2) {
+  width: 20%;
+}
+
+.review__card__content p:nth-child(3) {
+  width: 15%;
+}
+
+.review__card__content__image {
+  width: 10%;
+}
+
+.review__card__content figcaption {
+  width: 42%;
+  align-items: flex-start;
+}
+
+.review__card__content figcaption p {
+  font-size: 14px;
+}
+
+.review__card__content span {
+  font-size: 25px !important;
+}
+
+.admin__movie__section__content__form__first__textarea textarea {
+  font-size: 20px;
+}
+
+.review__page__section__content__header__block div p {
+  font-size: 16px;
+}
+
+.review__page__section__content__header__block div p:nth-child(1) {
+  width: 11%;
+}
+
+.review__page__section__content__header__block div p:nth-child(2) {
+  width: 21%;
+}
+
+.review__page__section__content__header__block div p:nth-child(3) {
+  width: 15%;
+}
+
+.review__page__section__content__header__block div p:nth-child(4) {
+  width: 10%;
+}

@@ -1,6 +1,6 @@
 .schedule__dashboard {
   width: 100%;
-  padding: 50px;
+  padding: 50px 0;
   display: flex;
   margin-bottom: 80px;
 
@@ -240,9 +240,18 @@
     &__block {
       display: flex;
       width: 100%;
-      align-items: center;
+      align-items: flex-start;
       justify-content: flex-start;
       margin-bottom: 30px;
+      flex-direction: column;
+
+      & p {
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28px;
+        margin-bottom: 10px;
+      }
 
       &__img {
         display: flex;
@@ -257,19 +266,11 @@
           border-radius: 20px;
           border: 2px solid #fff;
         }
-
-        & p {
-          color: rgb(255, 255, 255);
-          font-size: 24px;
-          font-weight: 500;
-          line-height: 28px;
-          margin-bottom: 10px;
-        }
       }
 
       &__input {
         display: flex;
-        width: 73%;
+        width: 100%;
         align-items: center;
 
         & input {

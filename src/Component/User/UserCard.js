@@ -62,9 +62,7 @@ export default function AccordionUsage(props) {
                   }}
                 />
                 <p>
-                  {b.firstName}
-                  {' '}
-                  {b.lastName}
+                  {`${b.firstName} ${b.lastName}`}
                 </p>
                 {firstFiveBookings.map((booking) => (
                   <Movies

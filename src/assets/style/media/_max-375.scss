@@ -1,0 +1,1198 @@
+.container {
+  box-sizing: border-box;
+  min-width: 270px;
+  max-width: 270px;
+  width: 100%;
+}
+
+button {
+  width: 100% !important;
+  padding: 10px 0 !important;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.admin__movie__section__content__btn button {
+  text-align: center;
+}
+
+.sign__in {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+.sign__in__page__title h1 {
+  font-size: 14px;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sign__in__page__title h2 {
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+}
+
+.sign__in__page__title {
+  margin-bottom: 10px;
+}
+
+.sign__in__page {
+  background: #000;
+  padding: 20px 2px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 3px solid #e8920b;
+}
+
+.sign__in__page form input {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 21.09px;
+  text-align: left;
+  color: #135F55;
+  outline: none;
+  border: 2px solid #000;
+  padding: 7px;
+  width: 90%;
+}
+
+.sign__in__page form button {
+  padding: 4px 8px !important;
+  margin: 0;
+  font-size: 14px;
+  width: 90% !important;
+}
+
+.header__nav__logo {
+  width: 40px;
+  height: 40px;
+}
+
+.MuiBox-root.css-5nwj3y {
+  display: flex;
+  width: 40px;
+  height: 40px;
+}
+
+.header__nav__icon {
+  display: none;
+}
+
+.header__movie {
+  display: none;
+}
+
+.css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 999999 !important;
+}
+
+.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  transition: 0.2s !important;
+}
+
+.css-eqeipb-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: calc(100% - 16px) !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform-origin: 200px 0 !important;
+  background-color: #135F55 !important;
+  transition: 0.2s !important;
+  overflow: hidden !important;
+}
+
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  width: 200px !important;
+  height: 50px !important;
+  color: #fff;
+  font-size: 16px !important;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    color: #9a620a !important;
+
+    & svg {
+      color: #9a620a !important;
+    }
+  }
+
+  & svg {
+    color: #fff !important;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.active {
+  color: #e8920b !important;
+
+  & svg {
+    color: #e8920b !important;
+  }
+}
+
+.modal__files__movie__stills__block {
+  width: 100%;
+}
+
+.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall.css-137ul40-MuiButtonBase-root-MuiIconButton-root {
+  margin: 0;
+}
+
+.css-1sh9f28-MuiAvatar-root {
+  background-color: #e8920b !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root.rotate {
+  transform: rotate(90deg);
+  transition: all 0.4s ease-in-out;
+}
+
+.css-i4bv87-MuiSvgIcon-root.normal {
+  transform: rotate(180deg);
+  transition: all 0.4s ease-in-out;
+}
+
+.css-eqeipb-MuiPaper-root-MuiPopover-paper-MuiMenu-paper::before {
+  display: none !important;
+}
+
+.MuiDivider-root.MuiDivider-fullWidth.css-9mgopn-MuiDivider-root {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.close.css-i4bv87-MuiSvgIcon-root {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  color: #fff !important;
+  cursor: pointer !important;
+}
+
+
+.review__page__section {
+  width: 90%;
+  border-radius: 50px;
+  padding: 0 0 100px 0;
+}
+
+.review__page__section__title {
+  padding-left: 30px;
+}
+
+.pagination .pagination__btn {
+  width: 24px;
+  padding: 4px 0;
+}
+
+.movies__dashboard__table__item__info__items__price {
+  font-size: 6px;
+  line-height: 0;
+}
+
+.schedule__dashboard__create__block p {
+  font-size: 14px;
+}
+
+.admin__dashboard__loader {
+  width: 100%;
+  padding: 100px;
+}
+
+.schedule__dashboard__create__block__input button {
+  font-size: 14px;
+}
+
+.movies__dashboard__table__item__info {
+  padding: 2px;
+}
+
+.movies__dashboard__table {
+  padding: 0 6px;
+}
+
+.pagination .empty {
+  width: 24px;
+  padding: 4px 0;
+}
+
+.admin__movie__section__title h2 {
+  font-size: 14px;
+  padding: 0;
+}
+
+.admin__movie__section__title p {
+  font-size: 14px;
+  padding: 0;
+}
+
+.pagination span {
+  width: 10px;
+  font-size: 6px;
+  padding: 0 6px;
+  margin: 0 4px;
+}
+
+.calendar {
+  width: 60%;
+  right: 0;
+  top: -34px;
+}
+
+.react-datepicker-wrapper input {
+  font-size: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 2px 0 2px 5px;
+}
+
+.react-datepicker-wrapper {
+  width: 40%;
+}
+
+.calendar__span {
+  width: 15%;
+  font-size: 18px;
+}
+
+.review__page__section__content__header {
+  padding: 0 15px;
+}
+
+.review__card {
+  padding: 0;
+}
+
+.review__card__content {
+  width: 89%;
+}
+
+.checkbox__label {
+  width: 15px;
+  height: 15px;
+}
+
+.check__icon {
+  top: 2px;
+  left: -4px;
+  height: 8px;
+}
+
+.review__card__content figure {
+  width: 6%;
+}
+
+.review__card__content p {
+  font-size: 6px;
+}
+
+.review__card__content p:nth-child(2) {
+  width: 20%;
+}
+
+.review__card__content p:nth-child(3) {
+  width: 15%;
+}
+
+.review__card__content__image {
+  width: 10%;
+}
+
+.review__card__content figcaption {
+  width: 42%;
+  align-items: flex-start;
+}
+
+.review__card__content figcaption p {
+  font-size: 6px;
+}
+
+.review__card__content span {
+  font-size: 14px !important;
+}
+
+.review__card__content div {
+  right: 6px;
+}
+
+.review__page__section__content__header__block div p {
+  font-size: 8px;
+}
+
+.review__page__section__content__header__block div p:nth-child(1) {
+  width: 13%;
+}
+
+.review__page__section__content__header__block div p:nth-child(2) {
+  width: 19%;
+}
+
+.review__page__section__content__header__block div p:nth-child(3) {
+  width: 14%;
+}
+
+.review__page__section__content__header__block div p:nth-child(4) {
+  width: 10%;
+}
+
+.admin__dashboard__section {
+  width: 90%;
+  border-radius: 10px;
+  background-color: #000;
+  padding-bottom: 20px;
+}
+
+.admin__dashboard__container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin__dashboard__title, .admin__dashboard__dec {
+  font-size: 12px;
+  padding-bottom: 0;
+}
+
+.admin__dashboard__article {
+  padding-left: 16px;
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+
+.admin__dashboard__header {
+  padding-left: 16px;
+  margin-bottom: 5px;
+}
+
+.movies__nav__dashboard__item {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.movies__nav__dashboard__header {
+  align-items: flex-start;
+}
+
+.movies__dashboard__table__item__info__items {
+  font-size: 6px;
+}
+
+.movies__dashboard__table__item__info__items:nth-child(1) {
+  width: 8%;
+}
+
+.movies__dashboard__table__item__info__items:nth-child(2) {
+  width: 45%;
+}
+
+.movies__dashboard__table__item {
+  font-size: 6px;
+  line-height: 2;
+}
+
+.movies__dashboard__table__item:nth-child(1) {
+  width: 18%;
+}
+
+.movies__dashboard__table__item:nth-child(2) {
+  width: 26%;
+}
+
+.movies__dashboard__table__item:nth-child(3) {
+  width: 13%;
+}
+
+.movies__dashboard__table__item:nth-child(4) {
+  width: 17%;
+}
+
+.admin__movie {
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.admin__movie__section__nav nav ul li a {
+  font-size: 14px;
+}
+
+.admin__movie__section__content__list__create svg {
+  color: #fff;
+  font-size: 14px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 2px 3px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.admin__movie__section__content__list {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.modal__files button, .modal__category button {
+  font-size: 8px;
+  margin: 0;
+}
+
+.card figure figcaption h2 {
+  font-size: 6px;
+  line-height: 1;
+}
+
+.card figure img {
+  margin-bottom: 3px;
+}
+
+.admin__movie__container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.admin__movie__section {
+  display: flex;
+  align-items: flex-start;
+  width: 90%;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #000;
+  border-radius: 10px;
+  padding: 0 0 20px 0;
+}
+
+.admin__movie__section__content__list__block {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.card {
+  margin: 2px 2px 6px 2px;
+}
+
+.card figure figcaption svg:nth-child(2) {
+  top: -90px;
+  font-size: 6px;
+  padding: 4px;
+}
+
+.card figure figcaption svg:nth-child(3) {
+  top: -90px;
+  font-size: 6px;
+  padding: 4px;
+}
+
+.admin__movie__section__content__form {
+  margin-left: 0;
+}
+
+.admin__movie__section__content__form__back {
+  right: 11px;
+  top: -34px;
+  border-radius: 10px;
+  padding: 7px 10px;
+}
+
+.admin__movie__section__content__form__back p {
+  font-size: 10px;
+}
+
+.admin__movie__section__content__form__back svg {
+  height: 10px;
+}
+
+.admin__movie__section__content__form__first {
+  padding: 0 10px;
+}
+
+.admin__movie__section__content__form__status__title {
+  font-size: 8px;
+  margin-right: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root .MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+  font-size: 6px;
+  padding: 8px 0;
+  width: 70%;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root {
+  width: 100%;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root:nth-child(1) {
+  width: 20%;
+  margin: 0;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root:nth-child(2) {
+  width: 40%;
+  margin: 0;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root:nth-child(3) {
+  width: 40%;
+  margin: 0;
+}
+
+.admin__movie__section__content__form__first__input__block__title {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-1hbvpl3-MuiSvgIcon-root {
+  width: 10px;
+  height: 10px;
+}
+
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-1hhw7if-MuiSvgIcon-root {
+  width: 10px;
+  height: 10px;
+}
+
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-11zohuh-MuiSvgIcon-root {
+  width: 10px;
+  height: 10px;
+}
+
+.admin__movie__section__content__form__status .MuiFormControl-root.css-1nrlq1o-MuiFormControl-root .MuiFormGroup-root.MuiRadioGroup-root.css-dmmspl-MuiFormGroup-root .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementEnd.css-j204z7-MuiFormControlLabel-root .MuiButtonBase-root.MuiRadio-root.MuiRadio-colorPrimary.PrivateSwitchBase-root.MuiRadio-root.MuiRadio-colorPrimary.MuiRadio-root.MuiRadio-colorPrimary.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+  width: 30%;
+  padding: 0;
+  margin-right: 2px;
+}
+
+.admin__movie__section__content__form__first__input__block__title p {
+  font-size: 6px;
+  padding: 9px 8px 6px 0;
+}
+
+.admin__movie__section__content__form__first__input input {
+  font-size: 8px;
+  padding: 4px 36px 4px 13px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.admin__movie__section__content__form__first__input__label {
+  font-size: 8px;
+  margin-bottom: 5px;
+}
+
+.admin__movie__section__content__form__first__textarea {
+  padding: 10px;
+}
+
+.admin__movie__section__content__form__first__textarea textarea {
+  font-size: 10px;
+  padding: 10px 23px 57px 11px;
+}
+
+.admin__movie__section__content__form__actors__title h2 {
+  font-size: 12px;
+}
+
+.admin__movie__section__content__form__actors__input__btn button {
+  font-size: 12px;
+}
+
+.admin__movie__section__content__form__actors__input__block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.admin__movie__section__content__form__actors__input__block label {
+  padding: 10px;
+  border: 2px solid #135F55;
+  margin-right: 3px;
+  width: 20%;
+}
+
+.admin__movie__section__content__form__actors__input {
+  padding: 10px;
+}
+
+.admin__movie__section__content__form__actors__input__block input {
+  width: 100%;
+  font-size: 10px;
+  padding: 4px 0 4px 10px;
+  margin: 0 0 5px 0;
+}
+
+.admin__movie__section__content__form__actors .error {
+  padding: 10px;
+}
+
+.admin__movie__section__content__form__actors__input__block label svg {
+  width: 14px;
+  height: 14px;
+}
+
+.admin__movie__section__content__form__actors__input__block__check {
+  width: 60%;
+}
+
+.admin__movie__section__content__form__actors__input__block__check span {
+  padding: 2px 4px;
+  font-size: 10px;
+}
+
+.admin__movie__section__nav {
+  padding-left: 10px;
+  margin-bottom: 8px;
+}
+
+.admin__movie__section__nav nav ul li {
+  margin: 0;
+}
+
+.admin__movie__section__title {
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.admin__movie__section__content__form__first__input {
+  justify-content: space-between;
+  padding: 20px 10px;
+
+  & div {
+    width: 100%;
+  }
+}
+
+.admin__movie__section__content__form__first__input .input__block {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.admin__movie__section__content__form__second {
+  padding: 0 10px;
+}
+
+.admin__movie__section__content__form__actors__input__block img {
+  right: 145px;
+  width: 35px;
+  height: 35px !important;
+  top: 36px;
+  object-fit: cover;
+}
+
+.admin__movie__section__content__form__movie label {
+  padding: 38px 18px;
+  font-size: 13px;
+  border-radius: 12px;
+  line-height: 1;
+}
+
+.admin__movie__section__content__form__first__input__userPhoto {
+  position: absolute;
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.admin__movie__section__content__form__movie__btn {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin__movie__section__content__form__movie__btn .ok, .admin__movie__section__content__form__movie__btn .fail {
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+.admin__movie__section__content__form__movie__stills label svg {
+  width: 15px;
+  height: 15px;
+}
+
+.admin__movie__section__content__form__movie label svg {
+  width: 10px;
+  height: 10px;
+}
+
+.admin__movie__section__content__form__movie__stills label {
+  padding: 30px 24px;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 14px;
+}
+
+.css-lfekvp {
+  padding: 30px 10px !important;
+}
+
+.modal__category__close svg, .modal__category__save svg, .modal__files__close svg {
+  font-size: 20px;
+}
+
+.modal__files__close {
+  right: 6px;
+}
+
+.admin__movie__section__content__cat__first {
+  margin-bottom: 20px;
+}
+
+.admin__movie__section__content__cat__list div {
+  width: 100%;
+  padding: 10px 5px;
+  height: 10px;
+  margin: 0 0 10px 0;
+}
+
+.modal__category .error__block .categories__error {
+  display: flex;
+  align-items: center;
+  color: #cd3d64;
+  border-radius: 10px;
+  padding: 4px 4px 4px 0;
+  font-weight: 600;
+  justify-content: flex-start;
+  font-size: 6px;
+}
+.admin__movie__section__content__form__status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+
+.modal__files .error__block {
+  display: flex;
+  align-items: center;
+  color: #cd3d64;
+  border-radius: 10px;
+  padding: 4px 4px 4px 2px;
+  font-weight: 600;
+  justify-content: flex-start;
+  font-size: 6px;
+  width: 100%;
+
+  & svg {
+    margin-right: 10px;
+  }
+}
+
+.modal__files .error__block .files__error,.stills__error {
+  padding: 4px 4px 4px 0;
+}
+
+.modal__files {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.modal__category .error__block {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background: #fff;
+  color: #cd3d64;
+  border-radius: 10px;
+  border: 2px solid #cd3d64;
+  padding: 4px 4px 4px 2px;
+  font-weight: 600;
+  justify-content: flex-start;
+  font-size: 6px;
+}
+
+.admin__movie__section__content__cat__list div p {
+  font-size: 8px;
+}
+
+.admin__movie__section__content__cat__list div .check {
+  height: 8px;
+}
+
+.modal__category__close {
+  top: 6px;
+  right: 6px;
+}
+
+.css-lfekvp {
+  border-radius: 0 !important;
+}
+
+.admin__movie__section__content__cat__list div svg {
+  height: 8px;
+}
+
+.admin__movie__section__content__cat__first__input input {
+  font-size: 10px;
+  padding: 4px 0 4px 15px;
+}
+
+.admin__movie__section__content__cat__first__input svg {
+  font-size: 18px;
+  right: 15px;
+}
+
+.modal__files__movie {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+
+  & .modal__files__movie__title {
+    width: 100%;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    margin-right: 10px;
+  }
+}
+
+.admin__movie__section__content__form__actors__input .actors__error {
+  font-size: 10px;
+}
+
+.admin__movie__section__content__form__movie__delete p {
+  font-size: 10px;
+}
+
+.admin__movie__section__content__form__movie__delete {
+  width: 80%;
+  margin-left: 10px;
+}
+
+.admin__movie__section__content__form__movie__delete svg {
+  left: 70px;
+}
+
+.modal__files__block {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal__files__movie__stills {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal__files__movie__title {
+  font-size: 18px;
+}
+
+.stills__xmark {
+  font-size: 20px;
+}
+
+.admin__movie__section__content__form__movie__stills div .ok {
+  padding: 5px;
+}
+
+.admin__movie__section__content__form__movie__stills div .fail {
+  padding: 5px;
+}
+
+.admin__movie__section__content__form__movie__btn p {
+  font-size: 10px;
+  padding: 2px 4px;
+  margin-right: 10px;
+}
+
+.admin__movie__section__content__form__movie__stills {
+  margin: 0 0 10px 0;
+  width: 100%;
+}
+
+.admin__movie__section__content__form__trailer label {
+  font-size: 10px;
+  width: 64px;
+  height: 26px;
+  padding: 0 5px;
+  margin: 0 0 5px 0;
+}
+
+.admin__movie__section__content__form__trailer label svg {
+  position: absolute;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+}
+
+.css-lfekvp {
+  position: relative !important;
+  overflow: auto !important;
+}
+
+.modal__files__save {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  & button {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+}
+
+.admin__movie__section__content__form__movie {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin__movie__section__content__form__trailer__video {
+  width: 100%;
+}
+
+.admin__movie__section__content__form__trailer {
+  width: 100%;
+}
+
+.user__page__section {
+  padding: 0 0 100px 0;
+  border-radius: 50px;
+  width: 90%;
+}
+
+.user__page__section__content {
+  padding: 0 6px;
+}
+
+.MuiAccordionSummary-content.MuiAccordionSummary-contentGutters.css-eqpfi5-MuiAccordionSummary-content {
+  width: 100% !important;
+}
+
+.user__card__content__photos {
+  width: 100%;
+}
+
+.user__card__content__photos__user {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.user__card__content p {
+  margin: 0;
+  font-size: 8px;
+}
+
+.user__card__content__photos__film {
+  margin-right: 3px;
+  width: 40px;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiAccordion-root.MuiAccordion-rounded.MuiAccordion-gutters.user__card__content.css-1086bdv-MuiPaper-root-MuiAccordion-root {
+  border-radius: 30px;
+  background-color: #bac7c5;
+  margin-bottom: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.user__card__content__photos__film__block img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  height: 50px;
+}
+
+.user__card__content__photos__film__block h3 {
+  font-size: 6px;
+}
+
+.MuiCollapse-root {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0 15px 0 123px;
+  margin: 0;
+}
+
+.user__card__content__photos__list {
+  width: 50px;
+  margin-right: 3px;
+}
+
+.user__card__content__list {
+  width: 32px;
+}
+
+.user__page__section__title {
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+
+.user__page__section__content__header__block div p {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.schedule__dashboard__container {
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule__dashboard__section {
+  width: 90%;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule__dashboard__article {
+  padding: 14px 0 0 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.schedule__dashboard__table__block__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) {
+  width: 30%;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) p:nth-child(1) {
+  font-size: 16px;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(2) p:nth-child(2) {
+  font-size: 8px;
+}
+
+.schedule__dashboard__table__block__list .schedule__dashboard__table__block__list__item:nth-child(3) {
+  width: 70%;
+}
+
+.schedule__dashboard__table__block__list__item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.schedule__dashboard__table__block__list__item__block__item {
+  padding: 0 4px 5px 4px;
+  margin-right: 0;
+  width: calc(100% / 7);
+}
+
+.schedule__dashboard__table__block__list__item__block {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(1) {
+  font-size: 4px;
+  line-height: 2;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(2) {
+  font-size: 12px;
+  line-height: 2;
+}
+
+.schedule__dashboard__table__block__list__item__block__item p:nth-child(3) {
+  font-size: 6px;
+  line-height: 2;
+}
+
+.schedule__dashboard__table__block__list__item__schedule__item p {
+  font-size: 8px;
+  padding: 4px 0;
+}
+
+.schedule__dashboard__table__block__list__delete svg {
+  font-size: 24px;
+}
+
+.modal__category {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
